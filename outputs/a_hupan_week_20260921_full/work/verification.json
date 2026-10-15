@@ -1,0 +1,191 @@
+[
+  {
+    "weekday": "周一",
+    "meal": "早餐",
+    "high": 59,
+    "low": 24,
+    "shared_with_previous": 47,
+    "repeat_rate": 0.7966101694915254,
+    "sha256": "a709db5d259fdfe8f69d3ba962782b983281d5ce2cd18d0f38e34b33083dfac3"
+  },
+  {
+    "weekday": "周一",
+    "meal": "午餐",
+    "high": 143,
+    "low": 24,
+    "shared_with_previous": 106,
+    "repeat_rate": 0.7412587412587412,
+    "sha256": "1987a4da6263e2083f314bb94ddba2588ecd38b766d7c38d821555fa90427149"
+  },
+  {
+    "weekday": "周一",
+    "meal": "晚餐",
+    "high": 124,
+    "low": 24,
+    "shared_with_previous": 94,
+    "repeat_rate": 0.7580645161290323,
+    "sha256": "6db176a001995c7329f9aded42e21000effe0d91e08187d80ce8d6566b107389"
+  },
+  {
+    "weekday": "周二",
+    "meal": "早餐",
+    "high": 59,
+    "low": 24,
+    "shared_with_previous": 47,
+    "repeat_rate": 0.7966101694915254,
+    "sha256": "be114b1a934cf28977dfe27d6103bf2a6c09170b7925b4a0a95902a08fa6e7aa"
+  },
+  {
+    "weekday": "周二",
+    "meal": "午餐",
+    "high": 142,
+    "low": 24,
+    "shared_with_previous": 113,
+    "repeat_rate": 0.795774647887324,
+    "sha256": "4837311036e08f57faebd7f0ddffed2a2ca5c2eac6531c265a05dcf393029fea"
+  },
+  {
+    "weekday": "周二",
+    "meal": "晚餐",
+    "high": 125,
+    "low": 24,
+    "shared_with_previous": 100,
+    "repeat_rate": 0.8,
+    "sha256": "b03917bba964b149d50a90701a028ca6763b54c47c08b2b6f21163562435e9d9"
+  },
+  {
+    "weekday": "周三",
+    "meal": "早餐",
+    "high": 59,
+    "low": 24,
+    "shared_with_previous": 47,
+    "repeat_rate": 0.7966101694915254,
+    "sha256": "02b1b236fa3d7e9a413d0fa00c79e2919efdc1c8df92fa8ee1507f6fda569e18"
+  },
+  {
+    "weekday": "周三",
+    "meal": "午餐",
+    "high": 143,
+    "low": 24,
+    "shared_with_previous": 114,
+    "repeat_rate": 0.7972027972027972,
+    "sha256": "aa5fbe0dc7298ce5830c8866020acade2e610f065303234d7d5fcdcd163b550b"
+  },
+  {
+    "weekday": "周三",
+    "meal": "晚餐",
+    "high": 123,
+    "low": 24,
+    "shared_with_previous": 98,
+    "repeat_rate": 0.7967479674796748,
+    "sha256": "3fa12d1bad290e57213ec5872a60106c6d36a1f2394adeceba10ed0fbb88294d"
+  },
+  {
+    "weekday": "周四",
+    "meal": "早餐",
+    "high": 60,
+    "low": 24,
+    "shared_with_previous": 48,
+    "repeat_rate": 0.8,
+    "sha256": "5a6dd1d4934fe0cdfa3bdc4b11401f8aa609db21be1ab1d905d74cb00e51be5d"
+  },
+  {
+    "weekday": "周四",
+    "meal": "午餐",
+    "high": 141,
+    "low": 24,
+    "shared_with_previous": 112,
+    "repeat_rate": 0.7943262411347518,
+    "sha256": "8e8ce1cb539ed67cc7940f9fdfdb16b1faf12e87cb6c687d706f4025246a49ce"
+  },
+  {
+    "weekday": "周四",
+    "meal": "晚餐",
+    "high": 120,
+    "low": 24,
+    "shared_with_previous": 95,
+    "repeat_rate": 0.7916666666666666,
+    "sha256": "bd2f7f0cd899802d47dd08ab03d1be8ccdf462433746eed6daad1773bf9de641"
+  },
+  {
+    "weekday": "周五",
+    "meal": "早餐",
+    "high": 59,
+    "low": 24,
+    "shared_with_previous": 47,
+    "repeat_rate": 0.7966101694915254,
+    "sha256": "f8a511880d98657e7c0ccfc64bb6cbcd4f633192cd309d814ea2dc02cba4d5cc"
+  },
+  {
+    "weekday": "周五",
+    "meal": "午餐",
+    "high": 137,
+    "low": 24,
+    "shared_with_previous": 109,
+    "repeat_rate": 0.7956204379562044,
+    "sha256": "b880b073dc7ff81bced5c08decafa9666e6ccc9319d53973fd3bac81a1b68008"
+  },
+  {
+    "weekday": "周五",
+    "meal": "晚餐",
+    "high": 114,
+    "low": 24,
+    "shared_with_previous": 91,
+    "repeat_rate": 0.7982456140350878,
+    "sha256": "51e7ce56eb359018f767db3b7ae0a23a1cd02a22f595abdf9a9c291336bdbd2c"
+  },
+  {
+    "weekday": "周六",
+    "meal": "早餐",
+    "high": 57,
+    "low": 24,
+    "shared_with_previous": 45,
+    "repeat_rate": 0.7894736842105263,
+    "sha256": "b6350ab033f6c50b3b55b90ee983d0dd7bfb120920196f5ba6839e097e7ac609"
+  },
+  {
+    "weekday": "周六",
+    "meal": "午餐",
+    "high": 113,
+    "low": 24,
+    "shared_with_previous": 90,
+    "repeat_rate": 0.7964601769911505,
+    "sha256": "6b999b9c8aa5e08376f17dedb92bd39d1a7c2a7bf6517e9628144f561ea3fd26"
+  },
+  {
+    "weekday": "周六",
+    "meal": "晚餐",
+    "high": 96,
+    "low": 24,
+    "shared_with_previous": 76,
+    "repeat_rate": 0.7916666666666666,
+    "sha256": "7a15aaba66cb9697fdddf7c8f8b4a1026c95e2415919832bd3b13499c9403d9e"
+  },
+  {
+    "weekday": "周日",
+    "meal": "早餐",
+    "high": 56,
+    "low": 24,
+    "shared_with_previous": 44,
+    "repeat_rate": 0.7857142857142857,
+    "sha256": "0e4a33ae72c96dab4f668d64e1f19f0628295629d167b14c27ef775af19a3c20"
+  },
+  {
+    "weekday": "周日",
+    "meal": "午餐",
+    "high": 109,
+    "low": 24,
+    "shared_with_previous": 86,
+    "repeat_rate": 0.7889908256880734,
+    "sha256": "cbfc9bd7fc3051861e1388f2b039101534a8d261dbdf5fcdf4f8fa6ec8af6e7e"
+  },
+  {
+    "weekday": "周日",
+    "meal": "晚餐",
+    "high": 94,
+    "low": 24,
+    "shared_with_previous": 73,
+    "repeat_rate": 0.776595744680851,
+    "sha256": "3cf9db6d6663048f6df9ee491e9d48719421d348af2181f2d736da0e4521ff45"
+  }
+]

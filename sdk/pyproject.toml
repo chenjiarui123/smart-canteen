@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-canteen-sdk"
+version = "0.1.0"
+description = "Portable smart canteen recommendation engine and optional HTTP service"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26,<3", "pandas>=2.2,<3", "pydantic>=2.11,<3"]
+
+[project.optional-dependencies]
+server = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+test = ["pytest>=8,<9", "httpx>=0.28,<1"]
+
+[project.scripts]
+smart-canteen-server = "smart_canteen_sdk.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+smart_canteen_sdk = ["*.json", "_vendor/*.json", "_vendor/model/*.json", "_vendor/model/*.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,31 @@
+{
+  "version": "low_frequency_opportunity_v1",
+  "max_offer_rate": 0.15,
+  "max_offer_count": 24,
+  "min_offer_count": 1,
+  "max_inactive_days": 365,
+  "high_qty_quantile": 0.6,
+  "ordinary_min_samples": 2,
+  "ordinary_sample_shrinkage_tau": 4.0,
+  "holiday_sample_shrinkage_tau": 4.0,
+  "context_sample_shrinkage_tau": 4.0,
+  "ordinary_context_clip": [0.75, 1.25],
+  "weather_context_clip": [0.85, 1.15],
+  "cold_start_score_weight": 0.2,
+  "ordinary_trial_fraction": 0.35,
+  "holiday_trial_fraction": 0.5,
+  "cold_start_trial_fraction": 0.2,
+  "trial_qty_floor": 1.0,
+  "trial_qty_cap": 120.0,
+  "selection_penalty_rate": 0.35,
+  "max_candidate_limit": 60,
+  "anchor_count": 3,
+  "semirandom_jitter": 0.2,
+  "proposal_ttl_minutes": 30,
+  "festival_dish_patterns": {
+    "元宵节": ["汤圆", "元宵"],
+    "端午节": ["粽子", "蜜枣粽", "红枣粽", "豆沙粽", "肉粽", "八宝粽", "黄米粽"],
+    "中秋节": ["月饼"]
+  },
+  "non_holiday_labels": ["", "非节假日", "非假期", "无", "none", "nan"]
+}

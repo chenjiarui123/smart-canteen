@@ -1,0 +1,94 @@
+{
+  "tested_at": "2026-09-16T07:56:48.503992+00:00",
+  "base_url": "http://127.0.0.1:8010",
+  "status": "passed",
+  "health": {
+    "status": "ok",
+    "sdk_version": "0.1.0",
+    "strategy_version": "targeted_repeat_holiday_20260911",
+    "proposal_store": "sqlite"
+  },
+  "model": {
+    "model_version": "targeted_repeat_holiday_20260911",
+    "best_trial_index": 18,
+    "policy_sha256": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+    "evaluator_sha256": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+    "parameter_sha256": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+    "integrity_ok": true,
+    "strategy_modified": true,
+    "targeted_policy_sha256": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+    "base_model_version": "factor_capacity_v1_trial18",
+    "sdk_version": "0.1.0",
+    "schema_version": "1.0",
+    "bundle_sha256": "dfb6908e682f6a303858ae0a7938e6ad4e3aa072174e59385faaad878cd57444",
+    "quantity_convention": "business units; gram model scale is 50",
+    "persistence": "caller managed"
+  },
+  "menu_count": 12,
+  "checks": [
+    {
+      "check": "tcp_connect",
+      "status": "passed"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status_code": 200,
+      "elapsed_ms": 39.7
+    },
+    {
+      "method": "GET",
+      "path": "/v1/model-info",
+      "status_code": 200,
+      "elapsed_ms": 2.34
+    },
+    {
+      "method": "GET",
+      "path": "/docs",
+      "status_code": 200,
+      "elapsed_ms": 0.55
+    },
+    {
+      "method": "GET",
+      "path": "/openapi.json",
+      "status_code": 200,
+      "elapsed_ms": 11.41
+    },
+    {
+      "method": "POST",
+      "path": "/v1/data/validate",
+      "status_code": 200,
+      "elapsed_ms": 5.75
+    },
+    {
+      "method": "POST",
+      "path": "/v1/recommendations",
+      "status_code": 200,
+      "elapsed_ms": 239.16
+    },
+    {
+      "method": "POST",
+      "path": "/v1/recommendations/finalize",
+      "status_code": 200,
+      "elapsed_ms": 12.37
+    },
+    {
+      "method": "POST",
+      "path": "/v1/recommendations/finalize",
+      "status_code": 200,
+      "elapsed_ms": 1.16
+    },
+    {
+      "method": "POST",
+      "path": "/v1/recommendations",
+      "status_code": 422,
+      "elapsed_ms": 0.61
+    },
+    {
+      "method": "POST",
+      "path": "/v1/recommendations/finalize",
+      "status_code": 404,
+      "elapsed_ms": 0.8
+    }
+  ]
+}

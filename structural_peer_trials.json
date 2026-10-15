@@ -1,0 +1,5 @@
+[
+  {"name":"peer_only", "config":{"peer_borrowing":true}, "hypothesis":"C: fit previous forecast residuals with meal/unit-specific shared category, ingredient, method, calendar and price effects; strongly shrink dish residuals by sample count"},
+  {"name":"A_C", "config":{"separate_preparation":true,"peer_borrowing":true}, "hypothesis":"A+C: demand correction can fall below operating minima, while preparation advice separately carries surplus risk"},
+  {"name":"A_C_F", "config":{"separate_preparation":true,"peer_borrowing":true,"reliability":true}, "hypothesis":"A+C+F: reconcile borrowed conditional predictions by prior forecast reliability; A+C and A_F provide component checks, further ablations follow if retained"}
+]

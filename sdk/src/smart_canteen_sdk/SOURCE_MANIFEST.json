@@ -1,0 +1,26 @@
+{
+  "source_sha256": {
+    "smart_canteen_web/model/targeted_manifest.json": "b124f83d18d3f88614be8bda12b344c5a20582209af131eed923a35b19b76a0a",
+    "smart_canteen_web/model/targeted_config.json": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+    "smart_canteen_web/model/diagnostics.py": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+    "smart_canteen_web/model/policy.py": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+    "smart_canteen_web/model/targeted_policy.py": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+    "smart_canteen_web/model/best_policy.json": "fb129adf7c44354de5027579309d9bdb3a71f2fa4a2cb22af8f78918b5e6687b",
+    "smart_canteen_web/model/constraints.json": "895425ddebe00c473f794258afb9d7e74551fdcaf3293daf150ce0dbaba20f39",
+    "smart_canteen_web/model/evaluator.py": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+    "smart_canteen_web/model/model_manifest.json": "fab24899f52975c5d41cf728eabc7d0c686bc461f871328cd8e98fa383dc54cf",
+    "smart_canteen_web/backend/app/model_loader.py": "dd9fd0a9bf7840015d7e6ab1ec39a61ddef47ade532272fcc6885c0eb27bc4a5",
+    "smart_canteen_web/backend/app/active_strategy.py": "33a47e65e20ce63ac124bb8d391b1073a1d532a0179ec1c2e9fdbf3c1d3f3e95",
+    "smart_canteen_web/backend/app/context_builder.py": "1cef05b914273e4f1b8418193889784507cad9999e26c03db4b920f8cee559ef",
+    "smart_canteen_web/backend/app/high_frequency_recommender.py": "837a723de637d46cd65e369992e7548b4857b4f5ee5e22ee96a07c3ef7e98377",
+    "smart_canteen_web/backend/app/low_frequency_recommender.py": "71d3943f0aff4c51baec82218113e8e286ffecc24e72066e3c8e3e9088b199d5",
+    "smart_canteen_web/backend/app/low_frequency_config.json": "7f97d674774bd1584d00c0a12c5acb310683606b988e1769b041d0d16b4341e8",
+    "smart_canteen_web/backend/app/recommendation_merger.py": "5822fbb6492492ad143ea5b0c5cec64495edffc25361a96bf333cd5e6e4ed23a",
+    "smart_canteen_web/backend/app/report_generator.py": "1f5b340ad64e890923925023a63966ba07d78e0295462678002349659a873b0c",
+    "smart_canteen_web/backend/app/recommendation_copy.py": "3f9c83da4669b30144c44ef70abcfd1fee63a02b559abd8039c072da25a87105"
+  },
+  "adaptations": [
+    "Private module names in model_loader.py are namespaced to the SDK; frozen model source files are unchanged.",
+    "Filesystem repository replaced with a pure name-normalization helper."
+  ]
+}

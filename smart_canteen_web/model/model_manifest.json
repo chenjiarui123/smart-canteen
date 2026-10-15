@@ -1,0 +1,24 @@
+{
+  "model_version": "factor_capacity_v1_trial18",
+  "best_trial_index": 18,
+  "frozen_source_hashes": {
+    "policy.py": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+    "diagnostics.py": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+    "evaluator.py": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc"
+  },
+  "best_policy_sha256": "43fd47621fd7eb127293a98bdb00dce5279f7b449e1a4d8ddab0614bedf4389e",
+  "constraints_sha256": "c5889d5abc941f55f54152221289c6bbef8ee134b966ed8d6b73396bfd6c7fb4",
+  "source_project_integrity_baseline": {
+    "policy.py": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+    "diagnostics.py": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+    "evaluator.py": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+    "config.json": "5d1a14a74a873a8bf5943875571128e1ccc7b4346e388a8cdb92ad83f25a2b54",
+    "trial18_freeze_manifest.json": "6fac923c7c87fb70dd60ec2b9dcdff5bd21807747030290b5e0f0701f4a19a29",
+    "trial18_external_evaluation.lock.json": "33d8a501bda0f37a47353388e0e13d9a66265ea138618e9d43c7084a77e45833",
+    "adaptive_test_evaluation.lock.json": "5a2242c57cde70d4267aa6ca63be9816e2d5747950eebd12aa3b2c2526b5540d",
+    "trials.jsonl": "3ec9674ee67dc5f9ab4c5dc6cc884004b523a27cc40a3b7ee4a391622846c8d4",
+    "all_trials.jsonl": "c1b7ce16eab2ba3d2c392d25618a686801e17f75d031a291efba3d5e12bdab68"
+  },
+  "strategy_modified": false,
+  "runtime_adapter": "仅为 make_recommendations 注入目标日前持久化推荐历史；空历史回归必须与冻结函数完全一致"
+}

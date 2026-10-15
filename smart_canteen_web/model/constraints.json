@@ -1,0 +1,10 @@
+{
+  "max_same_main_ingredient": 1,
+  "max_same_ingredient_family": 2,
+  "max_same_cooking_method": 2,
+  "max_same_flavor": 3,
+  "max_same_similarity_group": 1,
+  "min_confidence_for_hard_constraint": "high",
+  "medium_confidence_penalty": 0.8,
+  "avoid_consecutive_non_staple": true
+}

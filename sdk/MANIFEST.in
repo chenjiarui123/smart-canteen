@@ -1,0 +1,4 @@
+include README.md
+include build_package.py
+recursive-include examples *.py
+recursive-include tests *.py

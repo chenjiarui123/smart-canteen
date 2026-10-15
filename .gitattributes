@@ -1,0 +1,32 @@
+# ============================================================
+#  模型完整性按「原始字节」校验（见 model_manifest.json）
+#  这里固定换行符策略，保证任何平台检出后字节一致
+# ============================================================
+
+# 默认：仓库内存 LF，检出也写 LF（Windows 同样如此）
+* text=auto eol=lf
+
+# 受 SHA-256 锁定 / 参与字节校验的文件：完全禁用换行符转换
+/policy.py                        -text
+/diagnostics.py                   -text
+/evaluator.py                     -text
+/config.json                      -text
+/trial18_freeze_manifest.json     -text
+/trial18_external_evaluation.lock.json -text
+/adaptive_test_evaluation.lock.json    -text
+/trials.jsonl                     -text
+/all_trials.jsonl                 -text
+smart_canteen_web/model/**        -text
+
+# Windows 批处理需要 CRLF
+*.bat   text eol=crlf
+
+# 二进制资源
+*.png  binary
+*.jpg  binary
+*.ico  binary
+*.pdf  binary
+*.docx binary
+*.pptx binary
+*.xlsx binary
+*.zip  binary

@@ -1,0 +1,1139 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Smart Canteen SDK API",
+    "description": "业务数量使用实际售卖单位；菜单确认结果由业务后端持久化。",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/model-info": {
+      "get": {
+        "summary": "Model Info",
+        "operationId": "model_info_v1_model_info_get",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/data/validate": {
+      "post": {
+        "summary": "Validate Data",
+        "operationId": "validate_data_v1_data_validate_post",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSnapshot"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/recommendations": {
+      "post": {
+        "summary": "Recommend",
+        "operationId": "recommend_v1_recommendations_post",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecommendBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicProposal"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/recommendations/finalize": {
+      "post": {
+        "summary": "Finalize",
+        "operationId": "finalize_v1_recommendations_finalize_post",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Api-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinalizeBody"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinalResult"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Calendar": {
+        "properties": {
+          "school_break": {
+            "type": "boolean",
+            "title": "School Break"
+          },
+          "school_break_type": {
+            "type": "string",
+            "title": "School Break Type",
+            "default": "非寒暑假"
+          },
+          "statutory_holiday": {
+            "type": "boolean",
+            "title": "Statutory Holiday"
+          },
+          "statutory_holiday_name": {
+            "type": "string",
+            "title": "Statutory Holiday Name",
+            "default": "非节假日"
+          },
+          "adjusted_workday": {
+            "type": "boolean",
+            "title": "Adjusted Workday"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "school_break",
+          "statutory_holiday",
+          "adjusted_workday"
+        ],
+        "title": "Calendar"
+      },
+      "DataSnapshot": {
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Snapshot Id"
+          },
+          "canteen_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Canteen Id"
+          },
+          "canteen_name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Canteen Name"
+          },
+          "unit_policy": {
+            "type": "string",
+            "enum": [
+              "strict",
+              "legacy_compatibility"
+            ],
+            "title": "Unit Policy",
+            "default": "strict"
+          },
+          "sales_history": {
+            "items": {
+              "$ref": "#/components/schemas/SaleRecord"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Sales History"
+          },
+          "dish_catalog": {
+            "items": {
+              "$ref": "#/components/schemas/Dish"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Dish Catalog"
+          },
+          "historical_context": {
+            "items": {
+              "$ref": "#/components/schemas/HistoricalContext"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Historical Context"
+          },
+          "menu_history": {
+            "items": {
+              "$ref": "#/components/schemas/MenuHistory"
+            },
+            "type": "array",
+            "title": "Menu History"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "snapshot_id",
+          "canteen_id",
+          "sales_history",
+          "dish_catalog",
+          "historical_context"
+        ],
+        "title": "DataSnapshot"
+      },
+      "Dish": {
+        "properties": {
+          "dish_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Dish Id"
+          },
+          "dish_name": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Dish Name"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category",
+            "default": "其他"
+          },
+          "flavor": {
+            "type": "string",
+            "title": "Flavor",
+            "default": "unknown"
+          },
+          "main_ingredient": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Main Ingredient"
+          },
+          "ingredient_family": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ingredient Family"
+          },
+          "cooking_method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cooking Method"
+          },
+          "similarity_group": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Similarity Group"
+          },
+          "staple": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Staple"
+          },
+          "attributes_available": {
+            "type": "boolean",
+            "title": "Attributes Available",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "dish_id",
+          "dish_name"
+        ],
+        "title": "Dish"
+      },
+      "FinalResult": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "sdk_version": {
+            "type": "string",
+            "title": "Sdk Version",
+            "default": "0.1.0"
+          },
+          "strategy_version": {
+            "type": "string",
+            "title": "Strategy Version"
+          },
+          "proposal_id": {
+            "type": "string",
+            "title": "Proposal Id"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "status": {
+            "type": "string",
+            "const": "ready",
+            "title": "Status",
+            "default": "ready"
+          },
+          "menu": {
+            "items": {
+              "$ref": "#/components/schemas/MenuItem"
+            },
+            "type": "array",
+            "title": "Menu"
+          },
+          "summary": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Summary"
+          },
+          "audit": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Audit"
+          },
+          "history_events": {
+            "items": {
+              "$ref": "#/components/schemas/MenuHistory"
+            },
+            "type": "array",
+            "title": "History Events"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "strategy_version",
+          "proposal_id",
+          "snapshot_id",
+          "menu",
+          "summary",
+          "audit",
+          "history_events"
+        ],
+        "title": "FinalResult"
+      },
+      "FinalizeBody": {
+        "properties": {
+          "proposal_id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{32}$",
+            "title": "Proposal Id"
+          },
+          "selection": {
+            "$ref": "#/components/schemas/Selection"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "proposal_id",
+          "selection"
+        ],
+        "title": "FinalizeBody"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HistoricalContext": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "canteen_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Canteen Id"
+          },
+          "meal": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "早餐",
+                  "午餐",
+                  "晚餐"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Meal"
+          },
+          "weather": {
+            "$ref": "#/components/schemas/Weather"
+          },
+          "calendar": {
+            "$ref": "#/components/schemas/Calendar"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "date",
+          "canteen_id",
+          "weather",
+          "calendar"
+        ],
+        "title": "HistoricalContext"
+      },
+      "MenuHistory": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "canteen_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Canteen Id"
+          },
+          "meal": {
+            "type": "string",
+            "enum": [
+              "早餐",
+              "午餐",
+              "晚餐"
+            ],
+            "title": "Meal"
+          },
+          "menu_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Menu Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "automatic",
+              "finalized"
+            ],
+            "title": "Source"
+          },
+          "dish_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Dish Ids"
+          },
+          "low_frequency_dish_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Low Frequency Dish Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "date",
+          "canteen_id",
+          "meal",
+          "menu_id",
+          "created_at",
+          "source",
+          "dish_ids"
+        ],
+        "title": "MenuHistory"
+      },
+      "MenuItem": {
+        "properties": {
+          "dish_id": {
+            "type": "string",
+            "title": "Dish Id"
+          },
+          "dish_name": {
+            "type": "string",
+            "title": "Dish Name"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Quantity"
+          },
+          "quantity_kind": {
+            "type": "string",
+            "enum": [
+              "expected_demand",
+              "trial_preparation"
+            ],
+            "title": "Quantity Kind"
+          },
+          "expected_demand_qty": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expected Demand Qty"
+          },
+          "suggested_trial_qty": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Suggested Trial Qty"
+          },
+          "reference_orders": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Reference Orders"
+          },
+          "reference_revenue": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Reference Revenue"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "recommendation_source": {
+            "type": "string",
+            "enum": [
+              "high_frequency",
+              "low_frequency_opportunity"
+            ],
+            "title": "Recommendation Source"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "model_quantity": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Model Quantity"
+          },
+          "business_units_per_model_unit": {
+            "type": "number",
+            "title": "Business Units Per Model Unit"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "dish_id",
+          "dish_name",
+          "unit",
+          "quantity",
+          "quantity_kind",
+          "expected_demand_qty",
+          "reference_orders",
+          "reference_revenue",
+          "score",
+          "category",
+          "recommendation_source",
+          "reason",
+          "model_quantity",
+          "business_units_per_model_unit"
+        ],
+        "title": "MenuItem"
+      },
+      "Opportunities": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": true
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "全部",
+              "荤菜",
+              "素菜",
+              "主食",
+              "甜品",
+              "水果"
+            ],
+            "title": "Category",
+            "default": "全部"
+          },
+          "count": {
+            "type": "integer",
+            "maximum": 60.0,
+            "minimum": 1.0,
+            "title": "Count",
+            "default": 12
+          },
+          "refresh_seed": {
+            "type": "integer",
+            "maximum": 2147483647.0,
+            "minimum": 0.0,
+            "title": "Refresh Seed",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Opportunities"
+      },
+      "PublicProposal": {
+        "properties": {
+          "schema_version": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schema Version",
+            "default": "1.0"
+          },
+          "sdk_version": {
+            "type": "string",
+            "title": "Sdk Version",
+            "default": "0.1.0"
+          },
+          "strategy_version": {
+            "type": "string",
+            "title": "Strategy Version"
+          },
+          "proposal_id": {
+            "type": "string",
+            "title": "Proposal Id"
+          },
+          "snapshot_id": {
+            "type": "string",
+            "title": "Snapshot Id"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "status": {
+            "type": "string",
+            "const": "draft",
+            "title": "Status",
+            "default": "draft"
+          },
+          "request": {
+            "$ref": "#/components/schemas/RecommendationRequest"
+          },
+          "high_frequency_menu": {
+            "items": {
+              "$ref": "#/components/schemas/MenuItem"
+            },
+            "type": "array",
+            "title": "High Frequency Menu"
+          },
+          "low_frequency_opportunities": {
+            "items": {
+              "$ref": "#/components/schemas/MenuItem"
+            },
+            "type": "array",
+            "title": "Low Frequency Opportunities"
+          },
+          "summary": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Summary"
+          },
+          "audit": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Audit"
+          },
+          "history_events": {
+            "items": {
+              "$ref": "#/components/schemas/MenuHistory"
+            },
+            "type": "array",
+            "title": "History Events"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "strategy_version",
+          "proposal_id",
+          "snapshot_id",
+          "created_at",
+          "request",
+          "high_frequency_menu",
+          "low_frequency_opportunities",
+          "summary",
+          "audit",
+          "history_events"
+        ],
+        "title": "PublicProposal"
+      },
+      "RecommendBody": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/RecommendationRequest"
+          },
+          "data": {
+            "$ref": "#/components/schemas/DataSnapshot"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "request",
+          "data"
+        ],
+        "title": "RecommendBody"
+      },
+      "RecommendationRequest": {
+        "properties": {
+          "canteen_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Canteen Id"
+          },
+          "prediction_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Prediction Date"
+          },
+          "meal": {
+            "type": "string",
+            "enum": [
+              "早餐",
+              "午餐",
+              "晚餐"
+            ],
+            "title": "Meal"
+          },
+          "weather": {
+            "$ref": "#/components/schemas/Weather"
+          },
+          "calendar": {
+            "$ref": "#/components/schemas/Calendar"
+          },
+          "opportunities": {
+            "$ref": "#/components/schemas/Opportunities"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "canteen_id",
+          "prediction_date",
+          "meal",
+          "weather",
+          "calendar"
+        ],
+        "title": "RecommendationRequest"
+      },
+      "SaleRecord": {
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "title": "Date"
+          },
+          "canteen_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Canteen Id"
+          },
+          "meal": {
+            "type": "string",
+            "enum": [
+              "早餐",
+              "午餐",
+              "晚餐"
+            ],
+            "title": "Meal"
+          },
+          "dish_id": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Dish Id"
+          },
+          "quantity": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Quantity"
+          },
+          "unit": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Unit"
+          },
+          "order_count": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Order Count"
+          },
+          "revenue": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Revenue"
+          },
+          "unit_price": {
+            "type": "string",
+            "title": "Unit Price",
+            "default": ""
+          },
+          "average_portion": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Average Portion",
+            "default": 1.0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "date",
+          "canteen_id",
+          "meal",
+          "dish_id",
+          "quantity",
+          "unit",
+          "order_count",
+          "revenue"
+        ],
+        "title": "SaleRecord"
+      },
+      "Selection": {
+        "properties": {
+          "high_frequency_dish_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "High Frequency Dish Ids"
+          },
+          "low_frequency_dish_ids": {
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Low Frequency Dish Ids"
+          },
+          "redistribute_to_total_demand": {
+            "type": "boolean",
+            "title": "Redistribute To Total Demand",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "high_frequency_dish_ids"
+        ],
+        "title": "Selection"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "Weather": {
+        "properties": {
+          "temperature_c": {
+            "type": "number",
+            "maximum": 65.0,
+            "minimum": -80.0,
+            "title": "Temperature C"
+          },
+          "humidity_pct": {
+            "type": "number",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Humidity Pct"
+          },
+          "precipitation_mm": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Precipitation Mm"
+          },
+          "wind_speed_kmh": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Wind Speed Kmh"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "temperature_c",
+          "humidity_pct",
+          "precipitation_mm",
+          "wind_speed_kmh"
+        ],
+        "title": "Weather"
+      }
+    }
+  }
+}

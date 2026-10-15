@@ -1,0 +1,3 @@
+[
+  {"name":"baseline_verified", "config":{"identity":true}, "hypothesis":"两个食堂历史准备完成后复现完整基线；先前baseline尝试因F准备尚未结束而中止，失败记录保留"}
+]

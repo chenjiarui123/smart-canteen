@@ -1,0 +1,87 @@
+# ============================================================
+#  智慧食堂启发式菜单推荐 — 仓库卫生规则
+#  原则：保留可复现实验与交付件；大体积实验产物、原始台账不入库
+# ============================================================
+
+# ---------- macOS 垃圾 ----------
+._*
+.DS_Store
+.AppleDouble
+.Spotlight-V100
+.Trashes
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.targeted-venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- Node ----------
+node_modules/
+.pnpm-store/
+.vite/
+*.log
+
+# ---------- 大体积实验产物（约 18 GB，仅本地保留）----------
+runs/
+archive/
+versions/
+
+# ---------- 客户原始台账（约 850 MB，含真实经营明细）----------
+1-长春A食堂/
+2-长春B食堂/
+3-长春C食堂/
+4-长春D食堂/
+5-长春E食堂/
+6-长春F食堂/
+7-长春G食堂/
+8-长春H食堂/
+9-长春I食堂/
+
+# ---------- 生成的大体积推荐结果 CSV ----------
+recommended_menu.csv
+trial18_test_recommended_menu.csv
+trial18_validation_recommended_menu.csv
+
+# ---------- 构建产物 ----------
+sdk.zip
+sdk/build/
+sdk/dist/
+sdk/.installed/
+*.egg-info/
+
+# ---------- outputs/ 中间产物与临时渲染 ----------
+outputs/data_update_test_20260824/
+outputs/rice_merge_retest_20260913/
+outputs/cleaned_retest_20260912/
+outputs/ppt_revision_work/
+outputs/data_audit_20260912/
+outputs/dish_library_ingredient_update_20260830/
+outputs/releases/
+outputs/fontconfig/
+outputs/report_render/
+outputs/ppt_build/
+outputs/ppt_render/
+outputs/ppt_render_final/
+outputs/recommendation_usage_backup_20260914_172542/
+
+# ---------- 原始供应商 Excel（超过 150 MB，可另行归档）----------
+数据/*.xlsx
+数据/用餐者*.xlsx
+数据/*_销量处理后.csv
+
+# ---------- smart_canteen_web 运行时目录 ----------
+smart_canteen_web/data/staging/*
+smart_canteen_web/data/backups/*
+smart_canteen_web/data/.locks/*
+smart_canteen_web/temp_recommendations/*
+smart_canteen_web/frontend/dist/
+!smart_canteen_web/data/staging/.gitkeep
+!smart_canteen_web/data/backups/.gitkeep
+!smart_canteen_web/data/.locks/.gitkeep
+!smart_canteen_web/temp_recommendations/.gitkeep

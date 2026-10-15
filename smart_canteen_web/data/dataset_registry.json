@@ -1,0 +1,20 @@
+{
+  "datasets": {
+    "a_hupan": {
+      "display_name": "A湖畔智慧餐厅",
+      "directory": "datasets/a_hupan",
+      "aliases": [
+        "长春A食堂",
+        "吉大湖畔智慧餐厅"
+      ]
+    },
+    "f_jichuyuan": {
+      "display_name": "F基础园智慧餐厅",
+      "directory": "datasets/f_jichuyuan",
+      "aliases": [
+        "长春F食堂",
+        "吉大南校基础园智慧餐厅"
+      ]
+    }
+  }
+}

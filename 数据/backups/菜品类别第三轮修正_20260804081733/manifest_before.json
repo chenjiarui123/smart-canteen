@@ -1,0 +1,100 @@
+{
+  "data_version": "1.0.0",
+  "created_at": "2026-07-29T22:44:47.595836+08:00",
+  "updated_at": "2026-07-29T22:44:47.595836+08:00",
+  "datasets": {
+    "a_hupan": {
+      "display_name": "A湖畔智慧餐厅",
+      "sources": [
+        {
+          "file": "数据/长春A食堂_菜品销量_菜名修正后.csv",
+          "sha256": "6d8b63de129f3a1ed8553b6e3692f3ca9e5124b7e08c772f59a501adcf656379",
+          "rows": 51053
+        },
+        {
+          "file": "数据/菜品销量_吉大湖畔智慧餐厅_菜名修正后.csv",
+          "sha256": "f474104d671b910f92b4674493eeeb9b4a691003206a7df076497c2abd44c161",
+          "rows": 40918
+        }
+      ],
+      "dish_library_source": {
+        "file": "数据/长春A食堂_菜品库.csv",
+        "sha256": "f6586d33c4b097ef0793d60178bc45fb8dd9bbf6d78c99d2860a0adcdb7aaf2a",
+        "source_rows": 2148,
+        "static_rows": 2148,
+        "ignored_numeric_history_columns": [
+          "历史平均销售额",
+          "历史平均销量",
+          "原始菜名数",
+          "售卖天数",
+          "平均单价",
+          "总销售额",
+          "总销量_原始",
+          "总销量_处理后",
+          "数据天数",
+          "订单数量",
+          "记录数"
+        ]
+      },
+      "sales_rows": 91971,
+      "sales_sha256": "872654da99ca7a94293a00f46270c2bc528822e0ad3103cbf285d50cc026df43",
+      "dish_library_sha256": "754e736b914379c71797b377489e0944134613a6f0fd2651e9082c54ae6b4c63",
+      "sales_date_range": [
+        "2025-07-21",
+        "2026-06-10"
+      ],
+      "runtime_actual_sales_added_rows": 0,
+      "updated_at": "2026-07-29T22:44:46.299434+08:00"
+    },
+    "f_jichuyuan": {
+      "display_name": "F基础园智慧餐厅",
+      "sources": [
+        {
+          "file": "数据/长春F食堂_菜品销量_菜名修正后.csv",
+          "sha256": "dc294aa3e4438961e2ff33d66d0547b5886a8a891dda64d6998cb64ac51d29de",
+          "rows": 86401
+        },
+        {
+          "file": "数据/菜品销量_吉大南校基础园智慧餐厅_菜名修正后.csv",
+          "sha256": "f6ca2b9f8f457de94b8d933d22a0a4dee335a71e2ecb03ed1d65671eee7ede5c",
+          "rows": 32664
+        }
+      ],
+      "dish_library_source": {
+        "file": "数据/长春F食堂_菜品库.csv",
+        "sha256": "62f02c77e5d6fcbf411b45492d412029ea432198129eaaad3b3f8ae94a7954fd",
+        "source_rows": 2197,
+        "static_rows": 2197,
+        "ignored_numeric_history_columns": [
+          "历史平均销售额",
+          "历史平均销量",
+          "原始菜名数",
+          "售卖天数",
+          "平均单价",
+          "总销售额",
+          "总销量_原始",
+          "总销量_处理后",
+          "数据天数",
+          "订单数量",
+          "记录数"
+        ]
+      },
+      "sales_rows": 119065,
+      "sales_sha256": "38844cf956218d4fc1d35d8dda97371eeab4a80fe1098e566f985dadbaac43bf",
+      "dish_library_sha256": "822ca8e5740b32f4d0ac0c4319e95754e18fe82f3902ef1c8ef9f9c38e7b53ca",
+      "sales_date_range": [
+        "2025-01-01",
+        "2026-06-10"
+      ],
+      "runtime_actual_sales_added_rows": 0,
+      "updated_at": "2026-07-29T22:44:46.848635+08:00"
+    }
+  },
+  "features": {
+    "weather_rows": 511,
+    "calendar_rows": 511,
+    "weather_source": "四份初始化销售数据按日期取中位数",
+    "calendar_source": "四份初始化销售数据按日期确定性众数"
+  },
+  "updates": []
+}

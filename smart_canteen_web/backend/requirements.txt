@@ -1,0 +1,10 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.3
+pandas==2.3.3
+numpy==2.0.2
+openpyxl==3.1.5
+python-multipart==0.0.20
+filelock==3.18.0
+pydantic==2.11.7
+pytest==8.4.1
+httpx==0.28.1

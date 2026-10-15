@@ -1,0 +1,10 @@
+[
+  {"name":"A_B", "config":{"separate_preparation":true,"shares":"hierarchical"}, "hypothesis":"A+B: independently estimated category/item demand may lie below operating minimum; test whether freeing that boundary fixes B's failure"},
+  {"name":"A_E", "config":{"separate_preparation":true,"competition":true}, "hypothesis":"A+E: menu competition may reduce demand below practical preparation batches"},
+  {"name":"A_F", "config":{"separate_preparation":true,"reliability":true,"remove_volatility_discount":true}, "hypothesis":"A+F: preserve date-conditioned demand and reconcile via historical forecast errors, without a production minimum demand floor"},
+  {"name":"A_B_E_F", "config":{"separate_preparation":true,"shares":"hierarchical","competition":true,"reliability":true}, "hypothesis":"Full structural combination: jointly validate shares, generated-menu competition and residual reliability after separating preparation"},
+  {"name":"B_E_F", "config":{"shares":"hierarchical","competition":true,"reliability":true}, "hypothesis":"Remove A from full combination: ablate demand/preparation separation"},
+  {"name":"A_E_F", "config":{"separate_preparation":true,"competition":true,"reliability":true}, "hypothesis":"Remove B from full combination: ablate learned share hierarchy"},
+  {"name":"A_B_F", "config":{"separate_preparation":true,"shares":"hierarchical","reliability":true}, "hypothesis":"Remove E from full combination: ablate competition"},
+  {"name":"A_B_E", "config":{"separate_preparation":true,"shares":"hierarchical","competition":true}, "hypothesis":"Remove F from full combination: ablate forecast-reliability coordination"}
+]

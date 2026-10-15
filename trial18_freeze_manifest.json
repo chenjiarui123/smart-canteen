@@ -1,0 +1,19 @@
+{
+  "status": "frozen",
+  "phase": "factor_capacity_v1",
+  "best_trial_index": 18,
+  "frozen_at": "2026-07-27T21:23:11.675100+08:00",
+  "policy_sha256": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+  "diagnostics_sha256": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+  "evaluator_sha256": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+  "config_sha256": "827ea0e1f8be3501711a20d8767730ffa5c8f8a31e58ff8693c3d687e71d66b5",
+  "evaluation_schedule_sha256": "51f5dbceb78ee0687fc3e897b2fcdf046fe0e21fabfc61ad698d06e8ec3df565",
+  "validation_date_range": [
+    "2026-01-01",
+    "2026-03-31"
+  ],
+  "test_start": "2026-04-01",
+  "prior_trial108_lock_preserved": true,
+  "prior_trial108_lock_sha256": "5a2242c57cde70d4267aa6ca63be9816e2d5747950eebd12aa3b2c2526b5540d",
+  "authorization": "用户明确要求在当前 Trial 18 上补充验证集和测试集指标结果分析"
+}

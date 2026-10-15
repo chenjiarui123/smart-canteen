@@ -1,0 +1,5 @@
+[
+  {"name":"relative_recent_final", "config":{"statistic":"logmean","recent_days":14,"recent_tau":4,"stability_power":2,"projection_power":2}, "hypothesis":"在新最佳相对投影上重新检验近期条件估计，目标为超出0.25个百分点的实质改善"},
+  {"name":"relative_joint_final", "config":{"statistic":"logmean","recent_days":30,"context":["category","state"],"context_tau":8,"stability_power":2,"projection_power":2}, "hypothesis":"新最佳投影上检验联合日期状态估计；同时审查收益与非命中份额"},
+  {"name":"relative_bias_final", "config":{"statistic":"uncalibrated_qty","stability_power":2,"projection_power":2,"bias":"dish","bias_tau":20,"bias_strength":0.5}, "hypothesis":"新最佳上检验历史残差校正，若多个不同方向无实质改善则进入冻结审计"}
+]

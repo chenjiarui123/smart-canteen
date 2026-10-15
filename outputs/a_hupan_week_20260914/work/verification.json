@@ -1,0 +1,191 @@
+[
+  {
+    "date": "2026-09-14",
+    "meal": "早餐",
+    "high_count": 59,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "b54548ddca8504d400a3484c2cab980752c32274154820cdef7da845707669de",
+    "adjacent_repeat_rate": null
+  },
+  {
+    "date": "2026-09-14",
+    "meal": "午餐",
+    "high_count": 143,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "b91b05a98ff8d58005145e3045e4efd38097fc0ec1fc2a160ddd1374b2fbe92e",
+    "adjacent_repeat_rate": null
+  },
+  {
+    "date": "2026-09-14",
+    "meal": "晚餐",
+    "high_count": 124,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "82d81aa31e8302dc5dedac046f3ec705653d3f4510974bc4812e25cb6bb30499",
+    "adjacent_repeat_rate": null
+  },
+  {
+    "date": "2026-09-15",
+    "meal": "早餐",
+    "high_count": 59,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "a32a73d27283d41a7d5054620c653c6975baacac5f61e5d27f675a48c2c55601",
+    "adjacent_repeat_rate": 0.7966101694915254
+  },
+  {
+    "date": "2026-09-15",
+    "meal": "午餐",
+    "high_count": 142,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "aa8ef415908e41c414c96df97133df0e898b8fc827a44c433906a132e1b63bed",
+    "adjacent_repeat_rate": 0.795774647887324
+  },
+  {
+    "date": "2026-09-15",
+    "meal": "晚餐",
+    "high_count": 125,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "73646451b9864767fe2e71f8d9bc56c69c930cc89e747d05155d1fb449c2f46d",
+    "adjacent_repeat_rate": 0.8
+  },
+  {
+    "date": "2026-09-16",
+    "meal": "早餐",
+    "high_count": 59,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "7f8f159b523314aca9f38caccdc5cc5b0e3cd33b184c303660e8cecf369ba012",
+    "adjacent_repeat_rate": 0.7966101694915254
+  },
+  {
+    "date": "2026-09-16",
+    "meal": "午餐",
+    "high_count": 143,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "c45e31d597d4c03bb4b5ad7980893f174ba1254ec5ea931d09c65c166e5489fb",
+    "adjacent_repeat_rate": 0.7902097902097902
+  },
+  {
+    "date": "2026-09-16",
+    "meal": "晚餐",
+    "high_count": 123,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "0f3e196f150613a9c64542187040d0498759916a46d5e83a3fcf46b68158ced9",
+    "adjacent_repeat_rate": 0.7967479674796748
+  },
+  {
+    "date": "2026-09-17",
+    "meal": "早餐",
+    "high_count": 60,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "cfa284b8cbc1b3dd1a5e5563177781eead7e5946842faf5559d7132388fef798",
+    "adjacent_repeat_rate": 0.8
+  },
+  {
+    "date": "2026-09-17",
+    "meal": "午餐",
+    "high_count": 141,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "fb2a75ce9cdb49ef0504c12f2fb109a68ac5d90631d3db84c3f18dd2546dab48",
+    "adjacent_repeat_rate": 0.7943262411347518
+  },
+  {
+    "date": "2026-09-17",
+    "meal": "晚餐",
+    "high_count": 120,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "3d08a4ab6a2b727dcf5b25adf20afd697c3889c8adf90232236a97656a8b501f",
+    "adjacent_repeat_rate": 0.7916666666666666
+  },
+  {
+    "date": "2026-09-18",
+    "meal": "早餐",
+    "high_count": 59,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "84fe181a59961c1a5c69e928d1b1a220683ccd9b21aee5ed3be45e128b2c4aba",
+    "adjacent_repeat_rate": 0.7966101694915254
+  },
+  {
+    "date": "2026-09-18",
+    "meal": "午餐",
+    "high_count": 137,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "a48c2f929a28175df04fc51ad8f2d8459a56c27d6e3f20239107aff3a551ff29",
+    "adjacent_repeat_rate": 0.7956204379562044
+  },
+  {
+    "date": "2026-09-18",
+    "meal": "晚餐",
+    "high_count": 114,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "f55dbe6209921085feb7197daab3e7bf2af2fa5028ad941be01604a1cc7c399c",
+    "adjacent_repeat_rate": 0.7982456140350878
+  },
+  {
+    "date": "2026-09-19",
+    "meal": "早餐",
+    "high_count": 57,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "a703b4fa7887768fead3cedc21e7fa9b81087425dfeb82f0981828bdfa7c276b",
+    "adjacent_repeat_rate": 0.7894736842105263
+  },
+  {
+    "date": "2026-09-19",
+    "meal": "午餐",
+    "high_count": 113,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "97fb18b9f6332778ef11a80d4e75a55489aa9fdc5ff8436b6520126d2726bc6b",
+    "adjacent_repeat_rate": 0.7964601769911505
+  },
+  {
+    "date": "2026-09-19",
+    "meal": "晚餐",
+    "high_count": 96,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "8e403cf58d2be80c961cb67d210a998273038c417d74e0576eb73afe6e2af665",
+    "adjacent_repeat_rate": 0.7916666666666666
+  },
+  {
+    "date": "2026-09-20",
+    "meal": "早餐",
+    "high_count": 56,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "2d4956f6cec9a1885495d134fd87ac602335a11356b16cb37193a68a2082f6a3",
+    "adjacent_repeat_rate": 0.7857142857142857
+  },
+  {
+    "date": "2026-09-20",
+    "meal": "午餐",
+    "high_count": 109,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "0c72f5283d9baabad7e406bb3cf1cdfa50101032c0bd47e28bac35d04db6292f",
+    "adjacent_repeat_rate": 0.7889908256880734
+  },
+  {
+    "date": "2026-09-20",
+    "meal": "晚餐",
+    "high_count": 94,
+    "low_count": 24,
+    "shortage": 0,
+    "sha256": "585eae2bd38194bb6bb913913f38984e3f1b6b710f48f5da9675383888925331",
+    "adjacent_repeat_rate": 0.776595744680851
+  }
+]

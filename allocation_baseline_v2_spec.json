@@ -1,0 +1,4 @@
+[
+  {"name":"baseline_verified_v2", "config":{"identity":true}, "hypothesis":"完整基线复现并显式保留F四个既有最低批量冲突，不删除餐次、不修改总量"},
+  {"name":"offered_mean_v2", "config":{}, "hypothesis":"供应条件均值；F既有最低批量冲突仅诊断，不作为可行菜单发布"}
+]

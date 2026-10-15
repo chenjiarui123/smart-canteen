@@ -1,0 +1,5 @@
+[
+  {"name":"stable_raw_175", "config":{"statistic":"uncalibrated_qty","stability_power":1.75}, "hypothesis":"2次权重收益很小且WMAPE升高，向基线1.5回缩，检验能否保留收益并降低风险"},
+  {"name":"residual_tight_bounds", "config":{"statistic":"baseline_qty","bias":"dish","bias_tau":10,"change_cap":1.25,"change_floor":0.75}, "hypothesis":"保留历史残差方向但严格限制单菜变化幅度，减少日期分组退化"},
+  {"name":"stable_sample_projection", "config":{"statistic":"uncalibrated_qty","stability_power":1.75,"sample_weight":true}, "hypothesis":"稳定性估计结合样本可靠性投影，区别于单纯指数微调"}
+]

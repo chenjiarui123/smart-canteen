@@ -1,0 +1,152 @@
+{
+  "data_version": "1.0.0",
+  "created_at": "2026-07-29T22:44:47.595836+08:00",
+  "updated_at": "2026-09-13T21:15:41.275511+08:00",
+  "datasets": {
+    "a_hupan": {
+      "display_name": "A湖畔智慧餐厅",
+      "sources": [
+        {
+          "file": "数据/长春A食堂_菜品销量_菜名修正后.csv",
+          "sha256": "6d8b63de129f3a1ed8553b6e3692f3ca9e5124b7e08c772f59a501adcf656379",
+          "rows": 51053
+        },
+        {
+          "file": "数据/菜品销量_吉大湖畔智慧餐厅_菜名修正后.csv",
+          "sha256": "f474104d671b910f92b4674493eeeb9b4a691003206a7df076497c2abd44c161",
+          "rows": 40918
+        }
+      ],
+      "dish_library_source": {
+        "file": "数据/长春A食堂_菜品库.csv",
+        "sha256": "4d5c182be3df7cd8bcf79bf8178982ba9b6738ee43d0b33dc7bc3af25b0690b8",
+        "source_rows": 2148,
+        "static_rows": 2148,
+        "ignored_numeric_history_columns": [
+          "历史平均销售额",
+          "历史平均销量",
+          "原始菜名数",
+          "售卖天数",
+          "平均单价",
+          "总销售额",
+          "总销量_原始",
+          "总销量_处理后",
+          "数据天数",
+          "订单数量",
+          "记录数"
+        ]
+      },
+      "sales_rows": 91928,
+      "sales_sha256": "b11c20020cb38db292412bca3fe5ae7644d61d5a6c3048965b46dc398ce72bcf",
+      "dish_library_sha256": "91554f8690e7ecc30f338eb67d0ff494e2ff8d1b396466d64ca27c12dfca2f60",
+      "sales_date_range": [
+        "2025-07-22",
+        "2026-06-10"
+      ],
+      "runtime_actual_sales_added_rows": 0,
+      "updated_at": "2026-09-13T21:15:41.275511+08:00",
+      "dish_library_rows": 2147
+    },
+    "f_jichuyuan": {
+      "display_name": "F基础园智慧餐厅",
+      "sources": [
+        {
+          "file": "数据/长春F食堂_菜品销量_菜名修正后.csv",
+          "sha256": "dc294aa3e4438961e2ff33d66d0547b5886a8a891dda64d6998cb64ac51d29de",
+          "rows": 86401
+        },
+        {
+          "file": "数据/菜品销量_吉大南校基础园智慧餐厅_菜名修正后.csv",
+          "sha256": "f6ca2b9f8f457de94b8d933d22a0a4dee335a71e2ecb03ed1d65671eee7ede5c",
+          "rows": 32664
+        }
+      ],
+      "dish_library_source": {
+        "file": "数据/长春F食堂_菜品库.csv",
+        "sha256": "dc9cb601079be3c525b20da4db06f8c770df521213e1798f7130eef50af8bc1a",
+        "source_rows": 2197,
+        "static_rows": 2197,
+        "ignored_numeric_history_columns": [
+          "历史平均销售额",
+          "历史平均销量",
+          "原始菜名数",
+          "售卖天数",
+          "平均单价",
+          "总销售额",
+          "总销量_原始",
+          "总销量_处理后",
+          "数据天数",
+          "订单数量",
+          "记录数"
+        ]
+      },
+      "sales_rows": 119064,
+      "sales_sha256": "1146590756c9f46ff33df1fc74ebf266fe439557452d49d78d9c70d420e14625",
+      "dish_library_sha256": "fd3f72421de4df816bc1789099013f168ca00f6d3c57496b24779a41dd58fb4d",
+      "sales_date_range": [
+        "2025-01-01",
+        "2026-06-10"
+      ],
+      "runtime_actual_sales_added_rows": 0,
+      "updated_at": "2026-09-12T17:30:48.526627+08:00"
+    }
+  },
+  "features": {
+    "weather_rows": 511,
+    "calendar_rows": 511,
+    "weather_source": "四份初始化销售数据按日期取中位数",
+    "calendar_source": "四份初始化销售数据按日期确定性众数"
+  },
+  "updates": [
+    {
+      "type": "unit_encoding_repair",
+      "updated_at": "2026-09-12T16:41:04+08:00",
+      "changed_rows": {
+        "a_hupan": 176,
+        "f_jichuyuan": 67
+      },
+      "changed_columns": [
+        "菜品售卖单位",
+        "菜品单价"
+      ],
+      "note": "只修复单位乱码及单价文本内的单位，未改变数值单价、销量、订单或销售额；原文件及逐条依据见审计备份。",
+      "audit_directory": "outputs/data_audit_20260912/followup"
+    },
+    {
+      "type": "user_confirmed_anomaly_deletion",
+      "updated_at": "2026-09-12T17:30:48.526627+08:00",
+      "deleted_sessions": {
+        "a_hupan": [
+          [
+            "2025-07-21",
+            "午餐",
+            0.98
+          ],
+          [
+            "2025-07-22",
+            "早餐",
+            0.4
+          ]
+        ],
+        "f_jichuyuan": [
+          [
+            "2025-08-13",
+            "午餐",
+            0.26
+          ]
+        ]
+      },
+      "audit_directory": "outputs/cleaned_retest_20260912",
+      "note": "仅删除用户明确指定的3条销售记录，其他单元格不变；原始来源文件不变。"
+    },
+    {
+      "type": "user_confirmed_dish_alias_merge",
+      "dataset": "a_hupan",
+      "alias": "米饭🍚",
+      "canonical": "米饭",
+      "updated_at": "2026-09-13T21:15:41.275511+08:00",
+      "audit_directory": "outputs/rice_merge_retest_20260913",
+      "forecast_parameters_changed": false
+    }
+  ]
+}

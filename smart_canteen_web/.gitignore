@@ -1,0 +1,14 @@
+.venv/
+frontend/node_modules/
+backend/**/__pycache__/
+backend/.pytest_cache/
+data/staging/*
+data/.locks/*
+data/backups/*
+!data/staging/.gitkeep
+!data/.locks/.gitkeep
+!data/backups/.gitkeep
+temp_recommendations/*
+!temp_recommendations/.gitkeep
+*.pyc
+.DS_Store

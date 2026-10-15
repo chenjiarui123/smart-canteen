@@ -1,0 +1,123 @@
+{
+  "recent_window": 7,
+  "recent_weight": 0.9975,
+  "adaptive_blend_tau": 0.0025,
+  "max_recent_weight": 0.9975,
+  "weekday_strength": 1.0,
+  "weekday_clip": [
+    0.8,
+    1.2
+  ],
+  "weekday_shrink": 3.0,
+  "trend_strength": 0.25,
+  "trend_clip": [
+    0.75,
+    1.25
+  ],
+  "candidate_min_appearances": 1,
+  "candidate_warmup_sessions": 14,
+  "max_inactive_days": 30,
+  "transfer_shrinkage_tau": 5.0,
+  "score_offer_power": 0.9,
+  "revenue_offer_power": 1.0,
+  "stability_power": 0.5,
+  "capacity_scale": 1.0,
+  "group_total_calibration": true,
+  "constraint_mode": "penalized_diversity_greedy",
+  "previous_business_day_repeat_weight": 0.05,
+  "recommendation_repeat_7d_weight": 0.01,
+  "recommendation_repeat_14d_weight": 0.005,
+  "group_calibration_strength": 0.95,
+  "calendar_mode": "special_only",
+  "calendar_apply_categories": [
+    "法定节假日",
+    "校历法定重叠"
+  ],
+  "calendar_exact_min_count": 3,
+  "calendar_shrinkage_tau": 5.0,
+  "calendar_factor_clip": [
+    0.5,
+    1.3
+  ],
+  "calendar_factor_strength": 1.0,
+  "calendar_statistic": "median",
+  "exclude_special_from_regular_history": true,
+  "item_quantity_mode": "robust_conditional",
+  "unit_ratio_recent_weight": 0.5,
+  "score_recent_offer_blend": 0.5,
+  "recent_offer_shrinkage_tau": 3.0,
+  "group_trend_strength": 0.6,
+  "group_trend_reference_window": 30,
+  "group_trend_clip": [
+    0.85,
+    1.15
+  ],
+  "allocation_uncertainty_power": 1.5,
+  "group_trend_strength_by_meal": {
+    "早餐": 0.5,
+    "午餐": 0.6,
+    "晚餐": 0.75
+  },
+  "group_recent_estimator": "ewm",
+  "group_ewm_half_life": 3,
+  "group_ewm_apply_categories": [
+    "普通日期"
+  ],
+  "item_exclude_special_from_regular_history": true,
+  "selection_same_main_penalty": 0.85,
+  "selection_same_family_penalty": 0.85,
+  "selection_same_method_penalty": 0.9,
+  "selection_same_flavor_penalty": 0.95,
+  "group_calibration_strength_by_day_type": {
+    "工作日": 0.95,
+    "周末": 1.0
+  },
+  "weather_mode": "rain_only",
+  "weather_components": [
+    "rain"
+  ],
+  "weather_exact_min_count": 5,
+  "weather_shrinkage_tau": 8.0,
+  "weather_factor_clip": [
+    0.85,
+    1.15
+  ],
+  "weather_factor_strength": 1.0,
+  "weather_statistic": "mean",
+  "group_momentum_strength": 0.5,
+  "group_momentum_clip": [
+    0.85,
+    1.15
+  ],
+  "group_momentum_apply_categories": [
+    "普通日期"
+  ],
+  "recommendation_repeat_penalty_scale": 2.0,
+  "group_momentum_mode": "last_ratio",
+  "group_factor_combination_mode": "clipped_multiplicative",
+  "group_combined_factor_clip": [
+    0.5,
+    1.3
+  ],
+  "holiday_weather_residual_strength": 0.25,
+  "capacity_mode": "calendar_hierarchical",
+  "capacity_state_shrinkage_tau": 5.0,
+  "capacity_demand_weight": 0.5,
+  "capacity_weather_strength": 0.0,
+  "capacity_min": 1,
+  "capacity_max": 10000,
+  "min_batch_mode": "dish_q25_prune",
+  "min_batch_dish_min_count": 3.0,
+  "min_batch_scale": 0.2,
+  "group_total_target_mode": "independent_shadow_calibrated",
+  "capacity_hierarchical_strength": 0.25,
+  "targeted_enabled": true,
+  "adjacent_repeat_hard": true,
+  "replacement_diversity_strength": 0.75,
+  "holiday_demand": true,
+  "holiday_capacity": true,
+  "holiday_shrinkage_tau": 0.25,
+  "holiday_demand_excluded_states": [
+    "校历:暑假"
+  ]
+}

@@ -1,0 +1,9 @@
+[
+  {"name":"stable_raw_2", "config":{"statistic":"uncalibrated_qty","stability_power":2}, "hypothesis":"比冻结1.5次稳定性权重稍强，固定总量有界投影，减少历史高波动菜过量"},
+  {"name":"stable_raw_3", "config":{"statistic":"uncalibrated_qty","stability_power":3}, "hypothesis":"更强的历史销量稳定性收缩，检查是否因高波动菜降低而改善且不集中转移"},
+  {"name":"stable_raw_4", "config":{"statistic":"uncalibrated_qty","stability_power":4}, "hypothesis":"强稳定性边界试验，不允许放松浓度与单菜上限"},
+  {"name":"stable_recent_log", "config":{"statistic":"logmean","recent_days":14,"recent_tau":4,"stability_power":1.5}, "hypothesis":"历史稳定性与近期供应条件估计组合，区别于仅调原稳定性指数"},
+  {"name":"stable_joint_log", "config":{"statistic":"logmean","recent_days":30,"context":["category","state"],"context_tau":8,"stability_power":1.5}, "hypothesis":"稳定性保护下的联合日期状态估计，替代单菜重复因素作用"},
+  {"name":"stable_relative_2", "config":{"statistic":"uncalibrated_qty","stability_power":2,"projection_power":2}, "hypothesis":"稳定性估计与相对误差投影组合，检验分配机制是否改善"},
+  {"name":"stable_bias_2", "config":{"statistic":"uncalibrated_qty","stability_power":2,"bias":"dish","bias_tau":20,"bias_strength":0.5}, "hypothesis":"稳定性估计结合强收缩历史残差，检验是否优于单独机制"}
+]

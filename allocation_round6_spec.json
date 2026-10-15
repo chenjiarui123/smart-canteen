@@ -1,0 +1,5 @@
+[
+  {"name":"joint_median_audit", "config":{"statistic":"median","recent_days":30,"context":["category","state"],"context_tau":8,"stability_power":2,"projection_power":2}, "hypothesis":"最佳联合投影的稳健中位数替代：检查估计分布而非仅调参数"},
+  {"name":"joint_weather_audit", "config":{"statistic":"logmean","recent_days":30,"context":["category","state","weather"],"context_tau":8,"stability_power":2,"projection_power":2}, "hypothesis":"最佳模型上增加历史天气条件收缩，检查声明天气输入是否带来额外收益"},
+  {"name":"joint_reliability_audit", "config":{"statistic":"logmean","recent_days":30,"context":["category","state"],"context_tau":8,"stability_power":2,"projection_power":2,"sample_weight":true}, "hypothesis":"最佳模型上以样本可信度约束分配；与稳健统计、天气三个不同机制构成停止审计"}
+]

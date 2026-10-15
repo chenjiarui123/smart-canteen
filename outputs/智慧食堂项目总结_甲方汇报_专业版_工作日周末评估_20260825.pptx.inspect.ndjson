@@ -1,0 +1,311 @@
+{"kind":"deck","id":"pr/a1avw9","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"智慧食堂智能菜单推荐系统","textShapes":7}
+{"kind":"shape","id":"sh/hofulsf2","slide":1,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/547294r6","slide":1,"text":"智慧食堂智能菜单推荐系统","textPreview":"智慧食堂智能菜单推荐系统","textChars":12,"textLines":1,"bbox":[72,112,760,72]}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"text":"项目阶段建设成果汇报","textPreview":"项目阶段建设成果汇报","textChars":10,"textLines":1,"bbox":[75,196,630,42]}
+{"kind":"shape","id":"sh/7qp4be9c","slide":1,"bbox":[75,268,170,4]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"text":"基于历史经营数据形成可解释、可配置的菜单与备餐建议","textPreview":"基于历史经营数据形成可解释、可配置的菜单与备餐建议","textChars":25,"textLines":1,"bbox":[75,300,650,66]}
+{"kind":"shape","id":"sh/ts7md4r2","slide":1,"bbox":[817,104,370,430]}
+{"kind":"textbox","id":"sh/sryl4zqx","slide":1,"text":"建设成果","textPreview":"建设成果","textChars":4,"textLines":1,"bbox":[853,142,250,32]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"text":"核心功能\n建设完成","textPreview":"核心功能 | 建设完成","textChars":9,"textLines":2,"bbox":[853,196,280,112]}
+{"kind":"textbox","id":"sh/utg3698n","slide":1,"text":"✓ 可按日期、餐次、天气和假期生成建议\n✓ 推荐理由、备餐量和搭配提示可查看\n✓ 数据可在本地更新，过程可追溯","textPreview":"✓ 可按日期、餐次、天气和假期生成建议 | ✓ 推荐理由、备餐量和搭配提示可查看 | ✓ 数据可在本地更新，过程可追溯","textChars":55,"textLines":3,"bbox":[853,340,292,120]}
+{"kind":"textbox","id":"sh/wn6dc7eh","slide":1,"text":"汇报日期：2026 年 8 月","textPreview":"汇报日期：2026 年 8 月","textChars":15,"textLines":1,"bbox":[75,646,360,25]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"[Sources]\n- 项目 README.md 与 smart_canteen_web/README.md（当前功能说明，访问于 2026-08-25）"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"02","textShapes":13}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"text":"项目建设已形成完整的功能与数据闭环","textPreview":"项目建设已形成完整的功能与数据闭环","textChars":17,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"text":"系统定位为智慧食堂经营管理的数字化辅助决策工具。","textPreview":"系统定位为智慧食堂经营管理的数字化辅助决策工具。","textChars":24,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"bbox":[58,154,355,210]}
+{"kind":"shape","id":"sh/x4r21kru","slide":2,"bbox":[58,154,7,210]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"text":"建设成果","textPreview":"建设成果","textChars":4,"textLines":1,"bbox":[82,174,307,34]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"text":"完成数据整合、菜单与销量预测、推荐说明、结果保存和数据更新等核心功能。","textPreview":"完成数据整合、菜单与销量预测、推荐说明、结果保存和数据更新等核心功能。","textChars":35,"textLines":1,"bbox":[82,220,307,128]}
+{"kind":"shape","id":"sh/q5wjelsz","slide":2,"bbox":[462,154,355,210]}
+{"kind":"shape","id":"sh/ove9o7yd","slide":2,"bbox":[462,154,7,210]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"text":"阶段成效","textPreview":"阶段成效","textChars":4,"textLines":1,"bbox":[486,174,307,34]}
+{"kind":"textbox","id":"sh/mtwrmxg7","slide":2,"text":"整餐需求预测保持相对稳定，推荐菜单与历史实际菜单具有较高一致性，搭配要求均得到满足。","textPreview":"整餐需求预测保持相对稳定，推荐菜单与历史实际菜单具有较高一致性，搭配要求均得到满足。","textChars":42,"textLines":1,"bbox":[486,220,307,128]}
+{"kind":"shape","id":"sh/nu58f2hs","slide":2,"bbox":[866,154,355,210]}
+{"kind":"shape","id":"sh/wjy9sry9","slide":2,"bbox":[866,154,7,210]}
+{"kind":"textbox","id":"sh/xk7qlczu","slide":2,"text":"应用特点","textPreview":"应用特点","textChars":4,"textLines":1,"bbox":[890,174,307,34]}
+{"kind":"textbox","id":"sh/ahwrqhgj","slide":2,"text":"兼顾整餐需求、菜品选择、搭配结构和场景差异，支持经营人员复核与调整。","textPreview":"兼顾整餐需求、菜品选择、搭配结构和场景差异，支持经营人员复核与调整。","textChars":34,"textLines":1,"bbox":[890,220,307,128]}
+{"kind":"shape","id":"sh/bip8jmho","slide":2,"bbox":[58,412,1163,176]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"text":"项目定位","textPreview":"项目定位","textChars":4,"textLines":1,"bbox":[88,445,180,30]}
+{"kind":"textbox","id":"sh/do3q9szq","slide":2,"text":"系统已具备从数据读取、需求分析、菜单生成、人工确认到结果保存的完整业务流程，可为日常菜单制定与备餐决策提供参考。","textPreview":"系统已具备从数据读取、需求分析、菜单生成、人工确认到结果保存的完整业务流程，可为日常菜单制定与备餐决策提供参考。","textChars":56,"textLines":1,"bbox":[88,492,1050,62]}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/s72xofmh","slide":2,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"[Sources]\n- 项目阶段报告（本次汇报整理，2026-08-25）\n- A/湖畔与 F/基础园锁定回测结果文件（项目内部）"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"03","textShapes":12}
+{"kind":"textbox","id":"sh/03ix43e5","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"text":"项目建设内容与已交付成果","textPreview":"项目建设内容与已交付成果","textChars":12,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"text":"两套历史数据独立管理，共用一套网页操作方式。 ","textPreview":"两套历史数据独立管理，共用一套网页操作方式。","textChars":23,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/298ryl4v","slide":3,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/3ah8rqlg","slide":3,"bbox":[58,156,340,134]}
+{"kind":"shape","id":"sh/obq90bml","slide":3,"bbox":[58,156,7,134]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"text":"A／湖畔数据","textPreview":"A／湖畔数据","textChars":6,"textLines":1,"bbox":[82,176,292,34]}
+{"kind":"textbox","id":"sh/m5cra54z","slide":3,"text":"9.2 万条销售记录\n2025-07-21 至 2026-06-10","textPreview":"9.2 万条销售记录 | 2025-07-21 至 2026-06-10","textChars":34,"textLines":2,"bbox":[82,222,292,52]}
+{"kind":"shape","id":"sh/n6ls3alk","slide":3,"bbox":[58,312,340,134]}
+{"kind":"shape","id":"sh/n2l4fq98","slide":3,"bbox":[58,312,7,134]}
+{"kind":"textbox","id":"sh/m1c3mlsn","slide":3,"text":"F／基础园数据","textPreview":"F／基础园数据","textChars":7,"textLines":1,"bbox":[82,332,292,34]}
+{"kind":"textbox","id":"sh/943mhgre","slide":3,"text":"11.9 万条销售记录\n2025-01-01 至 2026-06-10","textPreview":"11.9 万条销售记录 | 2025-01-01 至 2026-06-10","textChars":35,"textLines":2,"bbox":[82,378,292,52]}
+{"kind":"shape","id":"sh/83ulovat","slide":3,"bbox":[58,468,340,134]}
+{"kind":"shape","id":"sh/v6l4jq94","slide":3,"bbox":[58,468,7,134]}
+{"kind":"textbox","id":"sh/a5c3ql8z","slide":3,"text":"应用系统","textPreview":"应用系统","textChars":4,"textLines":1,"bbox":[82,488,292,34]}
+{"kind":"textbox","id":"sh/x8nml0ra","slide":3,"text":"菜单推荐、潜力菜展示、搭配校核、结果导出和数据更新。","textPreview":"菜单推荐、潜力菜展示、搭配校核、结果导出和数据更新。","textChars":26,"textLines":1,"bbox":[82,534,292,52]}
+{"kind":"shape","id":"sh/w7ulsvqp","slide":3,"bbox":[442,156,778,446]}
+{"kind":"textbox","id":"sh/i9w3u58v","slide":3,"text":"数据更新模块：支持销售、天气与校历文件的预览、校验和确认写入。","textPreview":"数据更新模块：支持销售、天气与校历文件的预览、校验和确认写入。","textChars":31,"textLines":1,"bbox":[468,568,700,26]}
+{"kind":"textbox","id":"sh/e10f2twf","slide":3,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/f29gbyx0","slide":3,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"image","id":"im/21kvutkb","slide":3,"name":"","geometry":"roundRect","bbox":[524.51,182,612.98,382]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"[Sources]\n- smart_canteen_web/README.md（网页与数据更新功能，访问于 2026-08-25）\n- data/a_hupan/sales.csv 与 data/f_jichuyuan/sales.csv（数据规模统计，访问于 2026-08-25）"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"04","textShapes":25}
+{"kind":"textbox","id":"sh/mtcfypkn","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"text":"菜单推荐业务流程","textPreview":"菜单推荐业务流程","textChars":8,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"text":"系统在后台完成数据计算，前端集中呈现场景输入、菜单生成、结果确认与校核保存流程。","textPreview":"系统在后台完成数据计算，前端集中呈现场景输入、菜单生成、结果确认与校核保存流程。","textChars":40,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/rm1k7yt4","slide":4,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/ql8jytsj","slide":4,"bbox":[58,184,204,300]}
+{"kind":"shape","id":"sh/doj29oba","slide":4,"bbox":[76,202,48,48]}
+{"kind":"textbox","id":"sh/sna103ap","slide":4,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[76,211,48,30]}
+{"kind":"textbox","id":"sh/3ihk3et8","slide":4,"text":"场景输入","textPreview":"场景输入","textChars":4,"textLines":1,"bbox":[78,272,164,36]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"text":"食堂、日期、餐次、天气与假期","textPreview":"食堂、日期、餐次、天气与假期","textChars":14,"textLines":1,"bbox":[78,326,164,104]}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[263,307,30,34]}
+{"kind":"shape","id":"sh/5cva1cfq","slide":4,"bbox":[292,184,204,300]}
+{"kind":"shape","id":"sh/i94r6xgz","slide":4,"bbox":[310,202,48,48]}
+{"kind":"textbox","id":"sh/jadsz2xk","slide":4,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[310,211,48,30]}
+{"kind":"textbox","id":"sh/w72947yt","slide":4,"text":"历史分析","textPreview":"历史分析","textChars":4,"textLines":1,"bbox":[312,272,164,36]}
+{"kind":"textbox","id":"sh/x8vaxsfe","slide":4,"text":"调用目标日期之前的销售记录","textPreview":"调用目标日期之前的销售记录","textChars":13,"textLines":1,"bbox":[312,326,164,104]}
+{"kind":"textbox","id":"sh/a5kr2xg3","slide":4,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[497,307,30,34]}
+{"kind":"shape","id":"sh/v6tsv2xo","slide":4,"bbox":[526,184,204,300]}
+{"kind":"shape","id":"sh/g36tgryd","slide":4,"bbox":[544,202,48,48]}
+{"kind":"textbox","id":"sh/h4fa9wfy","slide":4,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[544,211,48,30]}
+{"kind":"textbox","id":"sh/p0batw72","slide":4,"text":"菜单生成","textPreview":"菜单生成","textChars":4,"textLines":1,"bbox":[546,272,164,36]}
+{"kind":"textbox","id":"sh/oz29krqh","slide":4,"text":"常规菜单与潜力菜品同步生成","textPreview":"常规菜单与潜力菜品同步生成","textChars":13,"textLines":1,"bbox":[546,326,164,104]}
+{"kind":"textbox","id":"sh/3ytsrmpw","slide":4,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[731,307,30,34]}
+{"kind":"shape","id":"sh/2xkrih8b","slide":4,"bbox":[760,184,204,300]}
+{"kind":"shape","id":"sh/1wbapc7q","slide":4,"bbox":[778,202,48,48]}
+{"kind":"textbox","id":"sh/gv29g7q5","slide":4,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[778,211,48,30]}
+{"kind":"textbox","id":"sh/fu9sn2p0","slide":4,"text":"菜单确认","textPreview":"菜单确认","textChars":4,"textLines":1,"bbox":[780,272,164,36]}
+{"kind":"textbox","id":"sh/et0reh8f","slide":4,"text":"选择结果持续保留并支持调整","textPreview":"选择结果持续保留并支持调整","textChars":13,"textLines":1,"bbox":[780,326,164,104]}
+{"kind":"textbox","id":"sh/tsrqlc7u","slide":4,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[965,307,30,34]}
+{"kind":"shape","id":"sh/sri9s7q9","slide":4,"bbox":[994,184,204,300]}
+{"kind":"shape","id":"sh/ilwf69kv","slide":4,"bbox":[1012,202,48,48]}
+{"kind":"textbox","id":"sh/jm5gze1g","slide":4,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1012,211,48,30]}
+{"kind":"textbox","id":"sh/knex8j21","slide":4,"text":"校核保存","textPreview":"校核保存","textChars":4,"textLines":1,"bbox":[1014,272,164,36]}
+{"kind":"textbox","id":"sh/5ony1oj6","slide":4,"text":"校核数量、结构与备餐总量","textPreview":"校核数量、结构与备餐总量","textChars":12,"textLines":1,"bbox":[1014,326,164,104]}
+{"kind":"shape","id":"sh/axcf29kj","slide":4,"bbox":[58,530,1138,74]}
+{"kind":"textbox","id":"sh/vy5gbe14","slide":4,"text":"应用原则：系统提供数据分析与菜单建议，经营人员结合实际情况完成最终确认。","textPreview":"应用原则：系统提供数据分析与菜单建议，经营人员结合实际情况完成最终确认。","textChars":36,"textLines":1,"bbox":[86,551,1060,32]}
+{"kind":"textbox","id":"sh/wzex4z2p","slide":4,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/xknyx4ja","slide":4,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"[Sources]\n- smart_canteen_web/README.md（操作流程，访问于 2026-08-25）"}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"05","textShapes":11}
+{"kind":"textbox","id":"sh/gfi5grih","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"text":"菜单推荐页面已实现完整操作闭环","textPreview":"菜单推荐页面已实现完整操作闭环","textChars":15,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"text":"常规菜与潜力菜分栏展示，支持更新候选范围，并持续保留已选菜品。","textPreview":"常规菜与潜力菜分栏展示，支持更新候选范围，并持续保留已选菜品。","textChars":31,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/z2tcnm5s","slide":5,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/yhkbe1o7","slide":5,"bbox":[58,152,786,470]}
+{"kind":"shape","id":"sh/032tgr6d","slide":5,"bbox":[880,152,340,136]}
+{"kind":"shape","id":"sh/n6dcr65o","slide":5,"bbox":[880,152,7,136]}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"text":"条件筛选","textPreview":"条件筛选","textChars":4,"textLines":1,"bbox":[904,172,292,34]}
+{"kind":"textbox","id":"sh/w32dkbuh","slide":5,"text":"支持按菜品类别与预计销量区间筛选候选菜品。","textPreview":"支持按菜品类别与预计销量区间筛选候选菜品。","textChars":21,"textLines":1,"bbox":[904,218,292,54]}
+{"kind":"shape","id":"sh/x4vedgvm","slide":5,"bbox":[880,310,340,136]}
+{"kind":"shape","id":"sh/ahkvi1cb","slide":5,"bbox":[880,310,7,136]}
+{"kind":"textbox","id":"sh/v2twb6dw","slide":5,"text":"选择管理","textPreview":"选择管理","textChars":4,"textLines":1,"bbox":[904,330,292,34]}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"text":"已选菜品统一进入选择区，后续筛选与刷新不影响已选结果。","textPreview":"已选菜品统一进入选择区，后续筛选与刷新不影响已选结果。","textChars":27,"textLines":1,"bbox":[904,376,292,54]}
+{"kind":"shape","id":"sh/58vehgvy","slide":5,"bbox":[880,468,340,154]}
+{"kind":"shape","id":"sh/i54fmlc7","slide":5,"bbox":[880,468,7,154]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"text":"结果校核","textPreview":"结果校核","textChars":4,"textLines":1,"bbox":[904,488,292,34]}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"text":"确认前统一校核菜品数量、备餐总量与菜单搭配，并保存推荐结果。","textPreview":"确认前统一校核菜品数量、备餐总量与菜单搭配，并保存推荐结果。","textChars":30,"textLines":1,"bbox":[904,534,292,72]}
+{"kind":"textbox","id":"sh/tcfel0vu","slide":5,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/hgrmpwj2","slide":5,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"image","id":"im/kf2x4b6x","slide":5,"name":"","geometry":"roundRect","bbox":[164.38,170,573.23,432]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"[Sources]\n- smart_canteen_web 当前页面截图（本地运行，2026-08-25）"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"06","textShapes":14}
+{"kind":"textbox","id":"sh/bq547yhw","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"text":"核心推荐方法：需求预测、菜品选择与数量分配","textPreview":"核心推荐方法：需求预测、菜品选择与数量分配","textChars":21,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"text":"围绕整餐需求、菜品组合和单菜备餐量，形成分层预测与推荐机制。","textPreview":"围绕整餐需求、菜品组合和单菜备餐量，形成分层预测与推荐机制。","textChars":30,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/87ipkzal","slide":6,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/98rqt4r6","slide":6,"bbox":[58,158,350,330]}
+{"kind":"shape","id":"sh/ml07i9sv","slide":6,"bbox":[58,158,7,330]}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"text":"① 整餐需求预测","textPreview":"① 整餐需求预测","textChars":8,"textLines":1,"bbox":[82,178,302,34]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"text":"综合近期销售、长期历史、星期规律、假期和天气等信息，并通过上下限控制避免多项因素重复放大或缩小。","textPreview":"综合近期销售、长期历史、星期规律、假期和天气等信息，并通过上下限控制避免多项因素重复放大或缩小。","textChars":48,"textLines":1,"bbox":[82,224,302,248]}
+{"kind":"textbox","id":"sh/pc76hkr2","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[415,296,45,42]}
+{"kind":"shape","id":"sh/h4bupgn6","slide":6,"bbox":[464,158,350,330]}
+{"kind":"shape","id":"sh/w32twb6l","slide":6,"bbox":[464,158,7,330]}
+{"kind":"textbox","id":"sh/v2tcn650","slide":6,"text":"② 菜品组合推荐","textPreview":"② 菜品组合推荐","textChars":8,"textLines":1,"bbox":[488,178,302,34]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"text":"综合历史供应频率、销售表现、稳定性和近期重复情况，并结合菜品属性校核菜单结构。","textPreview":"综合历史供应频率、销售表现、稳定性和近期重复情况，并结合菜品属性校核菜单结构。","textChars":39,"textLines":1,"bbox":[488,224,302,248]}
+{"kind":"textbox","id":"sh/5svutgni","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[821,296,45,42]}
+{"kind":"shape","id":"sh/47mt0b6x","slide":6,"bbox":[870,158,350,330]}
+{"kind":"shape","id":"sh/j6dcr65c","slide":6,"bbox":[870,158,7,330]}
+{"kind":"textbox","id":"sh/i54bylor","slide":6,"text":"③ 单菜数量分配","textPreview":"③ 单菜数量分配","textChars":8,"textLines":1,"bbox":[894,178,302,34]}
+{"kind":"textbox","id":"sh/twfux0ne","slide":6,"text":"将整餐需求分配到入选菜品，保证单菜预测量合计与整餐预测量保持一致，并提示最低制作量。","textPreview":"将整餐需求分配到入选菜品，保证单菜预测量合计与整餐预测量保持一致，并提示最低制作量。","textChars":42,"textLines":1,"bbox":[894,224,302,248]}
+{"kind":"shape","id":"sh/svmt4v6t","slide":6,"bbox":[58,530,1162,82]}
+{"kind":"textbox","id":"sh/cbe5g3ih","slide":6,"text":"推荐过程可解释、规则可配置、结果可追溯，为菜单制定和备餐管理提供数据参考。","textPreview":"推荐过程可解释、规则可配置、结果可追溯，为菜单制定和备餐管理提供数据参考。","textChars":37,"textLines":1,"bbox":[86,553,1080,35]}
+{"kind":"textbox","id":"sh/dcnm98zm","slide":6,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/qpwnet0b","slide":6,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"[Sources]\n- archive/expanding_window_v1_trial27_20260716 与当前高频策略配置（项目内部）\n- smart_canteen_web/backend/app/services（当前推荐流程，访问于 2026-08-25）"}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"07","textShapes":9}
+{"kind":"textbox","id":"sh/f2d0b6lc","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"text":"双通道推荐兼顾供应稳定性与菜单丰富度","textPreview":"双通道推荐兼顾供应稳定性与菜单丰富度","textChars":18,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/dcbud0ra","slide":7,"text":"高频菜负责稳定，低频潜力菜负责补充选择，两者分开生成、统一检查。 ","textPreview":"高频菜负责稳定，低频潜力菜负责补充选择，两者分开生成、统一检查。","textChars":33,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/ydkbm5sv","slide":7,"bbox":[58,118,1164,1]}
+{"kind":"textbox","id":"sh/p8fih03e","slide":7,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/o761ov2t","slide":7,"text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"shape","id":"sh/jedkn654","slide":7,"name":"常规菜品推荐说明底板","bbox":[58,500,550,138]}
+{"kind":"shape","id":"sh/4fm1wb6p","slide":7,"name":"常规菜品推荐说明色条","bbox":[58,500,7,138]}
+{"kind":"textbox","id":"sh/50v2pgna","slide":7,"name":"常规菜品推荐说明标题","text":"常规菜品推荐","textPreview":"常规菜品推荐","textChars":6,"textLines":1,"bbox":[78,511,505,26]}
+{"kind":"textbox","id":"sh/q143ylov","slide":7,"name":"常规菜品推荐说明正文","text":"• 延续原有稳定策略\n• 以历史常见、近期活跃菜为主\n• 给出预计销量和推荐理由\n• 适合形成日常菜单主体","textPreview":"• 延续原有稳定策略 | • 以历史常见、近期活跃菜为主 | • 给出预计销量和推荐理由 | • 适合形成日常菜单主体","textChars":53,"textLines":4,"bbox":[78,542,510,86]}
+{"kind":"shape","id":"sh/r2dkrq5g","slide":7,"name":"潜力菜品推荐说明底板","bbox":[660,500,562,138]}
+{"kind":"shape","id":"sh/s3ml0v61","slide":7,"name":"潜力菜品推荐说明色条","bbox":[660,500,7,138]}
+{"kind":"textbox","id":"sh/d4f2t0nm","slide":7,"name":"潜力菜品推荐说明标题","text":"潜力菜品推荐","textPreview":"潜力菜品推荐","textChars":6,"textLines":1,"bbox":[680,511,517,26]}
+{"kind":"textbox","id":"sh/e5o32lor","slide":7,"name":"潜力菜品推荐说明正文","text":"• 识别低频但单次销售表现较好的菜品\n• 支持按类别配置候选数量\n• 采用动态刷新方式增加候选多样性\n• 近期入选后适当调整推荐优先级","textPreview":"• 识别低频但单次销售表现较好的菜品 | • 支持按类别配置候选数量 | • 采用动态刷新方式增加候选多样性 | • 近期入选后适当调整推荐优先级","textChars":67,"textLines":4,"bbox":[680,542,522,86]}
+{"kind":"image","id":"im/k3i5oz61","slide":7,"name":"","bbox":[58,158,550,330]}
+{"kind":"image","id":"im/a9gji54j","slide":7,"name":"","bbox":[660,158,562,330]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"[Sources]\n- smart_canteen_web/README.md（双通道推荐与选择区逻辑，访问于 2026-08-25）\n- 用户提供界面截图：常用菜品推荐（2026-08-25）\n- 用户提供界面截图：低频高销量潜力菜（2026-08-25）"}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"08","textShapes":13}
+{"kind":"textbox","id":"sh/6twve1oz","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"text":"经营场景适配与菜单结构控制","textPreview":"经营场景适配与菜单结构控制","textChars":13,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/g72x4zyd","slide":8,"text":"目标日期的天气和日历信息可以直接输入；它们主要修正需求规模和菜单数量。 ","textPreview":"目标日期的天气和日历信息可以直接输入；它们主要修正需求规模和菜单数量。","textChars":36,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/ri9g7uhw","slide":8,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/6h0fypgb","slide":8,"bbox":[58,156,532,188]}
+{"kind":"shape","id":"sh/tkby9kzm","slide":8,"bbox":[58,156,7,188]}
+{"kind":"textbox","id":"sh/sjix0zy1","slide":8,"text":"日期与天气适配","textPreview":"日期与天气适配","textChars":7,"textLines":1,"bbox":[82,176,484,34]}
+{"kind":"textbox","id":"sh/je9g3ahk","slide":8,"text":"普通工作日、周末、调休、寒暑假和法定节假日分别建模；气温、降水、湿度和风速用于补充修正，并控制多项因素叠加幅度。","textPreview":"普通工作日、周末、调休、寒暑假和法定节假日分别建模；气温、降水、湿度和风速用于补充修正，并控制多项因素叠加幅度。","textChars":56,"textLines":1,"bbox":[82,222,484,106]}
+{"kind":"shape","id":"sh/id0fu50z","slide":8,"bbox":[630,156,590,188]}
+{"kind":"shape","id":"sh/o7ydoret","slide":8,"bbox":[630,156,7,188]}
+{"kind":"textbox","id":"sh/98rehwve","slide":8,"text":"节假日供给规模","textPreview":"节假日供给规模","textChars":7,"textLines":1,"bbox":[654,176,542,34]}
+{"kind":"textbox","id":"sh/m5gvmhwn","slide":8,"text":"结合历史同类日期与当餐预计需求，同步调整单菜销量和建议菜品数量，使节假日供给规模更贴近实际客流。","textPreview":"结合历史同类日期与当餐预计需求，同步调整单菜销量和建议菜品数量，使节假日供给规模更贴近实际客流。","textChars":48,"textLines":1,"bbox":[654,222,542,106]}
+{"kind":"shape","id":"sh/n6pwfmd8","slide":8,"bbox":[58,382,532,192]}
+{"kind":"shape","id":"sh/0jydkreh","slide":8,"bbox":[58,382,7,192]}
+{"kind":"textbox","id":"sh/1k7edwv2","slide":8,"text":"基础搭配要求","textPreview":"基础搭配要求","textChars":6,"textLines":1,"bbox":[82,402,484,34]}
+{"kind":"textbox","id":"sh/ehgvihwr","slide":8,"text":"控制重复菜名、明显相似菜和核心食材高度重合情况，并确保建议菜品数量符合菜单容量。","textPreview":"控制重复菜名、明显相似菜和核心食材高度重合情况，并确保建议菜品数量符合菜单容量。","textChars":40,"textLines":1,"bbox":[82,448,484,110]}
+{"kind":"shape","id":"sh/zipwbmdc","slide":8,"bbox":[630,382,590,192]}
+{"kind":"shape","id":"sh/kfixwbe1","slide":8,"bbox":[630,382,7,192]}
+{"kind":"textbox","id":"sh/lgbepgvm","slide":8,"text":"弹性搭配管理","textPreview":"弹性搭配管理","textChars":6,"textLines":1,"bbox":[654,402,542,34]}
+{"kind":"textbox","id":"sh/tw7e9gnq","slide":8,"text":"对做法、口味、食材类别和近期重复情况进行评分与提示，在保证菜单完整性的同时兼顾多样性。","textPreview":"对做法、口味、食材类别和近期重复情况进行评分与提示，在保证菜单完整性的同时兼顾多样性。","textChars":43,"textLines":1,"bbox":[654,448,542,110]}
+{"kind":"textbox","id":"sh/svydgb65","slide":8,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/7u5w765k","slide":8,"text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"[Sources]\n- 当前策略配置与 smart_canteen_web/README.md（天气、日历及约束逻辑，访问于 2026-08-25）"}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"09","textShapes":23}
+{"kind":"textbox","id":"sh/u1cnedcz","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"text":"阶段评估结果：工作日与周末预测表现","textPreview":"阶段评估结果：工作日与周末预测表现","textChars":17,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"text":"以下结果分别展示两个食堂组测试期内的工作日与周末预测误差。","textPreview":"以下结果分别展示两个食堂组测试期内的工作日与周末预测误差。","textChars":29,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/nex4jq5k","slide":9,"bbox":[58,118,1164,1]}
+{"kind":"textbox","id":"sh/mdonql4z","slide":9,"text":"A／湖畔","textPreview":"A／湖畔","textChars":4,"textLines":1,"bbox":[58,150,300,34]}
+{"kind":"shape","id":"sh/9gzml0nq","slide":9,"bbox":[58,198,164,132]}
+{"kind":"shape","id":"sh/ofq5svm5","slide":9,"bbox":[58,198,164,5]}
+{"kind":"textbox","id":"sh/bih4na5w","slide":9,"text":"13.14%","textPreview":"13.14%","textChars":6,"textLines":1,"bbox":[76,218,128,38]}
+{"kind":"textbox","id":"sh/ah8nu54b","slide":9,"text":"工作日 MAPE","textPreview":"工作日 MAPE","textChars":8,"textLines":1,"bbox":[76,260,128,42]}
+{"kind":"textbox","id":"sh/oza1gfyh","slide":9,"text":"越低越好","textPreview":"越低越好","textChars":4,"textLines":1,"bbox":[76,306,128,16]}
+{"kind":"shape","id":"sh/p0ji9kf2","slide":9,"bbox":[237,198,164,132]}
+{"kind":"shape","id":"sh/2xsjepgb","slide":9,"bbox":[237,198,164,5]}
+{"kind":"textbox","id":"sh/3y107axw","slide":9,"text":"15.23%","textPreview":"15.23%","textChars":6,"textLines":1,"bbox":[255,218,128,38]}
+{"kind":"textbox","id":"sh/cnu1kzyd","slide":9,"text":"周末 MAPE","textPreview":"周末 MAPE","textChars":7,"textLines":1,"bbox":[255,260,128,42]}
+{"kind":"textbox","id":"sh/do3id4fy","slide":9,"text":"越低越好","textPreview":"越低越好","textChars":4,"textLines":1,"bbox":[255,306,128,16]}
+{"kind":"textbox","id":"sh/87a18zqt","slide":9,"text":"测试期：2026-04-01 至 2026-06-10　|　工作日 155 餐　|　周末 57 餐","textPreview":"测试期：2026-04-01 至 2026-06-10　|　工作日 155 餐　|　周末 57 餐","textChars":49,"textLines":1,"bbox":[58,350,522,42]}
+{"kind":"shape","id":"sh/76h0zup8","slide":9,"bbox":[614,154,1,430]}
+{"kind":"textbox","id":"sh/ml8j6p8n","slide":9,"text":"F／基础园","textPreview":"F／基础园","textChars":5,"textLines":1,"bbox":[650,150,300,34]}
+{"kind":"shape","id":"sh/hcji5o7a","slide":9,"bbox":[650,198,164,132]}
+{"kind":"shape","id":"sh/wba1cjqp","slide":9,"bbox":[650,198,164,5]}
+{"kind":"textbox","id":"sh/va103ep4","slide":9,"text":"10.05%","textPreview":"10.05%","textChars":6,"textLines":1,"bbox":[668,218,128,38]}
+{"kind":"textbox","id":"sh/u9sja98z","slide":9,"text":"工作日 MAPE","textPreview":"工作日 MAPE","textChars":8,"textLines":1,"bbox":[668,260,128,42]}
+{"kind":"textbox","id":"sh/xgzitk76","slide":9,"text":"越低越好","textPreview":"越低越好","textChars":4,"textLines":1,"bbox":[668,306,128,16]}
+{"kind":"shape","id":"sh/cf6h0fql","slide":9,"bbox":[829,198,164,132]}
+{"kind":"shape","id":"sh/2l4faloj","slide":9,"bbox":[829,198,164,5]}
+{"kind":"textbox","id":"sh/nmdg3q54","slide":9,"text":"10.66%","textPreview":"10.66%","textChars":6,"textLines":1,"bbox":[847,218,128,38]}
+{"kind":"textbox","id":"sh/onmxcv69","slide":9,"text":"周末 MAPE","textPreview":"周末 MAPE","textChars":7,"textLines":1,"bbox":[847,260,128,42]}
+{"kind":"textbox","id":"sh/pofy50nu","slide":9,"text":"越低越好","textPreview":"越低越好","textChars":4,"textLines":1,"bbox":[847,306,128,16]}
+{"kind":"textbox","id":"sh/rutwv65w","slide":9,"text":"测试期：2026-01-01 至 2026-06-10　|　工作日 244 餐　|　周末 90 餐","textPreview":"测试期：2026-01-01 至 2026-06-10　|　工作日 244 餐　|　周末 90 餐","textChars":49,"textLines":1,"bbox":[650,350,522,42]}
+{"kind":"shape","id":"sh/7y14jyd8","slide":9,"bbox":[58,424,1114,160]}
+{"kind":"textbox","id":"sh/mdsnatcn","slide":9,"text":"评估方法说明","textPreview":"评估方法说明","textChars":6,"textLines":1,"bbox":[82,448,290,28]}
+{"kind":"textbox","id":"sh/903ml8be","slide":9,"text":"工作日 MAPE：计算测试期内每个工作日各餐预测销量与实际销量的相对误差，再取平均值。\n周末 MAPE：计算周六、周日各餐预测销量与实际销量的相对误差，再取平均值。\nMAPE 越低，表示预测销量越接近实际销量。","textPreview":"工作日 MAPE：计算测试期内每个工作日各餐预测销量与实际销量的相对误差，再取平均值。 | 周末 MAPE：计算周六、周日各餐预测销量与实际销量的相对误差，再取平均值。 | MAPE 越低，表示预测销量越接近实际销量。","textChars":105,"textLines":3,"bbox":[82,486,1020,78]}
+{"kind":"textbox","id":"sh/8zu5c3ut","slide":9,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/v2l4nitk","slide":9,"text":"9","textPreview":"9","textChars":1,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":"[Sources]\n- trial18_train_validation_test_summary.csv（A/湖畔锁定测试结果）\n- runs/f_to_jichuyuan_test/f_to_jichuyuan_test_metrics.json（F/基础园测试结果）"}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"10","textShapes":17}
+{"kind":"textbox","id":"sh/ru18r2to","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"text":"现阶段建设成效","textPreview":"现阶段建设成效","textChars":7,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/cbu58j2h","slide":10,"text":"系统已形成可运行、可维护、可解释的应用基础。","textPreview":"系统已形成可运行、可维护、可解释的应用基础。","textChars":22,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/zelojyl8","slide":10,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/ydcnatkn","slide":10,"bbox":[58,158,355,178]}
+{"kind":"shape","id":"sh/l036l83y","slide":10,"bbox":[58,158,7,178]}
+{"kind":"textbox","id":"sh/kzu5c32t","slide":10,"text":"本地化数据管理","textPreview":"本地化数据管理","textChars":7,"textLines":1,"bbox":[82,178,307,34]}
+{"kind":"textbox","id":"sh/725onyl4","slide":10,"text":"业务数据在本地环境存储与运行，便于统一管理和安全控制。","textPreview":"业务数据在本地环境存储与运行，便于统一管理和安全控制。","textChars":27,"textLines":1,"bbox":[82,224,307,96]}
+{"kind":"shape","id":"sh/m1cnetkj","slide":10,"bbox":[448,158,355,178]}
+{"kind":"shape","id":"sh/s7yt4b21","slide":10,"bbox":[448,158,7,178]}
+{"kind":"textbox","id":"sh/d87uxg3m","slide":10,"text":"推荐依据透明","textPreview":"推荐依据透明","textChars":6,"textLines":1,"bbox":[472,178,307,34]}
+{"kind":"textbox","id":"sh/q5gb21kb","slide":10,"text":"推荐结果同步展示历史表现、日期场景和天气等主要依据。","textPreview":"推荐结果同步展示历史表现、日期场景和天气等主要依据。","textChars":26,"textLines":1,"bbox":[472,224,307,96]}
+{"kind":"shape","id":"sh/r6pcv6lw","slide":10,"bbox":[838,158,355,178]}
+{"kind":"shape","id":"sh/0bit8b2d","slide":10,"bbox":[838,158,7,178]}
+{"kind":"textbox","id":"sh/1cru1g3y","slide":10,"text":"策略规则持续优化","textPreview":"策略规则持续优化","textChars":8,"textLines":1,"bbox":[862,178,307,34]}
+{"kind":"textbox","id":"sh/e9gb61k7","slide":10,"text":"规则由大模型结合历史数据与多轮实验持续学习、验证并固化。","textPreview":"规则由大模型结合历史数据与多轮实验持续学习、验证并固化。","textChars":28,"textLines":1,"bbox":[862,224,307,96]}
+{"kind":"shape","id":"sh/fapcz6ls","slide":10,"bbox":[58,374,355,178]}
+{"kind":"shape","id":"sh/ozitcv29","slide":10,"bbox":[58,374,7,178]}
+{"kind":"textbox","id":"sh/p0ru503u","slide":10,"text":"全过程留痕","textPreview":"全过程留痕","textChars":5,"textLines":1,"bbox":[82,394,307,34]}
+{"kind":"textbox","id":"sh/xwnupgvy","slide":10,"text":"推荐、确认和数据更新过程均保留记录，便于查询与复盘。","textPreview":"推荐、确认和数据更新过程均保留记录，便于查询与复盘。","textChars":26,"textLines":1,"bbox":[82,440,307,96]}
+{"kind":"shape","id":"sh/wvetgbud","slide":10,"bbox":[448,374,355,178]}
+{"kind":"shape","id":"sh/bu5cnqd8","slide":10,"bbox":[448,374,7,178]}
+{"kind":"textbox","id":"sh/atwbelcn","slide":10,"text":"稳定性与多样性兼顾","textPreview":"稳定性与多样性兼顾","textChars":9,"textLines":1,"bbox":[472,394,307,34]}
+{"kind":"textbox","id":"sh/lk7ut0va","slide":10,"text":"常规菜品保障供应稳定，潜力菜品补充菜单选择。","textPreview":"常规菜品保障供应稳定，潜力菜品补充菜单选择。","textChars":22,"textLines":1,"bbox":[472,440,307,96]}
+{"kind":"shape","id":"sh/kjytkvup","slide":10,"bbox":[838,374,355,178]}
+{"kind":"shape","id":"sh/jypcrqd4","slide":10,"bbox":[838,374,7,178]}
+{"kind":"textbox","id":"sh/yxgbilcj","slide":10,"text":"多平台运行支持","textPreview":"多平台运行支持","textChars":7,"textLines":1,"bbox":[862,394,307,34]}
+{"kind":"textbox","id":"sh/1o3ahwvq","slide":10,"text":"系统可在 macOS、Windows 和 Linux 环境部署运行。","textPreview":"系统可在 macOS、Windows 和 Linux 环境部署运行。","textChars":34,"textLines":1,"bbox":[862,440,307,96]}
+{"kind":"textbox","id":"sh/0nut8rul","slide":10,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/q9srixs3","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"notes","id":"nt/m90b6t0r","slide":10,"text":"[Sources]\n- smart_canteen_web/README.md 与当前项目目录结构（访问于 2026-08-25）"}
+{"kind":"slide","id":"sl/jetc3ut0","slide":11,"title":"11","textShapes":23}
+{"kind":"textbox","id":"sh/n61wbmlo","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[58,38,55,26]}
+{"kind":"textbox","id":"sh/xcryxg7y","slide":11,"text":"系统应用说明","textPreview":"系统应用说明","textChars":6,"textLines":1,"bbox":[112,30,1030,48]}
+{"kind":"textbox","id":"sh/wbih4b6d","slide":11,"text":"现有结果可为菜单制定和备餐管理提供参考，应用时需结合食堂现场情况进行综合判断。","textPreview":"现有结果可为菜单制定和备餐管理提供参考，应用时需结合食堂现场情况进行综合判断。","textChars":39,"textLines":1,"bbox":[112,78,1060,34]}
+{"kind":"shape","id":"sh/n69grmpw","slide":11,"bbox":[58,118,1164,1]}
+{"kind":"shape","id":"sh/250zy18b","slide":11,"bbox":[58,150,1114,64]}
+{"kind":"textbox","id":"sh/98rytw72","slide":11,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[76,167,32,30]}
+{"kind":"textbox","id":"sh/o7ih0r6h","slide":11,"text":"单菜销量波动","textPreview":"单菜销量波动","textChars":6,"textLines":1,"bbox":[122,164,285,32]}
+{"kind":"textbox","id":"sh/72t03qp0","slide":11,"text":"低频菜与波动较大菜品的预测结果，适合作为备餐量参考区间。","textPreview":"低频菜与波动较大菜品的预测结果，适合作为备餐量参考区间。","textChars":28,"textLines":1,"bbox":[418,164,720,38]}
+{"kind":"shape","id":"sh/61kzalof","slide":11,"bbox":[58,228,1114,64]}
+{"kind":"textbox","id":"sh/ofqtgnyt","slide":11,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[76,245,32,30]}
+{"kind":"textbox","id":"sh/9gza9sze","slide":11,"text":"节假日供给规模","textPreview":"节假日供给规模","textChars":7,"textLines":1,"bbox":[122,242,285,32]}
+{"kind":"textbox","id":"sh/mdobedg3","slide":11,"text":"系统已区分日常、周末、校历假期和法定节假日等场景。","textPreview":"系统已区分日常、周末、校历假期和法定节假日等场景。","textChars":25,"textLines":1,"bbox":[418,242,720,38]}
+{"kind":"shape","id":"sh/nehs7iho","slide":11,"bbox":[58,306,1114,64]}
+{"kind":"textbox","id":"sh/0b6tc3yx","slide":11,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[76,323,32,30]}
+{"kind":"textbox","id":"sh/1cfa58zi","slide":11,"text":"菜单稳定与丰富","textPreview":"菜单稳定与丰富","textChars":7,"textLines":1,"bbox":[122,320,285,32]}
+{"kind":"textbox","id":"sh/epobatgr","slide":11,"text":"常规菜保障供应稳定，潜力菜提供补充选择和菜单变化。","textPreview":"常规菜保障供应稳定，潜力菜提供补充选择和菜单变化。","textChars":25,"textLines":1,"bbox":[418,320,720,38]}
+{"kind":"shape","id":"sh/zaxs3yhc","slide":11,"bbox":[58,384,1114,64]}
+{"kind":"textbox","id":"sh/cn6t83y1","slide":11,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[76,401,32,30]}
+{"kind":"textbox","id":"sh/dofa18z6","slide":11,"text":"特殊客流场景","textPreview":"特殊客流场景","textChars":6,"textLines":1,"bbox":[122,398,285,32]}
+{"kind":"textbox","id":"sh/tsnip0ny","slide":11,"text":"长假与法定节假日重叠等少量场景，需结合实际客流判断。","textPreview":"长假与法定节假日重叠等少量场景，需结合实际客流判断。","textChars":26,"textLines":1,"bbox":[418,398,720,38]}
+{"kind":"shape","id":"sh/87ehgv6d","slide":11,"bbox":[58,462,1114,64]}
+{"kind":"textbox","id":"sh/7650nq5s","slide":11,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[76,479,32,30]}
+{"kind":"textbox","id":"sh/65wzelo7","slide":11,"text":"新菜与新食堂","textPreview":"新菜与新食堂","textChars":6,"textLines":1,"bbox":[122,476,285,32]}
+{"kind":"textbox","id":"sh/l43ilgn2","slide":11,"text":"缺少历史记录时，系统主要依据菜品属性与经营人员确认结果。","textPreview":"缺少历史记录时，系统主要依据菜品属性与经营人员确认结果。","textChars":28,"textLines":1,"bbox":[418,476,720,38]}
+{"kind":"shape","id":"sh/k3uhcb6h","slide":11,"bbox":[58,540,1114,64]}
+{"kind":"textbox","id":"sh/j2lgjq5w","slide":11,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[76,557,32,30]}
+{"kind":"textbox","id":"sh/y1czalob","slide":11,"text":"经营效益指标","textPreview":"经营效益指标","textChars":6,"textLines":1,"bbox":[122,554,285,32]}
+{"kind":"textbox","id":"sh/p07ixkn6","slide":11,"text":"当前指标采用统一成本假设，用于不同推荐方案的相对比较。","textPreview":"当前指标采用统一成本假设，用于不同推荐方案的相对比较。","textChars":27,"textLines":1,"bbox":[418,554,720,38]}
+{"kind":"textbox","id":"sh/4zyhofml","slide":11,"text":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textPreview":"智慧食堂智能菜单推荐系统 · 建设成果汇报","textChars":21,"textLines":1,"bbox":[58,684,420,18]}
+{"kind":"textbox","id":"sh/m58fih43","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1170,684,50,18]}
+{"kind":"notes","id":"nt/jetc3ut0","slide":11,"text":"[Sources]\n- A/湖畔与 F/基础园测试分段结果、重复率与假期菜单数量诊断（项目内部）\n- 项目阶段报告第九章（局限性说明）"}
+{"kind":"slide","id":"sl/8f2psfyx","slide":12,"title":"项目阶段总结","textShapes":12}
+{"kind":"shape","id":"sh/hkbm5wzu","slide":12,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/1gbm9s3a","slide":12,"text":"项目阶段总结","textPreview":"项目阶段总结","textChars":6,"textLines":1,"bbox":[66,56,1120,64]}
+{"kind":"shape","id":"sh/0f2lgnmp","slide":12,"bbox":[66,164,352,244]}
+{"kind":"textbox","id":"sh/ra943il8","slide":12,"text":"数据基础","textPreview":"数据基础","textChars":4,"textLines":1,"bbox":[90,190,180,26]}
+{"kind":"textbox","id":"sh/q903ad4n","slide":12,"text":"多源数据整合","textPreview":"多源数据整合","textChars":6,"textLines":1,"bbox":[90,235,285,36]}
+{"kind":"textbox","id":"sh/dcbm583y","slide":12,"text":"完成 A／湖畔、F／基础园两套销售、天气、校历及菜品库数据整合。","textPreview":"完成 A／湖畔、F／基础园两套销售、天气、校历及菜品库数据整合。","textChars":32,"textLines":1,"bbox":[90,293,290,88]}
+{"kind":"shape","id":"sh/sb2lcnmd","slide":12,"bbox":[457,164,352,244]}
+{"kind":"textbox","id":"sh/b6d4f2lc","slide":12,"text":"系统能力","textPreview":"系统能力","textChars":4,"textLines":1,"bbox":[481,190,180,26]}
+{"kind":"textbox","id":"sh/a543mx4r","slide":12,"text":"业务流程闭环","textPreview":"业务流程闭环","textChars":6,"textLines":1,"bbox":[481,235,285,36]}
+{"kind":"textbox","id":"sh/wvupgz6t","slide":12,"text":"形成菜单与销量预测、潜力菜补充、菜单校核、结果保存和数据更新功能。","textPreview":"形成菜单与销量预测、潜力菜补充、菜单校核、结果保存和数据更新功能。","textChars":33,"textLines":1,"bbox":[481,293,290,88]}
+{"kind":"shape","id":"sh/xw3q94ne","slide":12,"bbox":[848,164,352,244]}
+{"kind":"textbox","id":"sh/atc7epon","slide":12,"text":"应用价值","textPreview":"应用价值","textChars":4,"textLines":1,"bbox":[872,190,180,26]}
+{"kind":"textbox","id":"sh/bulo7u58","slide":12,"text":"经营辅助决策","textPreview":"经营辅助决策","textChars":6,"textLines":1,"bbox":[872,235,285,36]}
+{"kind":"textbox","id":"sh/orapcf6h","slide":12,"text":"支持经营人员结合历史规律、天气和日历场景制定菜单与备餐计划。","textPreview":"支持经营人员结合历史规律、天气和日历场景制定菜单与备餐计划。","textChars":30,"textLines":1,"bbox":[872,293,290,88]}
+{"kind":"shape","id":"sh/9sj65kn2","slide":12,"bbox":[66,464,1134,142]}
+{"kind":"textbox","id":"sh/mps7a5or","slide":12,"text":"阶段成果概述","textPreview":"阶段成果概述","textChars":6,"textLines":1,"bbox":[94,492,280,30]}
+{"kind":"textbox","id":"sh/nq1o3a5w","slide":12,"text":"项目已完成核心功能建设，形成可运行、可维护、可解释的智慧食堂菜单推荐应用。","textPreview":"项目已完成核心功能建设，形成可运行、可维护、可解释的智慧食堂菜单推荐应用。","textChars":37,"textLines":1,"bbox":[94,540,1040,34]}
+{"kind":"notes","id":"nt/8f2psfyx","slide":12,"text":"[Sources]\n- 项目 README.md 与 smart_canteen_web/README.md（阶段成果总结，访问于 2026-08-25）"}
+{"kind":"slide","id":"sl/hgzapcr6","slide":13,"title":"感谢聆听","textShapes":1}
+{"kind":"shape","id":"sh/cnqh8fux","slide":13,"bbox":[0,0,1280,10]}
+{"kind":"textbox","id":"sh/kjmxsfm1","slide":13,"text":"感谢聆听","textPreview":"感谢聆听","textChars":4,"textLines":1,"bbox":[320,300,640,120]}
+{"kind":"notes","id":"nt/hgzapcr6","slide":13,"text":"[Sources]\n- 项目 README.md 与 smart_canteen_web/README.md（阶段成果总结，访问于 2026-08-25）"}

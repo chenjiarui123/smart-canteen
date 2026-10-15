@@ -1,0 +1,22 @@
+{
+  "selected": {
+    "a_hupan": "baseline",
+    "f_jichuyuan": "baseline"
+  },
+  "source_freeze_verified": true,
+  "method": "Independent rescoring of checksum-verified completed frozen daily replays; no second model selection or tuning",
+  "datasets": {
+    "a_hupan": {
+      "saved_replay_hashes_verified": true,
+      "actual_matches_current_data": true,
+      "rescored_metrics_match_saved_metrics": true,
+      "evaluation_sessions": 482
+    },
+    "f_jichuyuan": {
+      "saved_replay_hashes_verified": true,
+      "actual_matches_current_data": true,
+      "rescored_metrics_match_saved_metrics": true,
+      "evaluation_sessions": 334
+    }
+  }
+}

@@ -1,0 +1,4 @@
+[
+  {"name":"C_F", "config":{"peer_borrowing":true,"reliability":true}, "hypothesis":"Remove A from A+C+F: distinguish relaxed demand floor from learned predictive improvement"},
+  {"name":"A_F_baseline_anchor", "config":{"separate_preparation":true,"reliability":true}, "hypothesis":"Strict remove-C ablation from A+C+F: retain the same baseline demand anchor, change only reliability coordination"}
+]

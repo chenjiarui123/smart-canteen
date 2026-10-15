@@ -1,0 +1,36 @@
+{
+  "version": "rice_merged_phase_structural_20260913_v1",
+  "data": {"source": "current rice-merged web sales and dish libraries", "warmup_calendar_days": 14, "sales_history_rule": "date < target; append only after all meals predicted", "no_old_prediction_cache": true, "test_excluded_until_freeze": "2026 sales quantities and menus"},
+  "development_folds": {
+    "a_hupan": [{"name":"early","start":"2025-08-05","end":"2025-08-31"},{"name":"middle","start":"2025-09-01","end":"2025-10-31"},{"name":"late","start":"2025-11-01","end":"2025-12-31"}],
+    "f_jichuyuan": [{"name":"early","start":"2025-01-15","end":"2025-06-30"},{"name":"middle","start":"2025-07-01","end":"2025-09-30"},{"name":"late","start":"2025-10-01","end":"2025-12-31"}],
+    "selection_rule":"Chronological expanding-history forecasts; compare mechanisms on early+middle, then audit late and full development stability. All three are development folds, not untouched tests. No rule keyed to specific failed dates."
+  },
+  "calendar": {"source":"smart_canteen_web/data/features/calendar.csv", "boundary_rule":"Use explicit calendar flags and adjacent known-calendar nonholiday days; missing dates cannot establish boundaries", "unknown_boundary":"null distance, explicit warning; no invented start or boundary inferred from quantities/absence", "phase_window_candidates_days":[3,7,14], "special_core":"named Spring Festival statutory interval, joint with school holiday", "joint_overlap":true},
+  "primary_order":["total_mape","hit_qty_mape","net_benefit"],
+  "selection": {
+    "normal_stable_total":"exact preserved baseline final session and original-unit totals, rtol1e-12 atol1e-8",
+    "fixed_menu_item_only":"retain prior minimum hit-MAPE gain0.25pp and all risk gates",
+    "special_total_gain_relative_min":0.0005,
+    "total_change_gate_rationale":"Prior all-date exact-total gate is inapplicable to requested special-stage demand changes; use targeted round 0.05% relative materiality, ordinary stable dates remain exact",
+    "when_total_materially_improves_hit_regression_max":"max(1pp,5% of baseline); apply full and fixed-menu paired comparisons",
+    "net_relative_loss_max":0.01,
+    "hit_wmape_relative_increase_max":0.05,
+    "total_wape_relative_increase_max":0.05,
+    "nonhit_qty_share_increase_max":0.005,
+    "absolute_weighted_bias_increase_pp_max":2.0,
+    "subgroup_min_positive_hits":100,
+    "subgroup_hit_mape_regression_max":"max(1pp,5% of baseline)",
+    "subgroups":["fold","month","meal","date_type","normal_recorded_volume","historical_frequency","historical_samples"],
+    "menu_changed_risk":{"dish_hit_rate_drop_max":0.01,"revenue_coverage_drop_max":0.01,"fill_rate_drop_max":0.01,"paired_fixed_baseline_menu_required":true},
+    "overpred_revenue_relative_increase_max":0.01,
+    "intervals":"Report coverage/width and interval score separately; do not inflate intervals to claim success"
+  },
+  "allocation": {"different_units":"no exchange; new special-stage total applies proportional old unit shares unless independently validated unit demand model", "demand_floor":0,"preparation":"max(demand,minimum_batch)","hhi_ratio_max":1.15,"largest_item_share_increase_max":0.03,"upper":"historical q99*2; fixed-total item experiments also baseline*2","conflict":"explicit whole-session baseline fallback, never hidden relaxation"},
+  "repeat":{"rate":"shared normalized names/current high-frequency unique names, all categories","maximum":0.8,"history":"previous natural-day same-canteen/same-meal generated menu","missing":"not zero","infeasible":"record shortage and fail candidate; no artificial quantity shrink"},
+  "mechanisms":["phase direct session demand","phase history+recent-trend demand blend","independent phase dish counts","own-history relative drop regression","own-history drop/normal mixture","category/item hierarchical demand","risk-aware coordination"],
+  "ablation":"volume only, count only, their combination; all item mechanisms paired on fixed baseline menus; add one major mechanism per run and remove components from final candidate",
+  "stop":{"fixed_trial_limit":null,"required_directions":["holiday phase demand","own-dish sudden drop","hierarchical allocation"],"rule":"After required distinct directions plus sensible combinations/ablations, stop if three successive materially different directions fail gates; repeated parameter changes do not count"},
+  "retest":{"required_even_if_baseline_retained":true,"after_code_config_freeze":true,"runs_per_dataset":1,"a_hupan":{"old_validation":["2026-01-01","2026-03-31"],"old_test":["2026-04-01","2026-06-10"]},"f_jichuyuan":{"old_test":["2026-01-01","2026-06-10"],"diagnostics_only":[["2026-01-01","2026-03-31"],["2026-04-01","2026-06-10"]]},"label":"既有区间复测; no subsequent tuning or independent-test claim"},
+  "deployment":"independent candidate archive; never replace web default without user request"
+}

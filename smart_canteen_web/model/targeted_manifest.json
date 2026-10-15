@@ -1,0 +1,15 @@
+{
+  "model_version": "targeted_repeat_holiday_20260911",
+  "status": "frozen",
+  "development_run": "final_verified",
+  "frozen_at": "2026-09-11T18:23:27.791672",
+  "development_schedule_sha256": "51f5dbceb78ee0687fc3e897b2fcdf046fe0e21fabfc61ad698d06e8ec3df565",
+  "files": {
+    "targeted_config.json": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+    "diagnostics.py": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+    "policy.py": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+    "targeted_policy.py": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+    "evaluator.py": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc"
+  },
+  "evaluation_note": "既有湖畔验证/测试区间与基础园测试区间均为冻结后复测，不用于调参"
+}

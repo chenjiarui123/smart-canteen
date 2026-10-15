@@ -1,0 +1,14 @@
+{
+  "python": "3.12.14",
+  "platform": "macOS-15.5-arm64-arm-64bit",
+  "dependencies": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "pydantic": "2.13.5",
+    "fastapi": "0.115.12",
+    "uvicorn": "0.34.3",
+    "pytest": "8.4.1",
+    "httpx": "0.28.1"
+  },
+  "sdk_installation": "local wheel installed to isolated target; existing runtime dependencies reused"
+}

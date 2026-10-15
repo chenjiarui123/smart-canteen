@@ -1,0 +1,13 @@
+{
+  "version": "structural_20260912_v1",
+  "phase1": {"fixed_final_baseline_menu": true, "fixed_final_session_total": true, "total_rtol": 1e-12, "total_atol": 1e-8, "fixed_baseline_unit_group_totals": true},
+  "development": {"a_hupan": ["2025-07-22", "2025-12-31"], "f_jichuyuan": ["2025-01-01", "2025-12-31"], "warmup_calendar_days": 14, "source": "current web datasets; no original-source restoration", "excluded_from_search": "all dates in 2026"},
+  "primary_order": ["total_mape", "hit_qty_mape", "net_benefit"],
+  "selection": {"minimum_hit_mape_improvement_pp": 0.25, "net_relative_loss_max": 0.01, "hit_wmape_relative_increase_max": 0.05, "nonhit_share_absolute_increase_max": 0.005, "absolute_weighted_bias_increase_pp_max": 2.0, "subgroup_dimensions": ["month", "meal", "date_type"], "subgroup_min_hits_for_gate": 100, "subgroup_hit_mape_increase_pp_max": 1.0, "subgroup_hit_mape_relative_increase_max": 0.05, "subgroup_limit_combination": "max(1pp, 5% of baseline); all smaller groups still reported"},
+  "reconciliation": {"historical_q99_multiplier": 2.0, "baseline_change_cap": 2.0, "hhi_ratio_cap": 1.15, "maximum_top_share_increase": 0.03, "infeasible": "explicit conflict and baseline fallback; no relaxed bounds, deleted meals or changed totals"},
+  "phase2_entry": "at least one phase1 model passes all preregistered gates; otherwise do not change menus",
+  "phase2_evaluation": "same primary order and risk gates plus common-hit errors, hit rate, revenue coverage, repeat <=80%, menu count guarantees",
+  "stop": {"fixed_trial_limit": null, "distinct_structural_directions_min": 3, "required": ["single-mechanism tests", "reasonable combinations", "remove-one-component ablations", "final simplified replay", "regression and requirement audit"], "rule": "stop only after at least three distinct structural directions and reasonable combinations/ablations provide no additional stable improvement meeting these gates"},
+  "test_policy": "optional once-only existing-interval retest after freeze, never used for selection or stopping",
+  "deployment": "independent optional module; never overwrite web default"
+}
