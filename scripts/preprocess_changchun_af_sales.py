@@ -16,30 +16,30 @@ CANTEENS = {
     "A": {
         "name": "长春A食堂",
         "source": Path("1-长春A食堂/长春A食堂菜品销量.xlsx"),
-        "mapping": Path("数据/长春A食堂_菜品名称转换映射.csv"),
+        "mapping": Path("research/数据/长春A食堂_菜品名称转换映射.csv"),
         "filename": "长春A食堂_菜品销量_菜名修正后.csv",
     },
     "F": {
         "name": "长春F食堂",
         "source": Path("6-长春F食堂/长春F食堂菜品销量.xlsx"),
-        "mapping": Path("数据/长春F食堂_菜品名称转换映射.csv"),
+        "mapping": Path("research/数据/长春F食堂_菜品名称转换映射.csv"),
         "filename": "长春F食堂_菜品销量_菜名修正后.csv",
     },
     "hupan": {
         "name": "吉大湖畔智慧餐厅",
-        "source": Path("数据/菜品销量_吉大湖畔智慧餐厅.csv"),
-        "mapping": Path("数据/长春A食堂_菜品名称转换映射.csv"),
+        "source": Path("research/数据/菜品销量_吉大湖畔智慧餐厅.csv"),
+        "mapping": Path("research/数据/长春A食堂_菜品名称转换映射.csv"),
         "filename": "菜品销量_吉大湖畔智慧餐厅_菜名修正后.csv",
     },
     "jichuyuan": {
         "name": "吉大南校基础园智慧餐厅",
-        "source": Path("数据/菜品销量_吉大南校基础园智慧餐厅.csv"),
-        "mapping": Path("数据/长春F食堂_菜品名称转换映射.csv"),
+        "source": Path("research/数据/菜品销量_吉大南校基础园智慧餐厅.csv"),
+        "mapping": Path("research/数据/长春F食堂_菜品名称转换映射.csv"),
         "filename": "菜品销量_吉大南校基础园智慧餐厅_菜名修正后.csv",
     },
 }
 
-DEFAULT_WEATHER = Path("数据/长春_2025-01-01至2026-07-12_三餐时段天气.csv")
+DEFAULT_WEATHER = Path("research/数据/长春_2025-01-01至2026-07-12_三餐时段天气.csv")
 
 ACADEMIC_BREAKS = [
     ("2025-01-13", "2025-02-23", "寒假"),
@@ -388,7 +388,7 @@ def compare_with_reference(generated: pd.DataFrame, reference_path: Path) -> Non
 def main() -> None:
     args = parse_args()
     root = args.root.resolve()
-    output_dir = args.output_dir or root / "数据" / "映射转换结果"
+    output_dir = args.output_dir or root / "research" / "数据" / "映射转换结果"
     reference_dir = args.reference_dir.resolve() if args.reference_dir else None
     weather_path = args.weather or root / DEFAULT_WEATHER
     if not weather_path.is_absolute():

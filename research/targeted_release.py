@@ -10,7 +10,7 @@ import pandas as pd
 
 import policy
 import targeted_policy
-from targeted_search import OUT, ROOT, dump, evaluate
+from targeted_search import OUT, ROOT, PROJECT, dump, evaluate
 
 
 def freeze(name):
@@ -104,7 +104,7 @@ def retest(dataset):
 
 def install():
     frozen = OUT / "frozen"
-    web = ROOT / "smart_canteen_web/model"
+    web = PROJECT / "smart_canteen_web/model"
     manifest = json.loads((frozen / "targeted_manifest.json").read_text())
     for name, sha in manifest["files"].items():
         if policy.sha256_file(frozen / name) != sha:

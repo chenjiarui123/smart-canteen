@@ -13,8 +13,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = {
-    "A湖畔": ROOT / "数据/长春A食堂_菜品库.csv",
-    "F基础园": ROOT / "数据/长春F食堂_菜品库.csv",
+    "A湖畔": ROOT / "research/数据/长春A食堂_菜品库.csv",
+    "F基础园": ROOT / "research/数据/长春F食堂_菜品库.csv",
 }
 RUNTIME = {
     "A湖畔": ROOT / "smart_canteen_web/data/datasets/a_hupan/dish_library.csv",
@@ -154,7 +154,7 @@ def apply_file(path: Path, mapping: dict[str, str]) -> int:
 
 def apply(result: pd.DataFrame) -> None:
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    backup = ROOT / "数据/backups" / f"菜品类别第二轮修正_{stamp}"
+    backup = ROOT / "research/数据/backups" / f"菜品类别第二轮修正_{stamp}"
     backup.mkdir(parents=True, exist_ok=False)
     for dataset, path in CANONICAL.items():
         shutil.copy2(path, backup / f"canonical_{dataset}_{path.name}")

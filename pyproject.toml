@@ -1,0 +1,15 @@
+[tool.pytest.ini_options]
+testpaths = ["smart_canteen_web/backend/tests"]
+addopts = "-ra"
+norecursedirs = [
+  ".git",
+  ".venv",
+  ".targeted-venv",
+  "archive",
+  "node_modules",
+  "outputs",
+  "runs",
+  "sdk",
+  "versions",
+  "research/数据",
+]

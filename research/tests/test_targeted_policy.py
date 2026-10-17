@@ -21,7 +21,8 @@ def candidates(n=20):
 
 def config():
     import json
-    return dict(json.loads(Path("config.json").read_text())["best_policy"], adjacent_repeat_hard=True)
+    config_path = Path(__file__).resolve().parents[1] / "config.json"
+    return dict(json.loads(config_path.read_text())["best_policy"], adjacent_repeat_hard=True)
 
 
 def context():

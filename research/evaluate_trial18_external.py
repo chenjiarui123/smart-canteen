@@ -28,6 +28,7 @@ from evaluator import build_failure_cases
 
 
 ROOT = Path(__file__).resolve().parent
+PROJECT = ROOT.parent
 EXTERNAL_PATH = (
     ROOT / "数据/菜品销量_吉大湖畔智慧餐厅_菜名修正后.csv"
 )
@@ -398,7 +399,7 @@ def run_once() -> dict[str, Any]:
             )
             policy.write_json(stop_path, stop)
 
-        version_dir = ROOT / "versions/trial_18"
+        version_dir = PROJECT / "versions/trial_18"
         version_dir.mkdir(parents=True, exist_ok=True)
         for path in [
             ROOT / "config.json",

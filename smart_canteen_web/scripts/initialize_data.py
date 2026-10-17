@@ -14,7 +14,7 @@ import pandas as pd
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SOURCE_ROOT = PROJECT_ROOT.parent
+SOURCE_ROOT = PROJECT_ROOT.parent / "research"
 DATA_ROOT = PROJECT_ROOT / "data"
 
 SALES_COLUMNS = [

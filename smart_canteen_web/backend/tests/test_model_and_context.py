@@ -249,16 +249,24 @@ def test_frozen_model_hashes_and_source_project_unchanged():
         import hashlib
         actual = hashlib.sha256((model_root / filename).read_bytes()).hexdigest()
         assert actual == expected
-    source_root = Path(__file__).resolve().parents[3]
-    if (source_root / "policy.py").exists():
-        import hashlib
-        for filename, expected in MANIFEST[
-            "source_project_integrity_baseline"
-        ].items():
-            assert (
-                hashlib.sha256((source_root / filename).read_bytes()).hexdigest()
-                == expected
-            )
+    source_root = next(
+        (
+            parent / "research"
+            for parent in Path(__file__).resolve().parents
+            if (parent / "research" / "policy.py").is_file()
+        ),
+        None,
+    )
+    if source_root is None:
+        import pytest
+
+        pytest.skip("research source tree not present (standalone release build)")
+    import hashlib
+
+    for filename, expected in MANIFEST["source_project_integrity_baseline"].items():
+        path = source_root / filename
+        assert path.is_file(), f"integrity baseline file missing: {path}"
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == expected
 
 
 def test_frozen_high_frequency_configs_are_byte_unchanged_and_low_is_independent():

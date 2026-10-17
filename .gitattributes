@@ -7,15 +7,15 @@
 * text=auto eol=lf
 
 # 受 SHA-256 锁定 / 参与字节校验的文件：完全禁用换行符转换
-/policy.py                        -text
-/diagnostics.py                   -text
-/evaluator.py                     -text
-/config.json                      -text
-/trial18_freeze_manifest.json     -text
-/trial18_external_evaluation.lock.json -text
-/adaptive_test_evaluation.lock.json    -text
-/trials.jsonl                     -text
-/all_trials.jsonl                 -text
+/research/policy.py                        -text
+/research/diagnostics.py                   -text
+/research/evaluator.py                     -text
+/research/config.json                      -text
+/research/trial18_freeze_manifest.json     -text
+/research/trial18_external_evaluation.lock.json -text
+/research/adaptive_test_evaluation.lock.json    -text
+/research/trials.jsonl                     -text
+/research/all_trials.jsonl                 -text
 smart_canteen_web/model/**        -text
 
 # Windows 批处理需要 CRLF

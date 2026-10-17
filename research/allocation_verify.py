@@ -3,7 +3,7 @@ import json
 import numpy as np
 import pandas as pd
 import policy
-from allocation_prepare import OUT,ROOT,HISTORY,LIBRARY,load_baseline
+from allocation_prepare import OUT,ROOT,PROJECT,HISTORY,LIBRARY,load_baseline
 from targeted_search import dump
 from diagnostics import hit_quantity_diagnostics
 
@@ -16,7 +16,7 @@ def main():
         if name.endswith(".py"):
             assert policy.sha256_file(ROOT/name)==sha
     load_baseline()
-    assert policy.sha256_file(ROOT/"smart_canteen_web/model/targeted_manifest.json")==manifest["web_manifest_sha256"]
+    assert policy.sha256_file(PROJECT/"smart_canteen_web/model/targeted_manifest.json")==manifest["web_manifest_sha256"]
     checks=[]
     for d in ["a","f"]:
         coverage=json.loads((OUT/("development_"+d)/"coverage.json").read_text())

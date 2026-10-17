@@ -16,13 +16,14 @@ from allocation_features import OfferedHistory
 from targeted_search import dump, date_type
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "runs/allocation_20260911"
+PROJECT = ROOT.parent
+OUT = PROJECT / "runs/allocation_20260911"
 HISTORY = {"a":ROOT/"数据/长春A食堂_菜品销量_菜名修正后.csv", "f":ROOT/"数据/长春F食堂_菜品销量_菜名修正后.csv"}
 LIBRARY = {"a":ROOT/"数据/长春A食堂_菜品库.csv", "f":ROOT/"数据/长春F食堂_菜品库.csv"}
 
 
 def load_baseline():
-    path = ROOT/"smart_canteen_web/model"
+    path = PROJECT/"smart_canteen_web/model"
     manifest = json.loads((path/"targeted_manifest.json").read_text())
     for name, sha in manifest["files"].items():
         assert policy.sha256_file(path/name) == sha, name
@@ -41,7 +42,7 @@ def prepare(dataset):
     snapshot = folder/"baseline_source"
     snapshot.mkdir()
     for name in manifest["files"]:
-        shutil.copy2(ROOT/"smart_canteen_web/model"/name, snapshot/name)
+        shutil.copy2(PROJECT/"smart_canteen_web/model"/name, snapshot/name)
     dump(snapshot/"manifest.json",manifest)
     sales = policy.read_sales(HISTORY[dataset])
     assert sales.date.max() <= pd.Timestamp("2025-12-31")
@@ -104,7 +105,7 @@ def prepare(dataset):
     features.to_csv(folder/"features.csv",index=False)
     dump(folder/"baseline_audit.json",audits)
     if dataset == "a":
-        old = pd.read_csv(ROOT/"runs/targeted_20260911/final_verified/recommended_menu.csv",parse_dates=["date"])
+        old = pd.read_csv(PROJECT/"runs/targeted_20260911/final_verified/recommended_menu.csv",parse_dates=["date"])
         pd.testing.assert_frame_equal(recs.reset_index(drop=True),old.reset_index(drop=True),check_exact=False,rtol=1e-12,atol=1e-10)
         coverage["latest_development_baseline_reproduced"] = True
     coverage.update(state="complete",menu_rows=len(recs),session_count=actual.groupby(policy.GROUP_KEYS).ngroups,

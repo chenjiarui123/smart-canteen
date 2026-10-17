@@ -7,11 +7,11 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BACKUP = sorted((ROOT / "数据/backups").glob("菜品类别修正_*"))[-1]
+BACKUP = sorted((ROOT / "research/数据/backups").glob("菜品类别修正_*"))[-1]
 FILES = {
-    "canonical_A": ROOT / "数据/长春A食堂_菜品库.csv",
+    "canonical_A": ROOT / "research/数据/长春A食堂_菜品库.csv",
     "runtime_A": ROOT / "smart_canteen_web/data/datasets/a_hupan/dish_library.csv",
-    "canonical_F": ROOT / "数据/长春F食堂_菜品库.csv",
+    "canonical_F": ROOT / "research/数据/长春F食堂_菜品库.csv",
     "runtime_F": ROOT / "smart_canteen_web/data/datasets/f_jichuyuan/dish_library.csv",
 }
 ALLOWED = {"荤菜", "素菜", "主食", "水果", "甜品"}

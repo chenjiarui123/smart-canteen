@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "research"))
 import policy
 from diagnostics import hit_quantity_diagnostics
 from targeted_search import date_type, dump

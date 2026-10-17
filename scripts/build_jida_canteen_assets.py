@@ -18,16 +18,16 @@ import pandas as pd
 TARGETS = {
     "hupan": {
         "name": "吉大湖畔智慧餐厅",
-        "source": Path("数据/菜品销量_吉大湖畔智慧餐厅.csv"),
+        "source": Path("research/数据/菜品销量_吉大湖畔智慧餐厅.csv"),
         "base_canteen": "长春A食堂",
-        "library": Path("数据/长春A食堂_菜品库.csv"),
+        "library": Path("research/数据/长春A食堂_菜品库.csv"),
         "extension_source": "湖畔食堂扩展",
     },
     "jichuyuan": {
         "name": "吉大南校基础园智慧餐厅",
-        "source": Path("数据/菜品销量_吉大南校基础园智慧餐厅.csv"),
+        "source": Path("research/数据/菜品销量_吉大南校基础园智慧餐厅.csv"),
         "base_canteen": "长春F食堂",
-        "library": Path("数据/长春F食堂_菜品库.csv"),
+        "library": Path("research/数据/长春F食堂_菜品库.csv"),
         "extension_source": "基础园食堂扩展",
     },
 }
@@ -544,13 +544,13 @@ def main() -> None:
     root = args.root.resolve()
     output_mappings = {
         "hupan": args.output_a_mapping
-        or root / "数据" / "长春A食堂_菜品名称转换映射.csv",
+        or root / "research" / "数据" / "长春A食堂_菜品名称转换映射.csv",
         "jichuyuan": args.output_f_mapping
-        or root / "数据" / "长春F食堂_菜品名称转换映射.csv",
+        or root / "research" / "数据" / "长春F食堂_菜品名称转换映射.csv",
     }
     historical_paths = [
-        root / "数据" / "长春A食堂_历史菜品名称转换映射.csv",
-        root / "数据" / "长春F食堂_历史菜品名称转换映射.csv",
+        root / "research" / "数据" / "长春A食堂_历史菜品名称转换映射.csv",
+        root / "research" / "数据" / "长春F食堂_历史菜品名称转换映射.csv",
     ]
     if all(path.exists() for path in historical_paths):
         historical_mapping = pd.concat(
@@ -558,9 +558,9 @@ def main() -> None:
         )
     else:
         historical_mapping = pd.read_csv(
-            root / "数据" / "长春A_F食堂_菜品名称转换映射.csv"
+            root / "research" / "数据" / "长春A_F食堂_菜品名称转换映射.csv"
         )
-    dishes = pd.read_csv(root / "dishes.csv")
+    dishes = pd.read_csv(root / "research" / "dishes.csv")
     libraries = {
         code: pd.read_csv(root / config["library"]) for code, config in TARGETS.items()
     }
@@ -692,7 +692,7 @@ def main() -> None:
         )
         print(f"已生成 {output_path}：{len(group_mapping)} 条映射")
     summary = pd.DataFrame(summary_rows)
-    summary_path = root / "数据" / "湖畔_基础园_菜品映射与菜品库扩展汇总.csv"
+    summary_path = root / "research" / "数据" / "湖畔_基础园_菜品映射与菜品库扩展汇总.csv"
     summary.to_csv(summary_path, index=False, encoding="utf-8-sig")
     print(summary.to_string(index=False))
 

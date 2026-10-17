@@ -3,11 +3,11 @@ import json
 import shutil
 from pathlib import Path
 import policy
-from structural_data import ROOT, DATASETS, sales_subset, verify_protected
+from structural_data import ROOT, PROJECT, DATASETS, sales_subset, verify_protected
 from targeted_search import dump
 
-OUT=ROOT/"runs/demand_20260913"
-PREVIOUS=ROOT/"runs/structural_20260912"
+OUT=PROJECT/"runs/demand_20260913"
+PREVIOUS=PROJECT/"runs/structural_20260912"
 
 
 def register():
@@ -25,7 +25,9 @@ def verify():
     verify_protected()
     r=json.loads((OUT/"preregistration.json").read_text())
     assert policy.sha256_file(ROOT/"demand_protocol.json")==r["protocol_sha256"]
-    for name,sha in r["protected"].items():assert policy.sha256_file(ROOT/name)==sha,name
+    for name,sha in r["protected"].items():
+        p=ROOT/name
+        assert policy.sha256_file(p if p.exists() else PROJECT/name)==sha,name
 
 
 def assets(dataset):

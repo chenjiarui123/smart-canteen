@@ -24,14 +24,14 @@ CANTEENS = {
     "A": {
         "name": "长春A食堂",
         "source": Path("1-长春A食堂/长春A食堂菜品销量.xlsx"),
-        "reference": Path("数据/长春A食堂_菜品销量_菜名修正后.csv"),
-        "library": Path("数据/长春A食堂_菜品库.csv"),
+        "reference": Path("research/数据/长春A食堂_菜品销量_菜名修正后.csv"),
+        "library": Path("research/数据/长春A食堂_菜品库.csv"),
     },
     "F": {
         "name": "长春F食堂",
         "source": Path("6-长春F食堂/长春F食堂菜品销量.xlsx"),
-        "reference": Path("数据/长春F食堂_菜品销量_菜名修正后.csv"),
-        "library": Path("数据/长春F食堂_菜品库.csv"),
+        "reference": Path("research/数据/长春F食堂_菜品销量_菜名修正后.csv"),
+        "library": Path("research/数据/长春F食堂_菜品库.csv"),
     },
 }
 
@@ -257,7 +257,7 @@ def main() -> None:
     root = args.root.resolve()
     output = (
         args.output
-        or root / "数据" / f"长春{args.canteen}食堂_历史菜品名称转换映射.csv"
+        or root / "research" / "数据" / f"长春{args.canteen}食堂_历史菜品名称转换映射.csv"
     )
     mapping = build_mapping(root, args.canteen)
     output.parent.mkdir(parents=True, exist_ok=True)

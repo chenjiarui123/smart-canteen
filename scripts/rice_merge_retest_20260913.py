@@ -15,7 +15,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "outputs/rice_merge_retest_20260913"
 DATA = ROOT / "smart_canteen_web/data"
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "research"))
 sys.path.insert(0, str(ROOT / "smart_canteen_web/backend"))
 import policy
 from targeted_search import dump, evaluate
@@ -91,7 +91,7 @@ def migrate():
                      removed_duplicate_library_record=rice_library.loc[rice_library["菜品名称"].eq("米饭🍚")].to_dict("records")[0])
         protected = [p for p in (ROOT / "smart_canteen_web/model").iterdir() if p.is_file()]
         protected += [DATA / "datasets/f_jichuyuan" / n for n in ["sales.csv", "dish_library.csv"]]
-        protected += [ROOT / n for n in ["policy.py", "evaluator.py", "diagnostics.py"]]
+        protected += [ROOT / "research" / n for n in ["policy.py", "evaluator.py", "diagnostics.py"]]
         audit["protected_hashes"] = {str(p.relative_to(ROOT)): policy.sha256_file(p) for p in protected}
         for path in paths:
             backup = OUT / "backup" / path.relative_to(DATA)

@@ -17,6 +17,7 @@ from diagnostics import menu_capacity_diagnostics
 
 
 ROOT = Path(__file__).resolve().parent
+PROJECT = ROOT.parent
 
 
 def _write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -244,7 +245,7 @@ def main() -> None:
     }
     policy.write_json(ROOT / "stop_audit.json", stop_audit)
 
-    version_dir = ROOT / "versions" / f"trial_{best_index}"
+    version_dir = PROJECT / "versions" / f"trial_{best_index}"
     version_dir.mkdir(parents=True, exist_ok=True)
     for filename in [
         "policy.py",

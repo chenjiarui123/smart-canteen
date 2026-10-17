@@ -44,9 +44,9 @@ versions/
 9-长春I食堂/
 
 # ---------- 生成的大体积推荐结果 CSV ----------
-recommended_menu.csv
-trial18_test_recommended_menu.csv
-trial18_validation_recommended_menu.csv
+research/recommended_menu.csv
+research/trial18_test_recommended_menu.csv
+research/trial18_validation_recommended_menu.csv
 
 # ---------- 构建产物 ----------
 sdk.zip
@@ -71,9 +71,9 @@ outputs/ppt_render_final/
 outputs/recommendation_usage_backup_20260914_172542/
 
 # ---------- 原始供应商 Excel（超过 150 MB，可另行归档）----------
-数据/*.xlsx
-数据/用餐者*.xlsx
-数据/*_销量处理后.csv
+research/数据/*.xlsx
+research/数据/用餐者*.xlsx
+research/数据/*_销量处理后.csv
 
 # ---------- smart_canteen_web 运行时目录 ----------
 smart_canteen_web/data/staging/*
@@ -85,3 +85,7 @@ smart_canteen_web/frontend/dist/
 !smart_canteen_web/data/backups/.gitkeep
 !smart_canteen_web/data/.locks/.gitkeep
 !smart_canteen_web/temp_recommendations/.gitkeep
+
+# ---------- flat-research compatibility symlinks (local only) ----------
+research/runs
+research/smart_canteen_web

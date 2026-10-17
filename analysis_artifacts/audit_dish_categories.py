@@ -13,8 +13,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 LIBRARIES = {
-    "A": ROOT / "数据/长春A食堂_菜品库.csv",
-    "F": ROOT / "数据/长春F食堂_菜品库.csv",
+    "A": ROOT / "research/数据/长春A食堂_菜品库.csv",
+    "F": ROOT / "research/数据/长春F食堂_菜品库.csv",
 }
 RUNTIME_LIBRARIES = {
     "A": ROOT / "smart_canteen_web/data/datasets/a_hupan/dish_library.csv",
@@ -262,7 +262,7 @@ def apply_to_file(path: Path, name_to_category: dict[str, str]) -> int:
 
 def apply_changes(result: pd.DataFrame) -> None:
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    backup_dir = ROOT / "数据/backups" / f"菜品类别修正_{stamp}"
+    backup_dir = ROOT / "research/数据/backups" / f"菜品类别修正_{stamp}"
     backup_dir.mkdir(parents=True, exist_ok=False)
     all_paths = {**{f"canonical_{k}": v for k, v in LIBRARIES.items()},
                  **{f"runtime_{k}": v for k, v in RUNTIME_LIBRARIES.items()}}

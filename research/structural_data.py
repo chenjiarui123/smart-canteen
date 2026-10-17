@@ -10,8 +10,9 @@ from allocation_prepare import load_baseline
 from targeted_search import dump
 
 ROOT=Path(__file__).resolve().parent
-OUT=ROOT/"runs/structural_20260912"
-WEB=ROOT/"smart_canteen_web/data"
+PROJECT=ROOT.parent
+OUT=PROJECT/"runs/structural_20260912"
+WEB=PROJECT/"smart_canteen_web/data"
 DATASETS=("a_hupan","f_jichuyuan")
 
 
@@ -47,15 +48,15 @@ def preregister():
             p=WEB/"datasets"/ds/name
             actual=policy.sha256_file(p)
             assert actual==d[key],(ds,name)
-            protected[str(p.relative_to(ROOT))]=actual
+            protected[str(p.relative_to(PROJECT))]=actual
     for name in manifest["files"]:
-        protected["smart_canteen_web/model/"+name]=policy.sha256_file(ROOT/"smart_canteen_web/model"/name)
+        protected["smart_canteen_web/model/"+name]=policy.sha256_file(PROJECT/"smart_canteen_web/model"/name)
     for name in ["policy.py","evaluator.py","diagnostics.py"]:
         protected[name]=policy.sha256_file(ROOT/name)
     snapshot=OUT/"baseline_source"
     snapshot.mkdir()
     for name in manifest["files"]:
-        shutil.copy2(ROOT/"smart_canteen_web/model"/name,snapshot/name)
+        shutil.copy2(PROJECT/"smart_canteen_web/model"/name,snapshot/name)
     shutil.copy2(ROOT/"structural_protocol.json",OUT/"preregistered_protocol.json")
     dump(OUT/"effective_baseline_config.json",config)
     dump(OUT/"preregistration.json",{"created_at":pd.Timestamp.now(tz="Asia/Shanghai").isoformat(),
@@ -70,7 +71,8 @@ def verify_protected():
     record=json.loads((OUT/"preregistration.json").read_text())
     assert policy.sha256_file(ROOT/"structural_protocol.json")==record["protocol_sha256"]
     for name,sha in record["protected"].items():
-        assert policy.sha256_file(ROOT/name)==sha,name
+        p=ROOT/name
+        assert policy.sha256_file(p if p.exists() else PROJECT/name)==sha,name
     return record
 
 

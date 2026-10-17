@@ -11,7 +11,7 @@ import types
 import pandas as pd
 
 import policy
-from allocation_prepare import ROOT,OUT,HISTORY,LIBRARY,load_baseline
+from allocation_prepare import ROOT,PROJECT,OUT,HISTORY,LIBRARY,load_baseline
 from allocation_features import OfferedHistory
 from allocation_experiments import walk,diagnose
 from targeted_search import date_type,dump
@@ -35,7 +35,7 @@ def freeze(a_name,f_name):
     manifest={"version":"fixed_menu_total_allocation_20260911","frozen_at":pd.Timestamp.now().isoformat(),
               "development_runs":{"a":a_name,"f":f_name},"status":"frozen","web_default_switched":False,
               "files":{p.name:policy.sha256_file(p) for p in folder.iterdir() if p.is_file()},
-              "web_manifest_sha256":policy.sha256_file(ROOT/"smart_canteen_web/model/targeted_manifest.json"),
+              "web_manifest_sha256":policy.sha256_file(PROJECT/"smart_canteen_web/model/targeted_manifest.json"),
               "evaluation_note":"既有2026区间复测，冻结后一次运行；禁止依据复测调参"}
     dump(folder/"allocation_manifest.json",manifest)
     print(json.dumps(manifest,ensure_ascii=False),flush=True)
@@ -102,7 +102,7 @@ def retest(dataset):
     baseline=pd.concat(menus,ignore_index=True)
     features=pd.concat(feature_rows,ignore_index=True).merge(pd.DataFrame(raw_rows),on=policy.GROUP_KEYS+["_dish_norm"],validate="one_to_one")
     oldname="hupan" if dataset=="a" else "jichuyuan"
-    old=pd.read_csv(ROOT/"runs/targeted_20260911"/("retest_"+oldname)/"new_recommended_menu.csv",parse_dates=["date"])
+    old=pd.read_csv(PROJECT/"runs/targeted_20260911"/("retest_"+oldname)/"new_recommended_menu.csv",parse_dates=["date"])
     pd.testing.assert_frame_equal(baseline.reset_index(drop=True),old.reset_index(drop=True),check_exact=False,rtol=1e-12,atol=1e-8)
     baseline.to_csv(folder/"baseline_menu.csv",index=False)
     features.to_pickle(folder/"features.pkl")

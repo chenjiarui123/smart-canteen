@@ -5,14 +5,14 @@ from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path("/Users/liushilin/Smart Canteen Heuristic Learning")
-BACKUP_ROOT = ROOT / "数据" / "backups"
+ROOT = Path(__file__).resolve().parents[1]
+BACKUP_ROOT = ROOT / "research" / "数据" / "backups"
 REPORT_DIR = ROOT / "reports"
 
 CURRENT = {
-    "canonical_A湖畔": ROOT / "数据" / "长春A食堂_菜品库.csv",
+    "canonical_A湖畔": ROOT / "research" / "数据" / "长春A食堂_菜品库.csv",
     "runtime_A湖畔": ROOT / "smart_canteen_web" / "data" / "datasets" / "a_hupan" / "dish_library.csv",
-    "canonical_F基础园": ROOT / "数据" / "长春F食堂_菜品库.csv",
+    "canonical_F基础园": ROOT / "research" / "数据" / "长春F食堂_菜品库.csv",
     "runtime_F基础园": ROOT / "smart_canteen_web" / "data" / "datasets" / "f_jichuyuan" / "dish_library.csv",
 }
 

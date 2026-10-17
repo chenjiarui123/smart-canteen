@@ -29,6 +29,7 @@ from diagnostics import (
 
 
 ROOT = Path(__file__).resolve().parent
+PROJECT = ROOT.parent
 TRIALS_PATH = ROOT / "trials.jsonl"
 SELECTION_CORRECTIONS_PATH = ROOT / "selection_corrections.jsonl"
 SEGMENTS_PATH = ROOT / "trial_segment_metrics.csv"
@@ -38,7 +39,7 @@ BEST_CONFIG_PATH = ROOT / "config.json"
 BEST_MENU_PATH = ROOT / "recommended_menu.csv"
 BEST_HIT_FAILURES_PATH = ROOT / "failure_cases.csv"
 MISSED_REVENUE_PATH = ROOT / "missed_high_revenue_dishes.csv"
-VERSIONS_DIR = ROOT / "versions"
+VERSIONS_DIR = PROJECT / "versions"
 ARCHIVED_BASELINE_CONFIG = (
     ROOT
     / "archive/factor_capacity_phase0_trial108_20260727/adaptive_config.json"
