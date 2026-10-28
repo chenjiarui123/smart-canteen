@@ -2,9 +2,25 @@ import json
 import numpy as np
 import pandas as pd
 import pytest
+import demand_data
 from demand_data import OUT
 from demand_experiments import load
 from demand_runtime import LockedMenuPredictor
+from provenance import verify_registered_snapshot
+
+
+@pytest.fixture(autouse=True)
+def use_frozen_demand_snapshot(monkeypatch):
+    snapshot = OUT / "snapshot"
+    if not snapshot.is_dir():
+        pytest.skip("frozen demand snapshot unavailable")
+
+    def verify_snapshot():
+        return verify_registered_snapshot(
+            OUT / "preregistration.json", snapshot
+        )
+
+    monkeypatch.setattr(demand_data, "verify", verify_snapshot)
 
 
 @pytest.mark.parametrize("trial",["linear_all_log","conditional_all_log","direct_relative"])

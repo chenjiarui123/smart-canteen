@@ -1,15 +1,34 @@
-"""Current rice-merged, fingerprint-protected fixtures (never old cache)."""
+"""Current rice-merged fixtures replayed against immutable registered snapshots."""
 import json
+import sys
 import numpy as np
 import pandas as pd
 import pytest
 import policy
+import phase_data
+import phase_features
+import phase_item_experiments
 from phase_data import OUT,verify
 from phase_features import PhaseHistory,assets
 from phase_calendar import PhaseCalendar
 from phase_models import walk
 from phase_item_experiments import load
 from demand_coordination import coordinate
+from provenance import verify_registered_snapshot
+
+
+@pytest.fixture(autouse=True)
+def use_frozen_phase_snapshot(monkeypatch):
+    snapshot = OUT / "snapshot"
+    if not snapshot.is_dir():
+        pytest.skip("frozen phase snapshot unavailable")
+
+    def verify_snapshot():
+        return verify_registered_snapshot(OUT / "registration.json", snapshot)
+
+    for module in (phase_data, phase_features, phase_item_experiments):
+        monkeypatch.setattr(module, "verify", verify_snapshot)
+    monkeypatch.setattr(sys.modules[__name__], "verify", verify_snapshot)
 
 
 def test_target_outcome_poison_does_not_change_context():
@@ -52,7 +71,7 @@ def test_new_coordinator_preserves_metadata_units_and_demand_preparation():
     np.testing.assert_allclose(new.suggested_preparation_qty,np.maximum(new.pred_qty,new.min_batch_qty))
 
 
-def test_original_protected_live_and_snapshot_files_unchanged():
+def test_frozen_protected_snapshot_files_unchanged():
     assert verify()["model_version"]=="targeted_repeat_holiday_20260911"
 
 

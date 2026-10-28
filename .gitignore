@@ -56,6 +56,7 @@ sdk/.installed/
 *.egg-info/
 
 # ---------- outputs/ 中间产物与临时渲染 ----------
+outputs/delivery_acceptance_*/exports/
 outputs/data_update_test_20260824/
 outputs/rice_merge_retest_20260913/
 outputs/cleaned_retest_20260912/

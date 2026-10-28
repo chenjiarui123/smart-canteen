@@ -1,0 +1,6 @@
+[
+  {
+    "path": "/api/health",
+    "error": "ConnectError: [Errno 1] Operation not permitted"
+  }
+]

@@ -329,4 +329,16 @@ python3 -m venv --system-site-packages .venv
 
 两个清单里其余条目（phase 20/21、demand 10/12）哈希均一致。要修复需要在「回退数据文件」和「重跑并重新登记」之间二选一，属于业务决策，整理阶段未改动。
 
-`research/tests/` 依赖 `runs/` 下的回测产物，而 `runs/` 不入库，因此**从全新克隆直接跑 `research/tests/` 会因缺少 fixture 而报错**；`runs/` 缺失时 `test_demand_runtime.py` 会 skip，`test_phase_runtime.py` 会 error。CI 建议只跑 `smart_canteen_web/backend/tests`。
+`research/tests/` 依赖 `runs/` 下的回测产物，而 `runs/` 不入库，因此**从全新克隆直接跑 `research/tests/` 会因缺少 fixture 而报错**；`runs/` 缺失时，两个 runtime 测试模块会检查冻结快照并显式 skip，其他历史测试仍可能因缺少产物报错。CI 建议只跑 `smart_canteen_web/backend/tests`。
+
+### 冻结快照复现修复（2026-10-24）
+
+接手时记录的 76 passed / 9 failed 已修复为 **85 passed**。处理原则是不回退生产数据、不修改预注册哈希：
+
+- `runs/demand_20260913/snapshot/` 按 `preregistration.json` 重建 12 个冻结输入，其中 A湖畔旧销售和菜品库来自 `outputs/rice_merge_retest_20260913/backup/`，其余文件哈希与登记一致；
+- `runs/phase_20260913/snapshot/` 原本已保存 21 个冻结文件，历史测试改为直接校验该快照；
+- A湖畔后续米饭合并、`active_strategy.py` 后续 UTF-8-SIG 兼容改动均保留在生产路径，生产文件由 Web 测试校验，不再作为历史实验的可变输入；
+- 新增 `research/tests/provenance.py`，历史 runtime 测试统一通过 `verify_registered_snapshot()` 校验快照；
+- 全新克隆缺少 `runs/` 中的快照时，相关历史测试显式 skip，不伪造通过。
+
+该修复只改变历史实验读取的输入来源，不改变冻结清单、冻结模型、历史缓存预测或任何研究结论。

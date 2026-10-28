@@ -1,0 +1,839 @@
+{
+  "audit_date": "2026-10-19",
+  "scope": "read-only aggregate data and frozen-asset audit; no training or application test run",
+  "data_manifest_updated_at": "2026-09-13T21:15:41.275511+08:00",
+  "active_strategy": "targeted_repeat_holiday_20260911",
+  "features": {
+    "weather": {
+      "rows": 511,
+      "schema": [
+        "日期",
+        "气温（℃）",
+        "相对湿度（%）",
+        "降水量（毫米）",
+        "10米风速（公里/小时）"
+      ],
+      "duplicate_dates": 0,
+      "invalid_dates": 0,
+      "date_range": [
+        "2025-01-01",
+        "2026-06-10"
+      ],
+      "missing_calendar_dates_count": 15,
+      "missing_calendar_dates": [
+        "2025-07-06",
+        "2025-07-07",
+        "2025-07-08",
+        "2025-07-09",
+        "2025-07-10",
+        "2025-07-11",
+        "2025-07-12",
+        "2025-07-13",
+        "2025-07-14",
+        "2025-07-15",
+        "2025-07-16",
+        "2025-07-17",
+        "2025-07-18",
+        "2025-07-19",
+        "2025-07-20"
+      ],
+      "missing_cells": {
+        "日期": 0,
+        "气温（℃）": 0,
+        "相对湿度（%）": 0,
+        "降水量（毫米）": 0,
+        "10米风速（公里/小时）": 0
+      },
+      "manifest_rows_ok": true,
+      "sha256": "66ae7232365dac0baea1c26fc21a94c592859a829c46aa2b0e5858003710896b"
+    },
+    "calendar": {
+      "rows": 511,
+      "schema": [
+        "日期",
+        "星期",
+        "是否校历寒暑假",
+        "校历假期类型",
+        "是否法定节假日假期",
+        "法定节假日名称",
+        "是否调休工作日"
+      ],
+      "duplicate_dates": 0,
+      "invalid_dates": 0,
+      "date_range": [
+        "2025-01-01",
+        "2026-06-10"
+      ],
+      "missing_calendar_dates_count": 15,
+      "missing_calendar_dates": [
+        "2025-07-06",
+        "2025-07-07",
+        "2025-07-08",
+        "2025-07-09",
+        "2025-07-10",
+        "2025-07-11",
+        "2025-07-12",
+        "2025-07-13",
+        "2025-07-14",
+        "2025-07-15",
+        "2025-07-16",
+        "2025-07-17",
+        "2025-07-18",
+        "2025-07-19",
+        "2025-07-20"
+      ],
+      "missing_cells": {
+        "日期": 0,
+        "星期": 0,
+        "是否校历寒暑假": 0,
+        "校历假期类型": 0,
+        "是否法定节假日假期": 0,
+        "法定节假日名称": 0,
+        "是否调休工作日": 0
+      },
+      "manifest_rows_ok": true,
+      "sha256": "b69d878cb382f204733bba62860f7345a036f2546ed2d5bc9781425cfc736b17"
+    }
+  },
+  "datasets": {
+    "a_hupan": {
+      "display_name": "A湖畔智慧餐厅",
+      "sales_rows": 91928,
+      "schema": [
+        "年",
+        "月",
+        "日",
+        "餐次",
+        "星期",
+        "是否校历寒暑假",
+        "校历假期类型",
+        "是否法定节假日假期",
+        "法定节假日名称",
+        "是否调休工作日",
+        "气温（℃）",
+        "相对湿度（%）",
+        "降水量（毫米）",
+        "10米风速（公里/小时）",
+        "菜品名称",
+        "菜品总销量",
+        "菜品售卖单位",
+        "订单数量",
+        "菜品单价",
+        "销售额",
+        "平均取菜量",
+        "食堂名称"
+      ],
+      "runtime_sales_rows": 0,
+      "runtime_schema_matches_sales": true,
+      "recommendation_history_rows": 0,
+      "date_range": [
+        "2025-07-22",
+        "2026-06-10"
+      ],
+      "days_since_history_end": 131,
+      "distinct_sales_days": 324,
+      "meal_counts": {
+        "午餐": 39801,
+        "晚餐": 33849,
+        "早餐": 18278
+      },
+      "invalid_dates": 0,
+      "future_sales_rows": 0,
+      "duplicate_business_key_rows": 0,
+      "duplicate_complete_rows": 0,
+      "empty_dish_names": 0,
+      "sales_dish_count": 2147,
+      "unmatched_sales_rows": 0,
+      "unmatched_distinct_dishes": 0,
+      "canteen_values": [
+        "A湖畔智慧餐厅"
+      ],
+      "cross_dataset_canteen_rows": 0,
+      "library_rows": 2147,
+      "library_schema": [
+        "菜品id",
+        "菜品名称",
+        "类别",
+        "颜色",
+        "营养",
+        "口味",
+        "特征来源",
+        "主要食材"
+      ],
+      "library_duplicate_normalised_names": 0,
+      "library_duplicate_ids": 0,
+      "library_empty_ids": 0,
+      "library_missing_cells": {
+        "菜品id": 0,
+        "菜品名称": 0,
+        "类别": 0,
+        "颜色": 0,
+        "营养": 0,
+        "口味": 0,
+        "特征来源": 0,
+        "主要食材": 63
+      },
+      "library_dynamic_statistics_columns": [],
+      "unit_row_counts": {
+        "克": 90434,
+        "份": 1195,
+        "个": 233,
+        "盒": 45,
+        "块": 18,
+        "听": 3
+      },
+      "historically_changed_unit_dishes": 8,
+      "changed_unit_dish_meal_pairs": 12,
+      "changed_unit_rows": 616,
+      "changed_unit_pairs": {
+        "份 + 听": 1,
+        "克 + 块": 1,
+        "份 + 克": 6
+      },
+      "missing_context_cells": {
+        "星期": 0,
+        "是否校历寒暑假": 0,
+        "校历假期类型": 0,
+        "是否法定节假日假期": 0,
+        "法定节假日名称": 0,
+        "是否调休工作日": 0,
+        "气温（℃）": 0,
+        "相对湿度（%）": 0,
+        "降水量（毫米）": 0,
+        "10米风速（公里/小时）": 0
+      },
+      "missing_feature_dates_for_sales": {
+        "weather": 0,
+        "calendar": 0
+      },
+      "numeric_checks": {
+        "菜品总销量": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "订单数量": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "销售额": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 163
+        },
+        "平均取菜量": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "气温（℃）": {
+          "not_finite": 0,
+          "negative": 24657,
+          "zero": 96
+        },
+        "相对湿度（%）": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "降水量（毫米）": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 83772
+        },
+        "10米风速（公里/小时）": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 102
+        }
+      },
+      "manifest_checks": {
+        "sales_rows": true,
+        "date_range": true,
+        "sales_sha256": true,
+        "dish_library_sha256": true
+      }
+    },
+    "f_jichuyuan": {
+      "display_name": "F基础园智慧餐厅",
+      "sales_rows": 119064,
+      "schema": [
+        "年",
+        "月",
+        "日",
+        "餐次",
+        "星期",
+        "是否校历寒暑假",
+        "校历假期类型",
+        "是否法定节假日假期",
+        "法定节假日名称",
+        "是否调休工作日",
+        "气温（℃）",
+        "相对湿度（%）",
+        "降水量（毫米）",
+        "10米风速（公里/小时）",
+        "菜品名称",
+        "菜品总销量",
+        "菜品售卖单位",
+        "订单数量",
+        "菜品单价",
+        "销售额",
+        "平均取菜量",
+        "食堂名称"
+      ],
+      "runtime_sales_rows": 0,
+      "runtime_schema_matches_sales": true,
+      "recommendation_history_rows": 0,
+      "date_range": [
+        "2025-01-01",
+        "2026-06-10"
+      ],
+      "days_since_history_end": 131,
+      "distinct_sales_days": 432,
+      "meal_counts": {
+        "午餐": 49562,
+        "晚餐": 43568,
+        "早餐": 25934
+      },
+      "invalid_dates": 0,
+      "future_sales_rows": 0,
+      "duplicate_business_key_rows": 0,
+      "duplicate_complete_rows": 0,
+      "empty_dish_names": 0,
+      "sales_dish_count": 2197,
+      "unmatched_sales_rows": 0,
+      "unmatched_distinct_dishes": 0,
+      "canteen_values": [
+        "F基础园智慧餐厅"
+      ],
+      "cross_dataset_canteen_rows": 0,
+      "library_rows": 2197,
+      "library_schema": [
+        "菜品id",
+        "菜品名称",
+        "类别",
+        "颜色",
+        "营养",
+        "口味",
+        "特征来源",
+        "主要食材"
+      ],
+      "library_duplicate_normalised_names": 0,
+      "library_duplicate_ids": 0,
+      "library_empty_ids": 0,
+      "library_missing_cells": {
+        "菜品id": 0,
+        "菜品名称": 0,
+        "类别": 0,
+        "颜色": 0,
+        "营养": 0,
+        "口味": 0,
+        "特征来源": 0,
+        "主要食材": 53
+      },
+      "library_dynamic_statistics_columns": [],
+      "unit_row_counts": {
+        "克": 116535,
+        "份": 1660,
+        "个": 539,
+        "瓶": 197,
+        "块": 74,
+        "盒": 59
+      },
+      "historically_changed_unit_dishes": 2,
+      "changed_unit_dish_meal_pairs": 5,
+      "changed_unit_rows": 844,
+      "changed_unit_pairs": {
+        "个 + 克": 2
+      },
+      "missing_context_cells": {
+        "星期": 0,
+        "是否校历寒暑假": 0,
+        "校历假期类型": 0,
+        "是否法定节假日假期": 0,
+        "法定节假日名称": 0,
+        "是否调休工作日": 0,
+        "气温（℃）": 0,
+        "相对湿度（%）": 0,
+        "降水量（毫米）": 0,
+        "10米风速（公里/小时）": 0
+      },
+      "missing_feature_dates_for_sales": {
+        "weather": 0,
+        "calendar": 0
+      },
+      "numeric_checks": {
+        "菜品总销量": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "订单数量": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "销售额": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 395
+        },
+        "平均取菜量": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "气温（℃）": {
+          "not_finite": 0,
+          "negative": 28245,
+          "zero": 0
+        },
+        "相对湿度（%）": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 0
+        },
+        "降水量（毫米）": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 107684
+        },
+        "10米风速（公里/小时）": {
+          "not_finite": 0,
+          "negative": 0,
+          "zero": 84
+        }
+      },
+      "manifest_checks": {
+        "sales_rows": true,
+        "date_range": true,
+        "sales_sha256": true,
+        "dish_library_sha256": true
+      }
+    }
+  },
+  "registry_directories_distinct": true,
+  "assets": {
+    "web_trial18_code": {
+      "count": 3,
+      "passed": 3,
+      "checks": [
+        {
+          "file": "policy.py",
+          "expected": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "actual": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "ok": true
+        },
+        {
+          "file": "diagnostics.py",
+          "expected": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "actual": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "ok": true
+        },
+        {
+          "file": "evaluator.py",
+          "expected": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "actual": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "ok": true
+        }
+      ]
+    },
+    "web_active_targeted": {
+      "count": 5,
+      "passed": 5,
+      "checks": [
+        {
+          "file": "targeted_config.json",
+          "expected": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+          "actual": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+          "ok": true
+        },
+        {
+          "file": "diagnostics.py",
+          "expected": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "actual": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "ok": true
+        },
+        {
+          "file": "policy.py",
+          "expected": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "actual": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "ok": true
+        },
+        {
+          "file": "targeted_policy.py",
+          "expected": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+          "actual": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+          "ok": true
+        },
+        {
+          "file": "evaluator.py",
+          "expected": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "actual": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "ok": true
+        }
+      ]
+    },
+    "research_frozen_baseline": {
+      "count": 9,
+      "passed": 9,
+      "checks": [
+        {
+          "file": "policy.py",
+          "expected": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "actual": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "ok": true
+        },
+        {
+          "file": "diagnostics.py",
+          "expected": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "actual": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "ok": true
+        },
+        {
+          "file": "evaluator.py",
+          "expected": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "actual": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "ok": true
+        },
+        {
+          "file": "config.json",
+          "expected": "5d1a14a74a873a8bf5943875571128e1ccc7b4346e388a8cdb92ad83f25a2b54",
+          "actual": "5d1a14a74a873a8bf5943875571128e1ccc7b4346e388a8cdb92ad83f25a2b54",
+          "ok": true
+        },
+        {
+          "file": "trial18_freeze_manifest.json",
+          "expected": "6fac923c7c87fb70dd60ec2b9dcdff5bd21807747030290b5e0f0701f4a19a29",
+          "actual": "6fac923c7c87fb70dd60ec2b9dcdff5bd21807747030290b5e0f0701f4a19a29",
+          "ok": true
+        },
+        {
+          "file": "trial18_external_evaluation.lock.json",
+          "expected": "33d8a501bda0f37a47353388e0e13d9a66265ea138618e9d43c7084a77e45833",
+          "actual": "33d8a501bda0f37a47353388e0e13d9a66265ea138618e9d43c7084a77e45833",
+          "ok": true
+        },
+        {
+          "file": "adaptive_test_evaluation.lock.json",
+          "expected": "5a2242c57cde70d4267aa6ca63be9816e2d5747950eebd12aa3b2c2526b5540d",
+          "actual": "5a2242c57cde70d4267aa6ca63be9816e2d5747950eebd12aa3b2c2526b5540d",
+          "ok": true
+        },
+        {
+          "file": "trials.jsonl",
+          "expected": "3ec9674ee67dc5f9ab4c5dc6cc884004b523a27cc40a3b7ee4a391622846c8d4",
+          "actual": "3ec9674ee67dc5f9ab4c5dc6cc884004b523a27cc40a3b7ee4a391622846c8d4",
+          "ok": true
+        },
+        {
+          "file": "all_trials.jsonl",
+          "expected": "c1b7ce16eab2ba3d2c392d25618a686801e17f75d031a291efba3d5e12bdab68",
+          "actual": "c1b7ce16eab2ba3d2c392d25618a686801e17f75d031a291efba3d5e12bdab68",
+          "ok": true
+        }
+      ]
+    },
+    "sdk_bundled_files": {
+      "count": 21,
+      "passed": 21,
+      "checks": [
+        {
+          "file": "_vendor/__init__.py",
+          "expected": "6c62fb772b9c3cd577d566f4a675b674e6519c91071de777f9f96bc73cf5d588",
+          "actual": "6c62fb772b9c3cd577d566f4a675b674e6519c91071de777f9f96bc73cf5d588",
+          "ok": true
+        },
+        {
+          "file": "_vendor/active_strategy.py",
+          "expected": "33a47e65e20ce63ac124bb8d391b1073a1d532a0179ec1c2e9fdbf3c1d3f3e95",
+          "actual": "33a47e65e20ce63ac124bb8d391b1073a1d532a0179ec1c2e9fdbf3c1d3f3e95",
+          "ok": true
+        },
+        {
+          "file": "_vendor/context_builder.py",
+          "expected": "1cef05b914273e4f1b8418193889784507cad9999e26c03db4b920f8cee559ef",
+          "actual": "1cef05b914273e4f1b8418193889784507cad9999e26c03db4b920f8cee559ef",
+          "ok": true
+        },
+        {
+          "file": "_vendor/dataset_repository.py",
+          "expected": "e47bedcb75444fb0210d43bf97c0555350f4715bc4f34c8e4c4df6913027520b",
+          "actual": "e47bedcb75444fb0210d43bf97c0555350f4715bc4f34c8e4c4df6913027520b",
+          "ok": true
+        },
+        {
+          "file": "_vendor/high_frequency_recommender.py",
+          "expected": "837a723de637d46cd65e369992e7548b4857b4f5ee5e22ee96a07c3ef7e98377",
+          "actual": "837a723de637d46cd65e369992e7548b4857b4f5ee5e22ee96a07c3ef7e98377",
+          "ok": true
+        },
+        {
+          "file": "_vendor/low_frequency_config.json",
+          "expected": "7f97d674774bd1584d00c0a12c5acb310683606b988e1769b041d0d16b4341e8",
+          "actual": "7f97d674774bd1584d00c0a12c5acb310683606b988e1769b041d0d16b4341e8",
+          "ok": true
+        },
+        {
+          "file": "_vendor/low_frequency_recommender.py",
+          "expected": "71d3943f0aff4c51baec82218113e8e286ffecc24e72066e3c8e3e9088b199d5",
+          "actual": "71d3943f0aff4c51baec82218113e8e286ffecc24e72066e3c8e3e9088b199d5",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/best_policy.json",
+          "expected": "fb129adf7c44354de5027579309d9bdb3a71f2fa4a2cb22af8f78918b5e6687b",
+          "actual": "fb129adf7c44354de5027579309d9bdb3a71f2fa4a2cb22af8f78918b5e6687b",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/constraints.json",
+          "expected": "895425ddebe00c473f794258afb9d7e74551fdcaf3293daf150ce0dbaba20f39",
+          "actual": "895425ddebe00c473f794258afb9d7e74551fdcaf3293daf150ce0dbaba20f39",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/diagnostics.py",
+          "expected": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "actual": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/evaluator.py",
+          "expected": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "actual": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/model_manifest.json",
+          "expected": "fab24899f52975c5d41cf728eabc7d0c686bc461f871328cd8e98fa383dc54cf",
+          "actual": "fab24899f52975c5d41cf728eabc7d0c686bc461f871328cd8e98fa383dc54cf",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/policy.py",
+          "expected": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "actual": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/targeted_config.json",
+          "expected": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+          "actual": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/targeted_manifest.json",
+          "expected": "b124f83d18d3f88614be8bda12b344c5a20582209af131eed923a35b19b76a0a",
+          "actual": "b124f83d18d3f88614be8bda12b344c5a20582209af131eed923a35b19b76a0a",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model/targeted_policy.py",
+          "expected": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+          "actual": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+          "ok": true
+        },
+        {
+          "file": "_vendor/model_loader.py",
+          "expected": "17ac61838c3433a97fbfbb5e390ccfece68035610311dec289cc2750a4f7539d",
+          "actual": "17ac61838c3433a97fbfbb5e390ccfece68035610311dec289cc2750a4f7539d",
+          "ok": true
+        },
+        {
+          "file": "_vendor/paths.py",
+          "expected": "003aaa69c4d10a97bb09d96053fa56eebb8c6edc8d58bd3fdc2a25540da3bf86",
+          "actual": "003aaa69c4d10a97bb09d96053fa56eebb8c6edc8d58bd3fdc2a25540da3bf86",
+          "ok": true
+        },
+        {
+          "file": "_vendor/recommendation_copy.py",
+          "expected": "3f9c83da4669b30144c44ef70abcfd1fee63a02b559abd8039c072da25a87105",
+          "actual": "3f9c83da4669b30144c44ef70abcfd1fee63a02b559abd8039c072da25a87105",
+          "ok": true
+        },
+        {
+          "file": "_vendor/recommendation_merger.py",
+          "expected": "5822fbb6492492ad143ea5b0c5cec64495edffc25361a96bf333cd5e6e4ed23a",
+          "actual": "5822fbb6492492ad143ea5b0c5cec64495edffc25361a96bf333cd5e6e4ed23a",
+          "ok": true
+        },
+        {
+          "file": "_vendor/report_generator.py",
+          "expected": "1f5b340ad64e890923925023a63966ba07d78e0295462678002349659a873b0c",
+          "actual": "1f5b340ad64e890923925023a63966ba07d78e0295462678002349659a873b0c",
+          "ok": true
+        }
+      ]
+    },
+    "sdk_original_source_references": {
+      "count": 18,
+      "passed": 16,
+      "checks": [
+        {
+          "file": "smart_canteen_web/model/targeted_manifest.json",
+          "expected": "b124f83d18d3f88614be8bda12b344c5a20582209af131eed923a35b19b76a0a",
+          "actual": "b124f83d18d3f88614be8bda12b344c5a20582209af131eed923a35b19b76a0a",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/targeted_config.json",
+          "expected": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+          "actual": "8fd035339456a68995af1c5fcf74d3e6e9e14abc885864fcaff9f042d2eb2635",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/diagnostics.py",
+          "expected": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "actual": "57ce398e814be060062823056cba0cdad4acfbbfe9f61ec5497ffc4705305740",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/policy.py",
+          "expected": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "actual": "40fc1ff02d494059c6db366da37cfca8fac24190993945872313e21a8a3ef9b5",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/targeted_policy.py",
+          "expected": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+          "actual": "ba9d6c7f603d6b091a668fe72b12b5f5f023d6dfe1b4459c20aa7c4c46aa1012",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/best_policy.json",
+          "expected": "fb129adf7c44354de5027579309d9bdb3a71f2fa4a2cb22af8f78918b5e6687b",
+          "actual": "fb129adf7c44354de5027579309d9bdb3a71f2fa4a2cb22af8f78918b5e6687b",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/constraints.json",
+          "expected": "895425ddebe00c473f794258afb9d7e74551fdcaf3293daf150ce0dbaba20f39",
+          "actual": "895425ddebe00c473f794258afb9d7e74551fdcaf3293daf150ce0dbaba20f39",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/evaluator.py",
+          "expected": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "actual": "4f5cd9494b40ea021744640bc86551febb4f019eb4a668ddc37f20fcea9fcffc",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/model/model_manifest.json",
+          "expected": "fab24899f52975c5d41cf728eabc7d0c686bc461f871328cd8e98fa383dc54cf",
+          "actual": "fab24899f52975c5d41cf728eabc7d0c686bc461f871328cd8e98fa383dc54cf",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/backend/app/model_loader.py",
+          "expected": "dd9fd0a9bf7840015d7e6ab1ec39a61ddef47ade532272fcc6885c0eb27bc4a5",
+          "actual": "dd9fd0a9bf7840015d7e6ab1ec39a61ddef47ade532272fcc6885c0eb27bc4a5",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/backend/app/active_strategy.py",
+          "expected": "33a47e65e20ce63ac124bb8d391b1073a1d532a0179ec1c2e9fdbf3c1d3f3e95",
+          "actual": "2b27f67c8738401226eda396421b5196c26839f945259e13a45ab14fe65b22d8",
+          "ok": false
+        },
+        {
+          "file": "smart_canteen_web/backend/app/context_builder.py",
+          "expected": "1cef05b914273e4f1b8418193889784507cad9999e26c03db4b920f8cee559ef",
+          "actual": "1cef05b914273e4f1b8418193889784507cad9999e26c03db4b920f8cee559ef",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/backend/app/high_frequency_recommender.py",
+          "expected": "837a723de637d46cd65e369992e7548b4857b4f5ee5e22ee96a07c3ef7e98377",
+          "actual": "837a723de637d46cd65e369992e7548b4857b4f5ee5e22ee96a07c3ef7e98377",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/backend/app/low_frequency_recommender.py",
+          "expected": "71d3943f0aff4c51baec82218113e8e286ffecc24e72066e3c8e3e9088b199d5",
+          "actual": "71d3943f0aff4c51baec82218113e8e286ffecc24e72066e3c8e3e9088b199d5",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/backend/app/low_frequency_config.json",
+          "expected": "7f97d674774bd1584d00c0a12c5acb310683606b988e1769b041d0d16b4341e8",
+          "actual": "7f97d674774bd1584d00c0a12c5acb310683606b988e1769b041d0d16b4341e8",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/backend/app/recommendation_merger.py",
+          "expected": "5822fbb6492492ad143ea5b0c5cec64495edffc25361a96bf333cd5e6e4ed23a",
+          "actual": "5822fbb6492492ad143ea5b0c5cec64495edffc25361a96bf333cd5e6e4ed23a",
+          "ok": true
+        },
+        {
+          "file": "smart_canteen_web/backend/app/report_generator.py",
+          "expected": "1f5b340ad64e890923925023a63966ba07d78e0295462678002349659a873b0c",
+          "actual": "a8e6c1bb54f46dd3283c159794ca10b36cc08ff5695b18cbceec4e0805488d9b",
+          "ok": false
+        },
+        {
+          "file": "smart_canteen_web/backend/app/recommendation_copy.py",
+          "expected": "3f9c83da4669b30144c44ef70abcfd1fee63a02b559abd8039c072da25a87105",
+          "actual": "3f9c83da4669b30144c44ef70abcfd1fee63a02b559abd8039c072da25a87105",
+          "ok": true
+        }
+      ]
+    }
+  },
+  "base_parameter_content_hashes": {
+    "best_policy.json": {
+      "manifest_digest": "43fd47621fd7eb127293a98bdb00dce5279f7b449e1a4d8ddab0614bedf4389e",
+      "byte_digest": "fb129adf7c44354de5027579309d9bdb3a71f2fa4a2cb22af8f78918b5e6687b",
+      "content_digests": {
+        "sorted_default": "b0e61950c45268e9c502c4a2094e0516355bb3b10f8e5ddd399890c6acc664f0",
+        "sorted_compact": "43fd47621fd7eb127293a98bdb00dce5279f7b449e1a4d8ddab0614bedf4389e"
+      },
+      "content_match": true
+    },
+    "constraints.json": {
+      "manifest_digest": "c5889d5abc941f55f54152221289c6bbef8ee134b966ed8d6b73396bfd6c7fb4",
+      "byte_digest": "895425ddebe00c473f794258afb9d7e74551fdcaf3293daf150ce0dbaba20f39",
+      "content_digests": {
+        "sorted_default": "9a39c7e79de5f599cd6d6b08de88e04b190fd30691c2180a0adec0a89998bbba",
+        "sorted_compact": "c5889d5abc941f55f54152221289c6bbef8ee134b966ed8d6b73396bfd6c7fb4"
+      },
+      "content_match": true
+    }
+  },
+  "historical_research_registration": [
+    {
+      "file": "runs/demand_20260913/preregistration.json",
+      "count": 12,
+      "passed": 10,
+      "mismatches": [
+        {
+          "file": "smart_canteen_web/data/datasets/a_hupan/sales.csv",
+          "expected": "adb73ee30716254495d3a077863afd6b96dbaa938ec2a3e79169aaa45bb5bbdd",
+          "actual": "b11c20020cb38db292412bca3fe5ae7644d61d5a6c3048965b46dc398ce72bcf",
+          "ok": false
+        },
+        {
+          "file": "smart_canteen_web/data/datasets/a_hupan/dish_library.csv",
+          "expected": "6f3c0b07638476f864ac761dd4a8cf3858daa2c55449f4bd04c3d68bd27b4d6b",
+          "actual": "91554f8690e7ecc30f338eb67d0ff494e2ff8d1b396466d64ca27c12dfca2f60",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "file": "runs/phase_20260913/registration.json",
+      "count": 21,
+      "passed": 20,
+      "mismatches": [
+        {
+          "file": "smart_canteen_web/backend/app/active_strategy.py",
+          "expected": "33a47e65e20ce63ac124bb8d391b1073a1d532a0179ec1c2e9fdbf3c1d3f3e95",
+          "actual": "2b27f67c8738401226eda396421b5196c26839f945259e13a45ab14fe65b22d8",
+          "ok": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "date": "2026-10-19",
+  "transport": "FastAPI TestClient ASGI (no TCP)",
+  "scope": "isolated copies of current delivery data; no training",
+  "checks": [
+    {
+      "check": "health_current_data_and_model_integrity",
+      "passed": true
+    },
+    {
+      "check": "inference_a_hupan_早餐",
+      "passed": true
+    },
+    {
+      "check": "inference_a_hupan_午餐",
+      "passed": true
+    },
+    {
+      "check": "inference_a_hupan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "inference_f_jichuyuan_早餐",
+      "passed": true
+    },
+    {
+      "check": "inference_f_jichuyuan_午餐",
+      "passed": true
+    },
+    {
+      "check": "inference_f_jichuyuan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "ten_identical_requests_are_stable",
+      "passed": true,
+      "count": 10
+    },
+    {
+      "check": "four_concurrent_inferences_are_stable",
+      "passed": true
+    },
+    {
+      "check": "invalid_date_rejected",
+      "passed": true,
+      "status_code": 422
+    },
+    {
+      "check": "cross_canteen_request_rejected",
+      "passed": true,
+      "status_code": 400
+    },
+    {
+      "check": "unknown_dataset_rejected",
+      "passed": true,
+      "status_code": 400
+    },
+    {
+      "check": "no_prior_history_rejected",
+      "passed": true,
+      "status_code": 400
+    },
+    {
+      "check": "missing_weather_input_rejected",
+      "passed": true,
+      "status_code": 422
+    },
+    {
+      "check": "finalize_a_hupan_早餐",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "check": "downloads_a_hupan_早餐",
+      "passed": true
+    },
+    {
+      "check": "csv_markdown_business_units_a_hupan_早餐",
+      "passed": true,
+      "gram_rows": 60
+    },
+    {
+      "check": "final_menu_constraints_a_hupan_早餐",
+      "passed": true
+    },
+    {
+      "check": "persisted_model_quantities_a_hupan_早餐",
+      "passed": true
+    },
+    {
+      "check": "finalize_a_hupan_午餐",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "check": "downloads_a_hupan_午餐",
+      "passed": true
+    },
+    {
+      "check": "csv_markdown_business_units_a_hupan_午餐",
+      "passed": true,
+      "gram_rows": 140
+    },
+    {
+      "check": "final_menu_constraints_a_hupan_午餐",
+      "passed": true
+    },
+    {
+      "check": "persisted_model_quantities_a_hupan_午餐",
+      "passed": true
+    },
+    {
+      "check": "finalize_a_hupan_晚餐",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "check": "downloads_a_hupan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "csv_markdown_business_units_a_hupan_晚餐",
+      "passed": true,
+      "gram_rows": 118
+    },
+    {
+      "check": "final_menu_constraints_a_hupan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "persisted_model_quantities_a_hupan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "finalize_f_jichuyuan_早餐",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "check": "downloads_f_jichuyuan_早餐",
+      "passed": true
+    },
+    {
+      "check": "csv_markdown_business_units_f_jichuyuan_早餐",
+      "passed": true,
+      "gram_rows": 65
+    },
+    {
+      "check": "final_menu_constraints_f_jichuyuan_早餐",
+      "passed": true
+    },
+    {
+      "check": "persisted_model_quantities_f_jichuyuan_早餐",
+      "passed": true
+    },
+    {
+      "check": "finalize_f_jichuyuan_午餐",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "check": "downloads_f_jichuyuan_午餐",
+      "passed": true
+    },
+    {
+      "check": "csv_markdown_business_units_f_jichuyuan_午餐",
+      "passed": true,
+      "gram_rows": 122
+    },
+    {
+      "check": "final_menu_constraints_f_jichuyuan_午餐",
+      "passed": true
+    },
+    {
+      "check": "persisted_model_quantities_f_jichuyuan_午餐",
+      "passed": true
+    },
+    {
+      "check": "finalize_f_jichuyuan_晚餐",
+      "passed": true,
+      "status_code": 200
+    },
+    {
+      "check": "downloads_f_jichuyuan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "csv_markdown_business_units_f_jichuyuan_晚餐",
+      "passed": true,
+      "gram_rows": 111
+    },
+    {
+      "check": "final_menu_constraints_f_jichuyuan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "persisted_model_quantities_f_jichuyuan_晚餐",
+      "passed": true
+    },
+    {
+      "check": "downloads_survive_service_reconstruction",
+      "passed": true,
+      "count": 12
+    },
+    {
+      "check": "history_survives_service_reconstruction",
+      "passed": true,
+      "rows": {
+        "a_hupan": 318,
+        "f_jichuyuan": 305
+      }
+    },
+    {
+      "check": "sales_missing_stored_context_rejected",
+      "passed": true
+    },
+    {
+      "check": "blocked_preview_cannot_commit",
+      "passed": true
+    },
+    {
+      "check": "weather_preview_accepts_valid_row",
+      "passed": true
+    },
+    {
+      "check": "weather_commit_and_duplicate_are_idempotent",
+      "passed": true
+    },
+    {
+      "check": "calendar_preview_accepts_valid_row",
+      "passed": true
+    },
+    {
+      "check": "calendar_commit_and_duplicate_are_idempotent",
+      "passed": true
+    },
+    {
+      "check": "data_preview_accepts_valid_row",
+      "passed": true
+    },
+    {
+      "check": "sales_cross_dataset_commit_rejected",
+      "passed": true
+    },
+    {
+      "check": "data_commit_and_duplicate_are_idempotent",
+      "passed": true
+    },
+    {
+      "check": "sales_update_does_not_change_other_canteen",
+      "passed": true
+    },
+    {
+      "check": "synthetic_sales_written_once",
+      "passed": true
+    },
+    {
+      "check": "committed_weather_calendar_are_readable",
+      "passed": true
+    },
+    {
+      "check": "health_after_updates",
+      "passed": true
+    },
+    {
+      "check": "original_data_byte_identical",
+      "passed": true,
+      "checked_files": 74,
+      "changed_files": []
+    },
+    {
+      "check": "original_temp_recommendations_byte_identical",
+      "passed": true,
+      "checked_files": 3,
+      "changed_files": []
+    },
+    {
+      "check": "original_model_byte_identical",
+      "passed": true,
+      "checked_files": 17,
+      "changed_files": []
+    }
+  ],
+  "inference_scenarios": [
+    {
+      "dataset": "a_hupan",
+      "meal": "早餐",
+      "status_code": 200,
+      "seconds": 2.987388,
+      "high_count": 60,
+      "low_count": 12,
+      "low_frequency_status": "ok",
+      "history_end": "2026-06-10",
+      "output_digest": "f4ba374c950ae221cc6c7b74e314cf94149cfb86b167c2bc17542b9ec8e32b42"
+    },
+    {
+      "dataset": "a_hupan",
+      "meal": "午餐",
+      "status_code": 200,
+      "seconds": 5.753298,
+      "high_count": 140,
+      "low_count": 12,
+      "low_frequency_status": "ok",
+      "history_end": "2026-06-10",
+      "output_digest": "ed96008895d4789b4cbb168f463396a7756d6bda6325cb31be18f0d76526881f"
+    },
+    {
+      "dataset": "a_hupan",
+      "meal": "晚餐",
+      "status_code": 200,
+      "seconds": 5.007826,
+      "high_count": 118,
+      "low_count": 12,
+      "low_frequency_status": "ok",
+      "history_end": "2026-06-10",
+      "output_digest": "3ee9bb374965057c7aef426825ba378a07c06c56f750c12bb5aa8b8732c3263c"
+    },
+    {
+      "dataset": "f_jichuyuan",
+      "meal": "早餐",
+      "status_code": 200,
+      "seconds": 2.793385,
+      "high_count": 65,
+      "low_count": 12,
+      "low_frequency_status": "ok",
+      "history_end": "2026-06-10",
+      "output_digest": "b81671671ade8fcb0d05b69dc83c1d86745c6f9a25c6c893841d07f66b98694d"
+    },
+    {
+      "dataset": "f_jichuyuan",
+      "meal": "午餐",
+      "status_code": 200,
+      "seconds": 5.039398,
+      "high_count": 126,
+      "low_count": 12,
+      "low_frequency_status": "ok",
+      "history_end": "2026-06-10",
+      "output_digest": "0ede05994530bcb3925c1565a15e43790caa45cca7bbc2ca2d84f5f8ce3451bd"
+    },
+    {
+      "dataset": "f_jichuyuan",
+      "meal": "晚餐",
+      "status_code": 200,
+      "seconds": 4.290097,
+      "high_count": 114,
+      "low_count": 12,
+      "low_frequency_status": "ok",
+      "history_end": "2026-06-10",
+      "output_digest": "d207bb6ac1b4c2639be6b0bed61a5f00e66792963021287073f556538f0a396e"
+    }
+  ],
+  "uploads": {
+    "weather": {
+      "commit": {
+        "status": "success",
+        "kind": "weather",
+        "added_rows": 1,
+        "ignored_duplicate_rows": 0,
+        "backup_created": true,
+        "message": "写入完成：新增1行，忽略重复0行"
+      },
+      "duplicate_commit": {
+        "status": "success",
+        "kind": "weather",
+        "added_rows": 0,
+        "ignored_duplicate_rows": 1,
+        "backup_created": false,
+        "message": "写入完成：新增0行，忽略重复1行"
+      },
+      "repeat_preview_can_commit": false
+    },
+    "calendar": {
+      "commit": {
+        "status": "success",
+        "kind": "calendar",
+        "added_rows": 1,
+        "ignored_duplicate_rows": 0,
+        "backup_created": true,
+        "message": "写入完成：新增1行，忽略重复0行"
+      },
+      "duplicate_commit": {
+        "status": "success",
+        "kind": "calendar",
+        "added_rows": 0,
+        "ignored_duplicate_rows": 1,
+        "backup_created": false,
+        "message": "写入完成：新增0行，忽略重复1行"
+      },
+      "repeat_preview_can_commit": false
+    },
+    "data": {
+      "commit": {
+        "status": "success",
+        "kind": "sales",
+        "added_rows": 1,
+        "ignored_duplicate_rows": 0,
+        "backup_created": true,
+        "message": "写入完成：新增1行，忽略重复0行"
+      },
+      "duplicate_commit": {
+        "status": "success",
+        "kind": "sales",
+        "added_rows": 0,
+        "ignored_duplicate_rows": 1,
+        "backup_created": false,
+        "message": "写入完成：新增0行，忽略重复1行"
+      },
+      "repeat_preview_can_commit": false
+    }
+  },
+  "errors": [],
+  "passed_checks": 62,
+  "failed_checks": 0,
+  "synthetic_context_weather": {
+    "temperature_c": 20,
+    "humidity_pct": 60,
+    "precipitation_mm": 0,
+    "wind_speed_kmh": 5
+  },
+  "repeat_probe": {
+    "count": 10,
+    "successful_stable": 10,
+    "seconds": [
+      5.18677312499949,
+      5.209830042000249,
+      5.170793833000062,
+      5.226035292000233,
+      5.1908090839997385,
+      5.221056166999915,
+      5.2089586669999335,
+      5.296722084000066,
+      5.181082665999384,
+      5.181500249999772
+    ],
+    "mean_seconds": 5.207356120999885,
+    "max_seconds": 5.296722084000066
+  },
+  "concurrent_probe": {
+    "count": 4,
+    "wall_seconds": 25.289161624999906,
+    "mean_seconds": 24.859281510500068,
+    "max_seconds": 25.281826374999582,
+    "successful_stable": 4,
+    "status_codes": [
+      200,
+      200,
+      200,
+      200
+    ]
+  },
+  "total_seconds": 105.44302733299992,
+  "completed": true
+}

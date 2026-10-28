@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-19",
+  "overall": "partial_pass_pending_browser_and_clean_environment",
+  "training_started": false,
+  "backend_tests": {
+    "passed": 48
+  },
+  "frontend_tests": {
+    "passed": 18,
+    "build": "passed"
+  },
+  "sdk_tests": {
+    "source_passed": 21,
+    "installed_wheel_passed": 17
+  },
+  "isolated_web_checks": {
+    "passed": 62,
+    "failed": 0
+  },
+  "browser": {
+    "status": "blocked",
+    "user_reported_started": true,
+    "automated_page_observation": false,
+    "reason": "automatic approval review failed: content-blocked; browser actions were not executed"
+  },
+  "live_tcp": {
+    "status": "blocked",
+    "reason": "sandbox denied listening and localhost connection with Operation not permitted"
+  },
+  "clean_environment": {
+    "status": "blocked",
+    "reason": "dependency download approval review failed: content-blocked; isolated incomplete environment removed"
+  },
+  "frozen_model_modified": false,
+  "business_data_modified_by_acceptance": false
+}

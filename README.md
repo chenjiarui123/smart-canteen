@@ -69,7 +69,7 @@ python smart_canteen_web/run_app.py --no-browser
 python -m pytest smart_canteen_web/backend/tests -q
 ```
 
-当前基线与重整前一致：**46 passed**。
+2026-10-24 业务缺陷修复后：**51 passed**。同日隔离真实数据验收 **62/62 通过**，记录见 [`outputs/delivery_acceptance_20261024/web_acceptance.md`](outputs/delivery_acceptance_20261024/web_acceptance.md)。2026-10-19 交付验证为 48 passed，历史记录见 [`outputs/delivery_acceptance_20261019/验收报告.md`](outputs/delivery_acceptance_20261019/验收报告.md)。
 
 ### 研究测试
 
@@ -77,12 +77,9 @@ python -m pytest smart_canteen_web/backend/tests -q
 python -m pytest research/tests -q
 ```
 
-当前基线与重整前一致：**76 passed / 9 failed**。9 个失败是接手前已有的冻结登记哈希不一致：
+当前基线：**85 passed**。历史 runtime 测试读取 `runs/demand_20260913/snapshot/` 和 `runs/phase_20260913/snapshot/` 中与预注册清单逐字节一致的冻结输入，不再用后来变化的生产数据和代码冒充历史输入。`active_strategy.py` 的后续 UTF-8-SIG 兼容改动，以及 A湖畔米饭合并后的生产数据，保持现状；生产文件完整性由 Web 后端测试校验。
 
-- `runs/demand_20260913/preregistration.json` 中 3 个数据文件哈希不匹配；
-- `runs/phase_20260913/registration.json` 中 6 个文件哈希不匹配。
-
-这些测试依赖本地 `runs/`，因此不放入 CI。目录重整没有新增失败。
+这些测试依赖本地 `runs/`，因此不放入 CI。`runs/` 不入库；全新克隆缺少冻结快照时，相关历史 runtime 测试会显式 skip，而不是用当前生产文件替代。
 
 ### 前端
 
@@ -142,6 +139,15 @@ python -m pytest -q
 - [独立需求建模](docs/INDEPENDENT_DEMAND.md)
 - [结构优化](docs/STRUCTURAL_OPTIMIZATION.md)
 - [容量分配优化](docs/ALLOCATION_OPTIMIZATION.md)
+
+## 已知工程风险（非业务逻辑，尚未修复）
+
+以下问题不改变当前菜单推荐与人工确认的业务规则，但在共享、部署或正式运维前需要处理：
+
+- **CSV 公式注入风险**：销售上传的菜名未限制以 `=`、`+`、`-`、`@` 开头，下载菜单 CSV 后用 Excel 打开时，菜名可能被解释为公式。涉及 `backend/app/preprocessor.py` 与 `backend/app/history_store.py`。
+- **过期暂存不会自动清理**：上传预览文件声明两小时过期，但只在提交时校验；用户只预览不确认时，销售数据和元数据可能长期留在 `data/staging/`。涉及 `backend/app/updater.py`。
+- **健康检查缺少降级路径**：`sales.csv` 或 `dish_library.csv` 缺失时，健康接口仍会计算哈希并可能返回 500，而不是返回 `degraded`。涉及 `backend/app/api/routes.py`。
+- **写接口没有身份认证或访问控制**：系统默认只监听 `127.0.0.1`，本机单用户运行风险有限；若按 `deploy/nginx-menu-recommend.conf` 代理到外部路径，菜单确认、数据上传和写入接口可被任何能访问站点的人调用。对外部署前必须在反向代理或应用层增加认证和来源限制。
 
 ## 安全与隐私
 
