@@ -180,6 +180,31 @@ def _normalise_flag(value: Any) -> int | None:
     return None
 
 
+def _has_calendar_label(value: Any, empty_labels: set[str]) -> bool:
+    text = str(value or "").strip().lower()
+    return text not in empty_labels
+
+
+def _calendar_label_issues(work: pd.DataFrame) -> pd.Series:
+    non_holiday_labels = {"", "nan", "none", "非节假日", "非假期", "无"}
+    non_break_labels = non_holiday_labels | {"非寒暑假"}
+    holiday_flag = work["是否法定节假日假期"]
+    break_flag = work["是否校历寒暑假"]
+    holiday_name_present = work["法定节假日名称"].map(
+        lambda value: _has_calendar_label(value, non_holiday_labels)
+    )
+    break_type_present = work["校历假期类型"].map(
+        lambda value: _has_calendar_label(value, non_break_labels)
+    )
+    holiday_conflict = holiday_flag.notna() & holiday_flag.eq(1).ne(
+        holiday_name_present
+    )
+    break_conflict = break_flag.notna() & break_flag.eq(1).ne(
+        break_type_present
+    )
+    return holiday_conflict | break_conflict
+
+
 def _dates_from_frame(frame: pd.DataFrame) -> pd.Series:
     if "日期" in frame.columns:
         return pd.to_datetime(frame["日期"], errors="coerce")
@@ -570,6 +595,15 @@ def preprocess_calendar(
         work[column] = flags
         if bad.any():
             _issue(issues, "invalid_flag", f"{column} 必须为是/否或1/0")
+    label_conflicts = _calendar_label_issues(work)
+    invalid |= label_conflicts
+    if label_conflicts.any():
+        _issue(
+            issues,
+            "calendar_flag_label_conflict",
+            "校历假期标志与假期类型或节假日名称不一致",
+            (work.index[label_conflicts] + 2).astype(int).tolist()[:100],
+        )
     duplicate = work["日期"].duplicated(keep="first")
     current = repository.read_calendar()
     current_lookup = current.set_index("日期").astype(str).to_dict("index")

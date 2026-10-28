@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -45,6 +46,7 @@ class RecommenderService:
         config = load_low_frequency_config()
         self.proposals = ProposalStore(config["proposal_ttl_minutes"])
         self.merger = RecommendationMerger()
+        self._finalize_lock = threading.RLock()
         self._attribute_cache: dict[str, tuple[int, pd.DataFrame]] = {}
 
     def _attributes(self, dataset_id: str) -> pd.DataFrame:
@@ -138,6 +140,20 @@ class RecommenderService:
                     f"{options['weather'][key]['label']}不在允许下拉范围内"
                 )
         return dataset
+
+    @staticmethod
+    def _context_signature(request: RecommendationRequest) -> tuple[Any, ...]:
+        return (
+            request.school_break,
+            request.school_break_type,
+            request.statutory_holiday,
+            request.statutory_holiday_name,
+            request.adjusted_workday,
+            request.temperature_c,
+            request.humidity_pct,
+            request.precipitation_mm,
+            request.wind_speed_kmh,
+        )
 
     @staticmethod
     def _sale_unit_lookup(
@@ -237,6 +253,7 @@ class RecommenderService:
 
         dataset = self._validate_request_options(request)
         target_date = pd.Timestamp(request.prediction_date)
+        context_signature = self._context_signature(request)
         complete_history = self.repository.combined_sales_for_model(
             request.dataset_id
         )
@@ -320,6 +337,10 @@ class RecommenderService:
             )
             if not same_context:
                 raise ValueError("已选菜品属于其他食堂、日期或餐次，请重新生成")
+            if previous.context_signature != context_signature:
+                raise ValueError(
+                    "推荐条件中的天气或校历已变化，请重新生成候选后再选择潜力菜"
+                )
             requested_norms = {
                 normalize_dish_name(name)
                 for name in request.selected_low_frequency_dishes
@@ -416,6 +437,7 @@ class RecommenderService:
             low_frequency=proposal_low,
             summary=summary,
             excluded_candidates=high.excluded_candidates,
+            context_signature=context_signature,
         )
         high_items = self._menu_items(high.recommendations)
         low_items = self._menu_items(low)
@@ -440,6 +462,12 @@ class RecommenderService:
         }
 
     def finalize(
+        self, request: RecommendationFinalizeRequest
+    ) -> dict[str, Any]:
+        with self._finalize_lock:
+            return self._finalize_locked(request)
+
+    def _finalize_locked(
         self, request: RecommendationFinalizeRequest
     ) -> dict[str, Any]:
         proposal = self.proposals.get(request.proposal_id)

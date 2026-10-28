@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  applyDateContext,
   applyHolidayLinks,
   recommendationPayload,
   weekdayFromDate,
@@ -21,6 +22,79 @@ describe('受控推荐表单', () => {
     applyHolidayLinks(form)
     expect(form.school_break_type).toBeNull()
     expect(form.statutory_holiday_name).toBeNull()
+  })
+
+  it('无上下文的日期会清空上一日期的天气和校历', () => {
+    const form = {
+      school_break: true,
+      school_break_type: '寒假',
+      statutory_holiday: true,
+      statutory_holiday_name: '元旦',
+      adjusted_workday: true,
+      temperature_c: 10,
+      humidity_pct: 60,
+      precipitation_mm: 1,
+      wind_speed_kmh: 5,
+    }
+    applyDateContext(form, {
+      found_calendar: false,
+      found_weather: false,
+      calendar: null,
+      weather: null,
+    })
+    expect(form).toMatchObject({
+      school_break: false,
+      school_break_type: null,
+      statutory_holiday: false,
+      statutory_holiday_name: null,
+      adjusted_workday: false,
+      temperature_c: null,
+      humidity_pct: null,
+      precipitation_mm: null,
+      wind_speed_kmh: null,
+    })
+  })
+
+  it('应用新日期上下文时清空旧值', () => {
+    const form = {
+      school_break: true,
+      school_break_type: '寒假',
+      statutory_holiday: true,
+      statutory_holiday_name: '元旦',
+      adjusted_workday: true,
+      temperature_c: 10,
+      humidity_pct: 60,
+      precipitation_mm: 1,
+      wind_speed_kmh: 5,
+    }
+    applyDateContext(form, {
+      found_calendar: true,
+      found_weather: true,
+      calendar: {
+        school_break: false,
+        school_break_type: '非寒暑假',
+        statutory_holiday: false,
+        statutory_holiday_name: '非节假日',
+        adjusted_workday: false,
+      },
+      weather: {
+        temperature_c: 22,
+        humidity_pct: 45,
+        precipitation_mm: 0,
+        wind_speed_kmh: 3,
+      },
+    })
+    expect(form).toMatchObject({
+      school_break: false,
+      school_break_type: null,
+      statutory_holiday: false,
+      statutory_holiday_name: null,
+      adjusted_workday: false,
+      temperature_c: 22,
+      humidity_pct: 45,
+      precipitation_mm: 0,
+      wind_speed_kmh: 3,
+    })
   })
 
   it('天气字段在请求体中保持 number 类型', () => {

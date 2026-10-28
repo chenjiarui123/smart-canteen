@@ -45,6 +45,23 @@ describe('业务输入受控', () => {
     expect(source).toContain('普通日期样本')
   })
 
+  it('日期上下文回填使用请求序号和日期双重校验', () => {
+    expect(source).toContain('contextRequestSequence')
+    expect(source).toContain('requestSequence !== contextRequestSequence')
+    expect(source).toContain('form.prediction_date !== requestedDate')
+    expect(source).toContain('resetDateContext(form)')
+  })
+
+  it('确认菜单前要求保留高频菜', () => {
+    expect(source).toContain('if (!selectedHighCount.value)')
+    expect(source).toContain('最终菜单至少保留一道高频菜单菜品')
+  })
+
+  it('修改天气或校历后使当前草稿失效', () => {
+    expect(source).toContain('invalidateDraftForContextChange')
+    expect(source).toContain('天气或校历已修改，请重新生成推荐')
+  })
+
   it('不展示开发过程文案', () => {
     for (const text of [
       'Trial',

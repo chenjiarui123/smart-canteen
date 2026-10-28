@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import threading
+import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date
 from pathlib import Path
 
@@ -373,6 +376,77 @@ def test_selected_potential_dish_survives_three_refreshes_and_can_finalize(
     )
 
 
+def test_refresh_rejects_retained_opportunity_after_context_change(
+    temp_repository, tmp_path: Path
+):
+    service = RecommenderService(
+        temp_repository,
+        HistoryStore(temp_repository, tmp_path / "recommendations"),
+        low_frequency_recommender=_RotatingLowFrequency(),
+    )
+    draft = service.recommend(_request())
+    selected = draft["low_frequency_opportunities"][0]["dish_name"]
+    changed = _request().model_copy(
+        update={
+            "opportunity_refresh": 1,
+            "previous_proposal_id": draft["proposal_id"],
+            "selected_low_frequency_dishes": [selected],
+            "precipitation_mm": 1.0,
+        }
+    )
+    with pytest.raises(ValueError, match="天气或校历已变化"):
+        service.recommend(changed)
+
+
+def test_concurrent_finalize_consumes_proposal_once(
+    temp_repository, tmp_path: Path, monkeypatch
+):
+    store = HistoryStore(temp_repository, tmp_path / "recommendations")
+    service = RecommenderService(
+        temp_repository,
+        store,
+        low_frequency_recommender=_RotatingLowFrequency(),
+    )
+    draft = service.recommend(_request())
+    finalize_request = RecommendationFinalizeRequest(
+        proposal_id=draft["proposal_id"],
+        selected_high_frequency=[
+            item["dish_name"] for item in draft["high_frequency_menu"]
+        ],
+        selected_low_frequency=[],
+    )
+    real_save = store.save
+    save_calls = 0
+    counter_lock = threading.Lock()
+    start = threading.Barrier(2)
+
+    def slow_save(**kwargs):
+        nonlocal save_calls
+        with counter_lock:
+            save_calls += 1
+        time.sleep(0.2)
+        return real_save(**kwargs)
+
+    monkeypatch.setattr(store, "save", slow_save)
+
+    def invoke():
+        start.wait()
+        try:
+            service.finalize(finalize_request)
+            return "finalized"
+        except ValueError as exc:
+            return str(exc)
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        results = list(pool.map(lambda _: invoke(), range(2)))
+
+    assert results.count("finalized") == 1
+    assert sum("候选方案不存在或已过期" in result for result in results) == 1
+    assert save_calls == 1
+    history = temp_repository.read_recommendation_history("a_hupan")
+    assert history["request_id"].nunique() == 1
+
+
 def test_merger_reallocates_total_and_checks_combined_menu():
     high = pd.DataFrame(
         [
@@ -468,3 +542,9 @@ def test_merger_reallocates_total_and_checks_combined_menu():
     )
     assert abs(high_only["pred_qty"].sum() - 100.0) < 1e-9
     assert high_check["selected_low_frequency_count"] == 0
+
+    for redistribute in (False, True):
+        with pytest.raises(ValueError, match="至少保留一道高频菜单菜品"):
+            RecommendationMerger().merge(
+                proposal, [], ["潜力菜"], redistribute
+            )

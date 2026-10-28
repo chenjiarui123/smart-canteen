@@ -27,6 +27,7 @@ class RecommendationProposal:
     low_frequency: pd.DataFrame
     summary: dict[str, Any]
     excluded_candidates: list[dict[str, str]]
+    context_signature: tuple[Any, ...] = ()
 
 
 class ProposalStore:
@@ -55,6 +56,7 @@ class ProposalStore:
         low_frequency: pd.DataFrame,
         summary: dict[str, Any],
         excluded_candidates: list[dict[str, str]],
+        context_signature: tuple[Any, ...] = (),
     ) -> RecommendationProposal:
         with self._lock:
             self._purge()
@@ -70,6 +72,7 @@ class ProposalStore:
                 low_frequency=low_frequency.copy(deep=True),
                 summary=dict(summary),
                 excluded_candidates=list(excluded_candidates),
+                context_signature=tuple(context_signature),
             )
             self._items[proposal_id] = proposal
             return proposal
@@ -278,6 +281,10 @@ class RecommendationMerger:
                 selected_low_frequency,
                 "潜力菜",
             )
+            if high.empty:
+                raise ValueError(
+                    "最终菜单至少保留一道高频菜单菜品；潜力菜只作为额外试餐项"
+                )
             combined_names = list(high["_dish_norm"].astype(str)) + list(
                 low.get("_dish_norm", pd.Series(dtype=str)).astype(str)
             )

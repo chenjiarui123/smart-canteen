@@ -10,8 +10,10 @@ import {
   getOptions,
 } from '@/api/client'
 import {
+  applyDateContext,
   applyHolidayLinks,
   recommendationPayload,
+  resetDateContext,
   weekdayFromDate,
 } from '@/utils/formRules'
 import {
@@ -39,6 +41,7 @@ const finalCategoryFilter = ref('全部')
 const highCategoryFilter = ref('全部')
 const highMinQty = ref(null)
 const highMaxQty = ref(null)
+let contextRequestSequence = 0
 
 const options = reactive({
   datasets: [],
@@ -212,6 +215,12 @@ function clearRecommendationState() {
   finalCategoryFilter.value = '全部'
 }
 
+function invalidateDraftForContextChange() {
+  if (!result.value) return
+  clearRecommendationState()
+  contextNotice.value = '天气或校历已修改，请重新生成推荐。'
+}
+
 async function approveContextChange() {
   if (selectionBuffer.value.length) {
     try {
@@ -261,16 +270,22 @@ async function changeMeal(meal) {
 }
 
 async function fillDateContext() {
+  const requestSequence = ++contextRequestSequence
+  const requestedDate = form.prediction_date
   contextNotice.value = ''
-  if (!form.prediction_date) return
+  resetDateContext(form)
+  if (!requestedDate) {
+    loadingContext.value = false
+    return
+  }
   loadingContext.value = true
   try {
-    const context = await getContext(form.prediction_date)
-    if (context.found_calendar) {
-      Object.assign(form, context.calendar)
-      applyHolidayLinks(form)
-    }
-    if (context.found_weather) Object.assign(form, context.weather)
+    const context = await getContext(requestedDate)
+    if (
+      requestSequence !== contextRequestSequence
+      || form.prediction_date !== requestedDate
+    ) return
+    applyDateContext(form, context)
     if (!context.found_calendar || !context.found_weather) {
       contextNotice.value = [
         !context.found_calendar ? '该日期没有校历记录' : '',
@@ -280,9 +295,10 @@ async function fillDateContext() {
       contextNotice.value = '已自动回填天气和校历信息，可在下拉选项内修改。'
     }
   } catch (error) {
+    if (requestSequence !== contextRequestSequence) return
     contextNotice.value = `自动回填失败：${errorMessage(error)}`
   } finally {
-    loadingContext.value = false
+    if (requestSequence === contextRequestSequence) loadingContext.value = false
   }
 }
 
@@ -346,6 +362,10 @@ async function submit(refresh = false) {
 
 async function confirmSelection() {
   if (!result.value || !isDraft.value) return
+  if (!selectedHighCount.value) {
+    ElMessage.warning('最终菜单至少保留一道高频菜单菜品；潜力菜只作为额外试餐项')
+    return
+  }
   if (!selectedCount.value) {
     ElMessage.warning('最终菜单至少选择一道菜')
     return
@@ -409,42 +429,42 @@ onMounted(async () => {
           </el-form-item>
 
           <el-form-item label="是否校历寒暑假">
-            <el-select v-model="form.school_break">
+            <el-select v-model="form.school_break" @change="invalidateDraftForContextChange">
               <el-option v-for="item in options.yes_no" :key="String(item.value)" :label="item.label" :value="item.value" />
             </el-select>
           </el-form-item>
           <el-form-item v-if="form.school_break" label="校历假期类型" prop="school_break_type">
-            <el-select v-model="form.school_break_type" placeholder="请选择">
+            <el-select v-model="form.school_break_type" placeholder="请选择" @change="invalidateDraftForContextChange">
               <el-option v-for="item in options.school_break_types" :key="item" :label="item" :value="item" />
             </el-select>
           </el-form-item>
           <el-form-item label="是否法定节假日">
-            <el-select v-model="form.statutory_holiday">
+            <el-select v-model="form.statutory_holiday" @change="invalidateDraftForContextChange">
               <el-option v-for="item in options.yes_no" :key="String(item.value)" :label="item.label" :value="item.value" />
             </el-select>
           </el-form-item>
           <el-form-item v-if="form.statutory_holiday" label="法定节假日名称" prop="statutory_holiday_name">
-            <el-select v-model="form.statutory_holiday_name" placeholder="请选择">
+            <el-select v-model="form.statutory_holiday_name" placeholder="请选择" @change="invalidateDraftForContextChange">
               <el-option v-for="item in options.statutory_holiday_names" :key="item" :label="item" :value="item" />
             </el-select>
           </el-form-item>
           <el-form-item label="是否调休工作日">
-            <el-select v-model="form.adjusted_workday">
+            <el-select v-model="form.adjusted_workday" @change="invalidateDraftForContextChange">
               <el-option v-for="item in options.yes_no" :key="String(item.value)" :label="item.label" :value="item.value" />
             </el-select>
           </el-form-item>
 
           <el-form-item label="气温（℃）">
-            <el-select-v2 v-model="form.temperature_c" :options="weatherOptions('temperature_c')" filterable placeholder="选择气温" />
+            <el-select-v2 v-model="form.temperature_c" :options="weatherOptions('temperature_c')" filterable placeholder="选择气温" @change="invalidateDraftForContextChange" />
           </el-form-item>
           <el-form-item label="相对湿度（%）">
-            <el-select-v2 v-model="form.humidity_pct" :options="weatherOptions('humidity_pct')" filterable placeholder="选择湿度" />
+            <el-select-v2 v-model="form.humidity_pct" :options="weatherOptions('humidity_pct')" filterable placeholder="选择湿度" @change="invalidateDraftForContextChange" />
           </el-form-item>
           <el-form-item label="降水量（毫米）">
-            <el-select-v2 v-model="form.precipitation_mm" :options="weatherOptions('precipitation_mm')" filterable placeholder="选择降水量" />
+            <el-select-v2 v-model="form.precipitation_mm" :options="weatherOptions('precipitation_mm')" filterable placeholder="选择降水量" @change="invalidateDraftForContextChange" />
           </el-form-item>
           <el-form-item label="10米风速（公里/小时）">
-            <el-select-v2 v-model="form.wind_speed_kmh" :options="weatherOptions('wind_speed_kmh')" filterable placeholder="选择风速" />
+            <el-select-v2 v-model="form.wind_speed_kmh" :options="weatherOptions('wind_speed_kmh')" filterable placeholder="选择风速" @change="invalidateDraftForContextChange" />
           </el-form-item>
         </div>
         <el-alert v-if="contextNotice" :title="contextNotice" :type="contextNotice.startsWith('已') ? 'success' : 'warning'" :closable="false" show-icon style="margin-bottom: 16px" />

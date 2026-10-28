@@ -21,6 +21,27 @@ export function applyHolidayLinks(form) {
   return form
 }
 
+export function resetDateContext(form) {
+  form.school_break = false
+  form.school_break_type = null
+  form.statutory_holiday = false
+  form.statutory_holiday_name = null
+  form.adjusted_workday = false
+  form.temperature_c = null
+  form.humidity_pct = null
+  form.precipitation_mm = null
+  form.wind_speed_kmh = null
+  return form
+}
+
+export function applyDateContext(form, context) {
+  resetDateContext(form)
+  if (context.found_calendar) Object.assign(form, context.calendar)
+  if (context.found_weather) Object.assign(form, context.weather)
+  applyHolidayLinks(form)
+  return form
+}
+
 export function recommendationPayload(form, draft = {}) {
   const payload = {
     dataset_id: form.dataset_id,

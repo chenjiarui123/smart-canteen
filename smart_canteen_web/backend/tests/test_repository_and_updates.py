@@ -192,3 +192,37 @@ def test_weather_and_calendar_preview_never_overwrite_conflicts(
     assert calendar_artifact.summary["conflict_dates"] == ["2026-01-01"]
     assert calendar_artifact.summary["new_dates"] == ["2026-02-06"]
     assert list(calendar_artifact.processed["日期"]) == ["2026-02-06"]
+
+
+def test_calendar_rejects_flag_and_label_conflicts(temp_repository):
+    rows = [
+        ("2026-02-07", "星期六", 0, "非寒暑假", 0, "春节"),
+        ("2026-02-08", "星期日", 0, "寒假", 0, "非节假日"),
+        ("2026-02-09", "星期一", 0, "非寒暑假", 1, "春节"),
+        ("2026-02-10", "星期二", 0, "非寒暑假", 1, "非节假日"),
+    ]
+    calendar = pd.DataFrame(
+        [
+            {
+                "日期": day,
+                "星期": weekday,
+                "是否校历寒暑假": school_break,
+                "校历假期类型": break_type,
+                "是否法定节假日假期": holiday,
+                "法定节假日名称": holiday_name,
+                "是否调休工作日": 0,
+            }
+            for day, weekday, school_break, break_type, holiday, holiday_name in rows
+        ]
+    )
+    artifact = preprocess_calendar(calendar, "校历.xlsx", temp_repository)
+    assert artifact.can_commit
+    assert list(artifact.processed["日期"]) == ["2026-02-09"]
+    assert artifact.summary["abnormal_rows"] == 3
+    assert artifact.summary["new_dates"] == ["2026-02-09"]
+    conflict = next(
+        issue
+        for issue in artifact.issues
+        if issue["type"] == "calendar_flag_label_conflict"
+    )
+    assert conflict["rows"] == [2, 3, 5]
