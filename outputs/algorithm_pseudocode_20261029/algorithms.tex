@@ -1,0 +1,135 @@
+\documentclass[UTF8,fontset=fandol,10pt]{ctexart}
+\usepackage[paperwidth=24cm,paperheight=19cm,margin=1.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{float}
+\pagestyle{empty}
+\SetAlgoLined
+\SetAlFnt{\small}
+\SetAlgorithmName{算法}{算法}{算法列表}
+\DontPrintSemicolon
+\SetKwInOut{KwIn}{输入}
+\SetKwInOut{KwOut}{输出}
+\SetKwComment{tcp}{}{}{}
+
+\begin{document}
+
+\begin{algorithm}[!htbp]
+\caption{高频主菜单：Trial 18 基础策略}
+\KwIn{历史销售快照 $H$；目标上下文 $c$（星期、校历、天气）；菜品集合 $\mathcal{D}$}
+\KwOut{高频候选菜单 $M$；单菜备餐量 $q_i$}
+
+\tcp{1. 餐次总需求：基准需求 $\times$ 组合因子}
+$b \leftarrow \mathrm{Blend}\big(\mathrm{LongMean}(H),\mathrm{Recent7}(H)\big)$\;
+$f \leftarrow f_{\mathrm{weekday}}\, f_{\mathrm{trend}}\, f_{\mathrm{momentum}}\, f_{\mathrm{calendar}}\, f_{\mathrm{weather}}$\;
+$Q \leftarrow b \cdot \mathrm{clip}(f,\,0.50,\,1.30)$\;
+
+\tcp{2. 菜单容量：状态容量与需求容量各半，再向旧容量收缩}
+$K_{\mathrm{state}} \leftarrow \mathrm{StateCapacity}(H,c)$\;
+$K_{\mathrm{demand}} \leftarrow Q / \mathrm{PerDishQty}(H)$\;
+$K \leftarrow K_{\mathrm{old}} + 0.25\,(0.5K_{\mathrm{state}} + 0.5K_{\mathrm{demand}})$\;
+
+\tcp{3. 单菜特征与评分}
+\ForEach{$i \in \mathcal{D}$}{
+    $\hat{q}_i \leftarrow \mathrm{RobustQty}(H,i,c)$\;
+    $\hat{r}_i \leftarrow \mathrm{PredRevenue}(H,i,c)$\;
+    $p_i \leftarrow \mathrm{OfferProb}(H,i,c)$\;
+    $s_i \leftarrow \mathrm{Stability}(H,i)$\;
+    $score_i \leftarrow \hat{r}_i \cdot p_i \cdot s_i^{0.5} \cdot \mathrm{RepeatPenalty}(i)$\;
+}
+
+\tcp{4. 带多样性惩罚的贪心选菜}
+$M \leftarrow \emptyset$\;
+\While{$|M| < K$}{
+    $C \leftarrow \{i \in \mathcal{D} \setminus M \mid \mathrm{SimilarityOK}(i,M)\}$\;
+    \ForEach{$i \in C$}{
+        $u_i \leftarrow score_i \cdot \prod_{g \in G} \lambda_g^{\max(0,\,count_g(i,M)+1-limit_g)}$\;
+    }
+    $j \leftarrow \arg\max_{i \in C} u_i$\;
+    $M \leftarrow M \cup \{j\}$\;
+}
+
+\tcp{5. 总量守恒分配与最低批量筛选}
+$q_i \leftarrow Q \cdot w_i / \sum_{j \in M} w_j,\quad \forall i \in M$\;
+\While{$\exists i \in M: q_i < \mathrm{MinBatch}(i)$}{
+    删除最低批量比或最低得分菜品，并按 $Q$ 重新守恒分配\;
+}
+\Return $M,\{q_i\}$\;
+\end{algorithm}
+
+\clearpage
+
+\begin{algorithm}[!htbp]
+\caption{911 定向层：相邻日重复控制与节假日估计}
+\KwIn{历史 $H$；目标日期 $d$、餐次 $m$、上下文 $c$；Trial 18 预测器 $\mathcal{P}$}
+\KwOut{高频菜单 $M$}
+
+\tcp{1. 节假日状态：需求与菜数独立估计}
+\eIf{$\mathrm{IsHolidayState}(c)$}{
+    $Q \leftarrow \mathrm{HolidayDemand}(H,c)$\;
+    $K \leftarrow \mathrm{HolidayCapacity}(H,c)$\;
+}{
+    $Q,K \leftarrow \mathcal{P}.\mathrm{Forecast}(H,c)$\;
+}
+
+\tcp{2. 先按 Trial 18 选出初始菜单}
+$M \leftarrow \mathcal{P}.\mathrm{Select}(H,c,Q,K)$\;
+
+\tcp{3. 相邻自然日同餐次重复率控制}
+$M_{\mathrm{prev}} \leftarrow \mathrm{PreviousMenu}(d-1,m)$\;
+\If{$M_{\mathrm{prev}} \neq \emptyset$}{
+    $r \leftarrow |\{i \in M : i \in M_{\mathrm{prev}}\}| / |M|$\;
+    \If{$r > 0.80$}{
+        $M' \leftarrow \mathrm{ReplaceFromPool}(M,M_{\mathrm{prev}},|M|)$\;
+        \If{$M' = \emptyset$}{
+            \tcp{保留缺口与原因，不发布超限菜单}
+            \Return $\mathrm{Infeasible}(M)$\;
+        }
+        \If{$\mathrm{Check}(M')$ 通过}{
+            $M \leftarrow M'$\;
+        }
+        \Else{
+            \tcp{相似菜/最低批量/菜数仍不满足}
+            \Return $\mathrm{Infeasible}(M')$\;
+        }
+    }
+}
+\Return $M$\;
+\end{algorithm}
+
+\clearpage
+
+\begin{algorithm}[!htbp]
+\caption{低频潜力菜：独立试餐推荐}
+\KwIn{历史销售 $H$；菜品属性 $\mathcal{A}$；目标上下文 $c$；刷新序号 $t$}
+\KwOut{低频候选列表 $L$；试餐量 $q_i$}
+
+\tcp{1. 筛选低频候选}
+$\mathcal{D} \leftarrow \{i \in \mathcal{A} \mid \mathrm{CategoryOK}(i) \wedge \mathrm{OfferCount}(i) \ge 1$\;
+$\qquad \wedge\ (\mathrm{OfferRate}(i) \le 0.15 \vee \mathrm{OfferCount}(i) \le 24)\}$\;
+
+\tcp{2. 普通日与节假日分开估计，再做上下文匹配与评分}
+\ForEach{$i \in \mathcal{D}$}{
+    $P_i^{\mathrm{ord}} \leftarrow \mathrm{Performance}(H_i \mid \text{ordinary})$\;
+    $P_i^{\mathrm{hol}} \leftarrow \mathrm{Performance}(H_i \mid \text{holiday})$\;
+    $b_i \leftarrow P_i^{\mathrm{ord}}.\mathrm{avgQty}$（冷启动用全局基线）\;
+    $ctx_i \leftarrow \mathrm{ContextMatch}(c,\text{weekday/season/temp/rain})$\;
+    $score_i \leftarrow b_i \cdot ctx_i \cdot \mathrm{Stability}(i) \cdot \mathrm{SelectionPenalty}(i)$\;
+    \If{$\mathrm{FestivalDish}(i)$ 且目标节日匹配}{
+        $score_i \leftarrow score_i + \mathrm{HolidayGain}(P_i^{\mathrm{hol}})$\;
+    }
+}
+
+\tcp{3. 半随机刷新：3 个高分锚点 + 其余确定性扰动}
+$L \leftarrow \mathrm{TopK}(\mathcal{D},score)$\;
+$L \leftarrow \mathrm{Anchors}(L,3) \cup \mathrm{Jitter}(\mathcal{D} \setminus L,t)$\;
+
+\tcp{4. 生成试餐量}
+\ForEach{$i \in L$}{
+    $f_i \leftarrow 0.35$（普通日）/ $0.50$（节假日）/ $0.20$（冷启动）\;
+    $q_i \leftarrow \mathrm{clip}(b_i \cdot ctx_i \cdot f_i,\,1,\,120)$\;
+}
+\Return $L,\{q_i\}$\;
+\end{algorithm}
+
+\end{document}
