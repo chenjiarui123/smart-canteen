@@ -300,7 +300,7 @@ Trial 18 外部评估已经完成，禁止再次运行 `evaluate_trial18_externa
 
 ### 重建开发环境
 
-仓库里的 `.targeted-venv/` 是原开发机遗留的虚拟环境（`pyvenv.cfg` 指向原作者 home，符号链接已损坏），**不要直接使用**，请重建：
+仓库里的 `.targeted-venv/` 在本机可直接使用：`.targeted-venv/bin/python` 为 Python 3.12.14，已装好 pandas 2.2.3、NumPy 2.3.5、FastAPI 0.115.12 等项目依赖，`pyvenv.cfg` 的 `home` 指向本机存在的运行时目录。此前“`符号链接已损坏`、不要直接使用”的说法已过时，不成立。若要在其他机器重新建立环境：
 
 ```bash
 python3 -m venv --system-site-packages .venv

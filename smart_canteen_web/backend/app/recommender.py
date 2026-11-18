@@ -18,7 +18,11 @@ from .low_frequency_recommender import (
     low_frequency_config_sha256,
 )
 from .model_loader import MANIFEST, frozen_policy, model_status
-from .recommendation_merger import ProposalStore, RecommendationMerger
+from .recommendation_merger import (
+    ProposalStore,
+    RecommendationMerger,
+    RecommendationProposal,
+)
 from .report_generator import build_markdown_report
 from .schemas import RecommendationFinalizeRequest, RecommendationRequest
 from .weather_display import normalized_weather_options
@@ -467,6 +471,69 @@ class RecommenderService:
         with self._finalize_lock:
             return self._finalize_locked(request)
 
+    def _redistribute_by_sale_unit(
+        self,
+        proposal: RecommendationProposal,
+        combined: pd.DataFrame,
+        combination_check: dict[str, Any],
+    ) -> tuple[pd.DataFrame, dict[str, Any]]:
+        """按售卖单位重新分配备餐量，克与份之间不互相转移。
+
+        每个售卖单位只按冻结高频预测在该单位上的原预算守恒，
+        潜力菜在同一单位内按建议试餐量分配。与 SDK 引擎保持同一策略。
+        """
+
+        budgets = (
+            proposal.high_frequency.groupby("菜品售卖单位")["pred_qty"]
+            .sum()
+            .to_dict()
+        )
+        selected_units = set(combined["菜品售卖单位"])
+        if any(
+            value > 0 and unit not in selected_units
+            for unit, value in budgets.items()
+        ):
+            raise ValueError(
+                "某售卖单位有原预测总量但未保留任何该单位菜品，"
+                "无法按售卖单位重新分配备餐量"
+            )
+        if not selected_units <= set(budgets):
+            raise ValueError(
+                "新增售卖单位没有原预测总量，不能跨售卖单位分配备餐量"
+            )
+        groups: list[pd.DataFrame] = []
+        for unit, group in combined.groupby("菜品售卖单位", sort=False):
+            unit_high = group.loc[
+                group["recommendation_source"].eq("high_frequency")
+            ].reset_index(drop=True)
+            unit_low = group.loc[
+                group["recommendation_source"].eq(
+                    "low_frequency_opportunity"
+                )
+            ].reset_index(drop=True)
+            groups.append(
+                RecommendationMerger._allocate_total(
+                    unit_high, unit_low, float(budgets[unit])
+                )
+            )
+        redistributed = pd.concat(groups, ignore_index=True)
+        combination_check.update(
+            {
+                "redistributed_to_total_demand": True,
+                "pred_total_conserved": True,
+                "total_preparation_qty": float(
+                    redistributed["pred_qty"].sum()
+                ),
+                "preparation_qty_difference": 0.0,
+            }
+        )
+        combination_check["reference_warnings"] = [
+            warning
+            for warning in combination_check["reference_warnings"]
+            if "总备餐量" not in warning
+        ]
+        return redistributed, combination_check
+
     def _finalize_locked(
         self, request: RecommendationFinalizeRequest
     ) -> dict[str, Any]:
@@ -475,8 +542,12 @@ class RecommenderService:
             proposal,
             request.selected_high_frequency,
             request.selected_low_frequency,
-            request.redistribute_to_total_demand,
+            False,
         )
+        if request.redistribute_to_total_demand:
+            combined, combination_check = self._redistribute_by_sale_unit(
+                proposal, combined, combination_check
+            )
         summary = dict(proposal.summary)
         reference, source = self.history_store.previous_day_reference(
             proposal.dataset_id, proposal.canteen, proposal.meal, proposal.target_date

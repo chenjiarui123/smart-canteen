@@ -69,7 +69,7 @@ python smart_canteen_web/run_app.py --no-browser
 python -m pytest smart_canteen_web/backend/tests -q
 ```
 
-2026-10-24 业务缺陷修复后：**51 passed**。同日隔离真实数据验收 **62/62 通过**，记录见 [`outputs/delivery_acceptance_20261024/web_acceptance.md`](outputs/delivery_acceptance_20261024/web_acceptance.md)。2026-10-19 交付验证为 48 passed，历史记录见 [`outputs/delivery_acceptance_20261019/验收报告.md`](outputs/delivery_acceptance_20261019/验收报告.md)。
+2026-10-24 业务缺陷修复后为 **51 passed**；此后补充 3 项「混用售卖单位（克/份/个）重分配」回归用例，当前基线 **54 passed**。同日隔离真实数据验收 **62/62 通过**，记录见 [`outputs/delivery_acceptance_20261024/web_acceptance.md`](outputs/delivery_acceptance_20261024/web_acceptance.md)。2026-10-19 交付验证为 48 passed，历史记录见 [`outputs/delivery_acceptance_20261019/验收报告.md`](outputs/delivery_acceptance_20261019/验收报告.md)。
 
 ### 研究测试
 

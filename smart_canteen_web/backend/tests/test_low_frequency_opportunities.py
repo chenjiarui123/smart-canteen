@@ -548,3 +548,190 @@ def test_merger_reallocates_total_and_checks_combined_menu():
             RecommendationMerger().merge(
                 proposal, [], ["潜力菜"], redistribute
             )
+
+
+def _unit_row(
+    *,
+    name: str,
+    source: str,
+    unit: str,
+    pred_qty: float,
+    expected_orders_per_qty: float,
+    expected_rev_per_qty: float,
+    suggested_trial_qty: float | None = None,
+) -> dict:
+    row = {
+        "date": pd.Timestamp("2026-07-01"),
+        "食堂名称": "测试食堂",
+        "餐次": "午餐",
+        "菜品名称": name,
+        "_dish_norm": name,
+        "pred_qty": pred_qty,
+        "pred_orders": pred_qty * expected_orders_per_qty,
+        "pred_rev": pred_qty * expected_rev_per_qty,
+        "expected_orders_per_qty": expected_orders_per_qty,
+        "expected_rev_per_qty": expected_rev_per_qty,
+        "score": 10.0,
+        "recommendation_source": source,
+        "菜品售卖单位": unit,
+        "主要食材": "unknown",
+        "食材大类": "unknown",
+        "制作方法": "unknown",
+        "口味": "unknown",
+        "菜品类别": "荤菜",
+        "相似菜分组": "unknown",
+        "_similarity_hard": False,
+    }
+    if suggested_trial_qty is not None:
+        row["suggested_trial_qty"] = suggested_trial_qty
+    return row
+
+
+def _mixed_unit_proposal(high_rows, low_rows, *, menu_capacity, pred_total_qty):
+    return RecommendationProposal(
+        proposal_id="0" * 32,
+        created_at=pd.Timestamp.now(tz="UTC").to_pydatetime(),
+        dataset_id="test",
+        canteen="测试食堂",
+        meal="午餐",
+        target_date=pd.Timestamp("2026-07-01"),
+        high_frequency=pd.DataFrame(high_rows),
+        low_frequency=pd.DataFrame(low_rows),
+        summary={"menu_capacity": menu_capacity, "pred_total_qty": pred_total_qty},
+        excluded_candidates=[],
+    )
+
+
+def test_redistribute_by_sale_unit_keeps_each_unit_budget_separate(
+    temp_repository, tmp_path: Path
+):
+    """克与份各自守恒到原高频预算，绝不互相转移。"""
+
+    proposal = _mixed_unit_proposal(
+        high_rows=[
+            _unit_row(
+                name="克高频菜", source="high_frequency", unit="克",
+                pred_qty=4.0, expected_orders_per_qty=0.8,
+                expected_rev_per_qty=5.0,
+            ),
+            _unit_row(
+                name="份高频菜", source="high_frequency", unit="份",
+                pred_qty=10.0, expected_orders_per_qty=0.8,
+                expected_rev_per_qty=5.0,
+            ),
+        ],
+        low_rows=[
+            _unit_row(
+                name="克潜力菜", source="low_frequency_opportunity", unit="克",
+                pred_qty=2.0, expected_orders_per_qty=0.5,
+                expected_rev_per_qty=6.0, suggested_trial_qty=2.0,
+            ),
+            _unit_row(
+                name="份潜力菜", source="low_frequency_opportunity", unit="份",
+                pred_qty=5.0, expected_orders_per_qty=0.5,
+                expected_rev_per_qty=6.0, suggested_trial_qty=5.0,
+            ),
+        ],
+        menu_capacity=2,
+        pred_total_qty=14.0,
+    )
+    service = RecommenderService(
+        temp_repository,
+        HistoryStore(temp_repository, tmp_path / "recommendations"),
+    )
+    merged, check = service.merger.merge(
+        proposal,
+        ["克高频菜", "份高频菜"],
+        ["克潜力菜", "份潜力菜"],
+        False,
+    )
+    redistributed, new_check = service._redistribute_by_sale_unit(
+        proposal, merged, check
+    )
+    by_unit = (
+        redistributed.groupby("菜品售卖单位")["pred_qty"].sum().to_dict()
+    )
+    # 克单位的预算只有 4.0，不会与份单位互相转移。
+    assert abs(by_unit["克"] - 4.0) < 1e-9
+    assert abs(by_unit["份"] - 10.0) < 1e-9
+    assert abs(redistributed["pred_qty"].sum() - 14.0) < 1e-9
+    assert new_check["redistributed_to_total_demand"] is True
+    assert new_check["pred_total_conserved"] is True
+    assert abs(new_check["total_preparation_qty"] - 14.0) < 1e-9
+    assert new_check["preparation_qty_difference"] == 0.0
+    assert not any("总备餐量" in warning for warning in new_check["reference_warnings"])
+
+
+def test_redistribute_by_sale_unit_rejects_missing_unit_budget(
+    temp_repository, tmp_path: Path
+):
+    """某单位有原预测总量却未保留任何该单位菜品时拒绝分配。"""
+
+    proposal = _mixed_unit_proposal(
+        high_rows=[
+            _unit_row(
+                name="克高频菜", source="high_frequency", unit="克",
+                pred_qty=4.0, expected_orders_per_qty=0.8,
+                expected_rev_per_qty=5.0,
+            ),
+            _unit_row(
+                name="份高频菜", source="high_frequency", unit="份",
+                pred_qty=10.0, expected_orders_per_qty=0.8,
+                expected_rev_per_qty=5.0,
+            ),
+        ],
+        low_rows=[
+            _unit_row(
+                name="份潜力菜", source="low_frequency_opportunity", unit="份",
+                pred_qty=5.0, expected_orders_per_qty=0.5,
+                expected_rev_per_qty=6.0, suggested_trial_qty=5.0,
+            ),
+        ],
+        menu_capacity=2,
+        pred_total_qty=14.0,
+    )
+    service = RecommenderService(
+        temp_repository,
+        HistoryStore(temp_repository, tmp_path / "recommendations"),
+    )
+    # 只保留份单位菜品，克单位有 4.0 预算却没有菜品可用。
+    merged, check = service.merger.merge(
+        proposal, ["份高频菜"], ["份潜力菜"], False
+    )
+    with pytest.raises(ValueError, match="某售卖单位有原预测总量"):
+        service._redistribute_by_sale_unit(proposal, merged, check)
+
+
+def test_redistribute_by_sale_unit_rejects_unit_without_budget(
+    temp_repository, tmp_path: Path
+):
+    """新增售卖单位没有原预测总量时拒绝跨单位分配。"""
+
+    proposal = _mixed_unit_proposal(
+        high_rows=[
+            _unit_row(
+                name="份高频菜", source="high_frequency", unit="份",
+                pred_qty=10.0, expected_orders_per_qty=0.8,
+                expected_rev_per_qty=5.0,
+            ),
+        ],
+        low_rows=[
+            _unit_row(
+                name="克潜力菜", source="low_frequency_opportunity", unit="克",
+                pred_qty=2.0, expected_orders_per_qty=0.5,
+                expected_rev_per_qty=6.0, suggested_trial_qty=2.0,
+            ),
+        ],
+        menu_capacity=1,
+        pred_total_qty=10.0,
+    )
+    service = RecommenderService(
+        temp_repository,
+        HistoryStore(temp_repository, tmp_path / "recommendations"),
+    )
+    # 高频只有份单位，潜力菜引入了克单位——克没有原预算。
+    merged, check = service.merger.merge(
+        proposal, ["份高频菜"], ["克潜力菜"], False
+    )
+    with pytest.raises(ValueError, match="新增售卖单位没有原预测总量"):
+        service._redistribute_by_sale_unit(proposal, merged, check)
